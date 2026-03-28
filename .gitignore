@@ -1,5 +1,32 @@
 .env
+*.env
+*.env.*
+!.env.example
 __pycache__/
 *.pyc
 *.pyo
 *.skill
+.DS_Store
+.venv
+.pyvenv.cfg
+
+# Python tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node / Next.js
+**/node_modules/
+**/.next/
+**/out/
+**/dist/
+**/.turbo/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local outputs
+ai_digest_agent/output/
+ai_digest_agent/data/*.log
+ai_digest_agent/data/*.tmp

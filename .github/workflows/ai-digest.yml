@@ -1,85 +1,77 @@
-name: AI Digest (Email + Publish)
+name: AI Digest
 
 on:
+  schedule:
+    - cron: "0 * * * *"
   workflow_dispatch:
     inputs:
       slot:
-        description: "AM | PM | Evening"
+        description: "Digest slot"
         required: true
         type: choice
         options:
           - AM
           - PM
           - Evening
-  schedule:
-    - cron: "0 13 * * *"  # 08:00 America/Chicago
-    - cron: "0 19 * * *"  # 14:00 America/Chicago
-    - cron: "0 1 * * *"   # 20:00 America/Chicago
+      email:
+        description: "Send email"
+        required: false
+        type: boolean
+        default: true
 
 permissions:
   contents: write
 
 concurrency:
-  group: ai-digest-${{ github.ref }}
+  group: ai-digest
   cancel-in-progress: false
 
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set slot
-        id: slot
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "slot=${{ inputs.slot }}" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          case "${{ github.event.schedule }}" in
-            "0 13 * * *") echo "slot=AM" >> "$GITHUB_OUTPUT" ;;
-            "0 19 * * *") echo "slot=PM" >> "$GITHUB_OUTPUT" ;;
-            "0 1 * * *") echo "slot=Evening" >> "$GITHUB_OUTPUT" ;;
-            *) echo "Unknown schedule: ${{ github.event.schedule }}"; exit 1 ;;
-          esac
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
         with:
-          python-version: "3.12"
-          cache: "pip"
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt
+          pip install -r requirements.txt
 
       - name: Run digest
         env:
           OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+          TIMEZONE: ${{ secrets.TIMEZONE }}
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
-          TIMEZONE: America/Chicago
         run: |
-          cd ai_digest_agent
-          python scripts/run_scheduled.py --slot "${{ steps.slot.outputs.slot }}" --mode brief --email
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            SLOT="${{ inputs.slot }}"
+            if [ "${{ inputs.email }}" = "true" ]; then
+              python ai_digest_agent/scripts/run_scheduled.py --slot "$SLOT" --mode brief --email
+            else
+              python ai_digest_agent/scripts/run_scheduled.py --slot "$SLOT" --mode brief
+            fi
+          else
+            python ai_digest_agent/scripts/run_if_due.py --timezone "${TIMEZONE:-America/Chicago}" --mode brief --email
+          fi
 
       - name: Commit and push digests
-        env:
-          SLOT: ${{ steps.slot.outputs.slot }}
         run: |
-          git config user.name "ai-digest-bot"
-          git config user.email "ai-digest-bot@users.noreply.github.com"
-
-          if git status --porcelain | grep -q "^.. digests/"; then
+          if git status --porcelain | grep -q "^ M\|^??"; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
             git add digests/archive
-            git commit -m "digest: $SLOT"
+            git commit -m "chore(digest): update digests" || true
             git push
           else
-            echo "No digest changes to commit."
+            echo "No changes to commit."
           fi

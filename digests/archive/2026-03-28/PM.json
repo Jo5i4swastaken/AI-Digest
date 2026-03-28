@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-03-28T18:47:06Z",
+  "slot": "PM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "Test PM Item: Model release notes",
+      "url": "https://example.com/release-notes",
+      "source": "Example",
+      "published_at": "2026-03-28T18:47:06Z",
+      "why_it_matters": "Validates the dashboard can render a PM digest end-to-end.",
+      "brief": "Short summary for dashboard rendering.",
+      "details": "Longer detail text to confirm the detail page layout.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Test PM Item: Agent tool update",
+      "url": "https://example.com/agent-tools",
+      "source": "Example",
+      "published_at": "2026-03-28T18:47:06Z",
+      "why_it_matters": "Ensures multiple items render and sidebar links populate.",
+      "brief": "Second brief line.",
+      "details": "Second detailed paragraph.",
+      "is_update": false
+    }
+  ]
+}

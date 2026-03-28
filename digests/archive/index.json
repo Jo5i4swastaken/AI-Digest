@@ -1,4 +1,23 @@
 {
   "timezone": "America/Chicago",
-  "days": []
+  "days": [
+    {
+      "date": "2026-03-28",
+      "slots": [
+        {
+          "slot": "PM",
+          "label": "Afternoon",
+          "path": "2026-03-28/PM.json",
+          "generated_at": "2026-03-28T18:47:06Z",
+          "top": [
+            "Test PM Item: Model release notes",
+            "Test PM Item: Agent tool update"
+          ],
+          "counts": {
+            "total": 2
+          }
+        }
+      ]
+    }
+  ]
 }
