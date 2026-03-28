@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Digest Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root{
+        --bg0:#07090d;
+        --bg1:#0d1120;
+        --ink:#e9eefc;
+        --muted:#aab4d6;
+        --card:#0d1224cc;
+        --line:#1f2a4d;
+        --glow:#7b61ff;
+        --glow2:#00d1ff;
+        --accent:#f6d365;
+      }
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body{
+        margin:0;
+        color:var(--ink);
+        font-family:"IBM Plex Sans", ui-sans-serif, system-ui;
+        background:
+          radial-gradient(1000px 600px at 12% 18%, color-mix(in oklab, var(--glow) 35%, transparent) 0%, transparent 60%),
+          radial-gradient(900px 520px at 78% 22%, color-mix(in oklab, var(--glow2) 28%, transparent) 0%, transparent 62%),
+          radial-gradient(800px 500px at 40% 88%, color-mix(in oklab, var(--accent) 18%, transparent) 0%, transparent 62%),
+          linear-gradient(180deg, var(--bg0), var(--bg1));
+      }
+      .wrap{max-width:1100px;margin:0 auto;padding:32px 18px 60px;}
+      .top{display:flex;gap:18px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;}
+      .brand{
+        font-family:"Fraunces", serif;
+        font-size:34px;
+        letter-spacing:-0.02em;
+        line-height:1.05;
+      }
+      .tag{color:var(--muted);font-size:14px;max-width:640px;}
+      .pillRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
+      .pill{
+        border:1px solid var(--line);
+        background:linear-gradient(180deg, #0f1630cc, #0b1022cc);
+        padding:8px 12px;
+        border-radius:999px;
+        color:var(--muted);
+        font-size:13px;
+      }
+      .day{margin-top:26px;}
+      .dayHeader{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:12px;}
+      .dayTitle{font-family:"Fraunces", serif;font-size:22px;}
+      .daySub{color:var(--muted);font-size:13px;}
+      .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+      @media (max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+      @media (max-width:640px){.grid{grid-template-columns:1fr;}}
+      .slot{
+        text-decoration:none;
+        color:inherit;
+        border:1px solid var(--line);
+        border-radius:18px;
+        background:linear-gradient(180deg, #0e1430cc, #0a0f1fcc);
+        padding:14px 14px 12px;
+        position:relative;
+        overflow:hidden;
+        transition:transform .18s ease, border-color .18s ease;
+      }
+      .slot:before{
+        content:"";
+        position:absolute;
+        inset:-2px;
+        background:radial-gradient(600px 160px at 30% 0%, color-mix(in oklab, var(--glow) 26%, transparent), transparent 60%);
+        opacity:.55;
+        pointer-events:none;
+      }
+      .slot:hover{transform:translateY(-2px);border-color:color-mix(in oklab, var(--glow) 60%, var(--line));}
+      .slotHead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;position:relative;}
+      .slotTitle{font-weight:700;letter-spacing:.01em;}
+      .slotMeta{color:var(--muted);font-size:12px;}
+      .slotList{margin:10px 0 0;padding-left:18px;color:var(--ink);opacity:.92;font-size:13px;line-height:1.35;position:relative;}
+      .slotList li{margin:6px 0;}
+      .empty{
+        margin-top:28px;
+        border:1px dashed var(--line);
+        border-radius:18px;
+        padding:18px;
+        color:var(--muted);
+      }
+      .footer{margin-top:28px;color:var(--muted);font-size:12px;}
+      .footer a{color:var(--muted);}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <div class="brand">AI Digest Dashboard</div>
+          <div class="tag">Three snapshots a day. Click a card to open the digest HTML.</div>
+          <div class="pillRow">
+            <div class="pill">Morning · 8:00</div>
+            <div class="pill">Afternoon · 14:00</div>
+            <div class="pill">Evening · 20:00</div>
+          </div>
+        </div>
+      </div>
+      
+            <section class="day">
+              <div class="dayHeader">
+                <div class="dayTitle">2026-03-26</div>
+                <div class="daySub">Timezone: America/Chicago</div>
+              </div>
+              <div class="grid">
+                <a class="slot" href="archive/2026-03-26/AM.html">
+                  <div class="slotHead">
+                    <div class="slotTitle">AM</div>
+                    <div class="slotMeta">Open digest</div>
+                  </div>
+                  <ul class="slotList"><li>ChatGPT mobile gets a simplified sidebar (Release Notes)</li><li>Claude Code ships new releases (terminal coding agent)</li><li>Microsoft open-sources Agent Framework repo (orchestration framework)</li><li>NVIDIA reiterates ‘inference inflection point’ as market focus shifts</li></ul>
+                </a>
+                </div>
+            </section>
+            
+      <div class="footer">Generated locally · Archive: <code>output/archive</code></div>
+    </div>
+  </body>
+</html>

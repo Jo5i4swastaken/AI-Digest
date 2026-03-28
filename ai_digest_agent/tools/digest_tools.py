@@ -1,0 +1,609 @@
+from __future__ import annotations
+
+import json
+import os
+import smtplib
+import ssl
+from dataclasses import dataclass
+from datetime import datetime, timezone
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+from zoneinfo import ZoneInfo
+
+from omniagents import function_tool
+
+
+_AGENT_DIR = Path(__file__).resolve().parents[1]
+_DATA_DIR = _AGENT_DIR / "data"
+_OUTPUT_DIR = _AGENT_DIR / "output"
+_STATE_PATH = _DATA_DIR / "state.json"
+_ARCHIVE_DIR = _OUTPUT_DIR / "archive"
+_REPO_DIGESTS_DIR = _AGENT_DIR.parent / "digests" / "archive"
+
+
+def _utc_now_iso() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+
+def _parse_iso(dt: str) -> Optional[datetime]:
+    if not isinstance(dt, str) or not dt.strip():
+        return None
+    normalized = dt.strip().replace("Z", "+00:00")
+    try:
+        return datetime.fromisoformat(normalized)
+    except Exception:
+        return None
+
+
+def _date_key(digest: Dict[str, Any]) -> str:
+    tz_name = os.getenv("TIMEZONE", "America/Chicago")
+    try:
+        tz = ZoneInfo(tz_name)
+    except Exception:
+        tz = timezone.utc
+
+    dt = _parse_iso(str(digest.get("generated_at", "")))
+    if dt is None:
+        dt = datetime.now(timezone.utc)
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+
+    local = dt.astimezone(tz)
+    return local.date().isoformat()
+
+
+@dataclass
+class DigestState:
+    seen: Dict[str, str]
+
+
+def _read_state() -> DigestState:
+    if not _STATE_PATH.exists():
+        return DigestState(seen={})
+
+    try:
+        payload = json.loads(_STATE_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return DigestState(seen={})
+
+    seen = payload.get("seen", {})
+    if not isinstance(seen, dict):
+        seen = {}
+
+    normalized: Dict[str, str] = {}
+    for key, value in seen.items():
+        if isinstance(key, str) and isinstance(value, str):
+            normalized[key] = value
+
+    return DigestState(seen=normalized)
+
+
+def _write_state(state: DigestState) -> None:
+    _DATA_DIR.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "updated_at": _utc_now_iso(),
+        "seen": state.seen,
+    }
+    _STATE_PATH.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
+
+
+@function_tool
+def load_digest_state() -> str:
+    """Load dedupe state for previously sent items.
+
+    Returns JSON string: {"seen": {"url": "ISO"}}.
+    """
+
+    state = _read_state()
+    return json.dumps({"seen": state.seen}, ensure_ascii=False)
+
+
+@function_tool
+def save_digest_state(seen_json: str) -> str:
+    """Persist dedupe state.
+
+    Args:
+        seen_json: JSON string containing a map of url -> ISO timestamp.
+
+    Returns:
+        JSON status payload.
+    """
+
+    try:
+        seen = json.loads(seen_json)
+    except Exception as exc:
+        raise ValueError("seen_json must be valid JSON") from exc
+
+    if not isinstance(seen, dict):
+        raise ValueError("seen_json must decode to an object")
+
+    normalized: Dict[str, str] = {}
+    for key, value in seen.items():
+        if isinstance(key, str) and isinstance(value, str) and key.strip():
+            normalized[key.strip()] = value
+
+    _write_state(DigestState(seen=normalized))
+    return json.dumps(
+        {"ok": True, "count": len(normalized), "path": str(_STATE_PATH)},
+        ensure_ascii=False,
+    )
+
+
+def _env(name: str) -> str:
+    value = os.getenv(name)
+    if not value:
+        raise RuntimeError(f"Missing required env var: {name}")
+    return value
+
+
+@function_tool
+def send_gmail_email(
+    subject: str,
+    html_body: str,
+    to_email: Optional[str] = None,
+    from_email: Optional[str] = None,
+) -> str:
+    """Send an email via Gmail SMTP (TLS).
+
+    Required env vars:
+    - GMAIL_ADDRESS
+    - GMAIL_APP_PASSWORD
+
+    Optional env vars:
+    - EMAIL_TO (used if to_email not provided)
+
+    Args:
+        subject: Email subject line.
+        html_body: HTML body.
+        to_email: Recipient email; falls back to EMAIL_TO.
+        from_email: Sender email; defaults to GMAIL_ADDRESS.
+
+    Returns:
+        Status payload.
+    """
+
+    gmail_address = _env("GMAIL_ADDRESS")
+    app_password = _env("GMAIL_APP_PASSWORD")
+
+    resolved_to = (to_email or os.getenv("EMAIL_TO") or "").strip()
+    if not resolved_to:
+        raise RuntimeError("Missing recipient: provide to_email or set EMAIL_TO")
+
+    resolved_from = (from_email or gmail_address).strip()
+
+    msg = MIMEMultipart("alternative")
+    msg["Subject"] = subject
+    msg["From"] = resolved_from
+    msg["To"] = resolved_to
+
+    msg.attach(MIMEText(html_body, "html", "utf-8"))
+
+    context = ssl.create_default_context()
+    with smtplib.SMTP("smtp.gmail.com", 587, timeout=30) as server:
+        server.ehlo()
+        server.starttls(context=context)
+        server.login(gmail_address, app_password)
+        server.sendmail(resolved_from, [resolved_to], msg.as_string())
+
+    return json.dumps({"ok": True, "to": resolved_to, "from": resolved_from}, ensure_ascii=False)
+
+
+@function_tool
+def send_digest_email(
+    slot: str,
+    html_body: str,
+    to_email: Optional[str] = None,
+    from_email: Optional[str] = None,
+) -> str:
+    """Send a digest email with a fixed subject based on the slot.
+
+    Subjects:
+    - AM -> "Morning AI Digest"
+    - PM -> "Afternoon AI Digest"
+    - Evening -> "Evening AI Digest"
+    """
+
+    normalized = (slot or "").strip().lower()
+    subject_map = {
+        "am": "Morning AI Digest",
+        "pm": "Afternoon AI Digest",
+        "evening": "Evening AI Digest",
+    }
+    subject = subject_map.get(normalized)
+    if not subject:
+        raise ValueError("slot must be one of: AM, PM, Evening")
+
+    return send_gmail_email(
+        subject=subject,
+        html_body=html_body,
+        to_email=to_email,
+        from_email=from_email,
+    )
+
+
+def _escape_html(text: str) -> str:
+    return (
+        text.replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+    )
+
+
+def _render_email_html(digest: Dict[str, Any]) -> str:
+    slot = _escape_html(str(digest.get("slot", "")))
+    generated_at = _escape_html(str(digest.get("generated_at", "")))
+    items = digest.get("items", [])
+    if not isinstance(items, list):
+        items = []
+
+    brief_lines: List[str] = []
+    detail_blocks: List[str] = []
+
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+
+        title = _escape_html(str(item.get("title", "")))
+        url = _escape_html(str(item.get("url", "")))
+        source = _escape_html(str(item.get("source", "")))
+        why = _escape_html(str(item.get("why_it_matters", "")))
+        brief = _escape_html(str(item.get("brief", "")))
+        details = _escape_html(str(item.get("details", "")))
+        category = _escape_html(str(item.get("category", "")))
+
+        brief_lines.append(
+            f"<li><a href=\"{url}\">{title}</a> — {brief} <span style=\"color:#555\">({source})</span><br/><span style=\"color:#333\"><em>{why}</em></span></li>"
+        )
+
+        detail_blocks.append(
+            """
+            <div style="margin-top:14px;">
+              <div style="font-weight:600;">{title}</div>
+              <div style="color:#555; font-size:13px;">{category} · {source} · <a href="{url}">link</a></div>
+              <div style="margin-top:6px;">{details}</div>
+            </div>
+            """.format(title=title, category=category, source=source, url=url, details=details)
+        )
+
+    return """
+    <div style="font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; line-height:1.4;">
+      <div style="font-size:18px; font-weight:700;">AI Update — {slot}</div>
+      <div style="color:#555; font-size:12px;">Generated: {generated_at}</div>
+      <h3 style="margin-top:16px;">Brief</h3>
+      <ul>{brief}</ul>
+      <h3 style="margin-top:18px;">More detail</h3>
+      {details}
+    </div>
+    """.format(slot=slot, generated_at=generated_at, brief="".join(brief_lines), details="".join(detail_blocks))
+
+
+def _render_dashboard_html(index: List[Dict[str, Any]], *, tz_name: str) -> str:
+    font_css = """
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    """.strip()
+
+    cards: List[str] = []
+    for day in index:
+        day_key = _escape_html(str(day.get("date", "")))
+        slots = day.get("slots", [])
+        slot_cards: List[str] = []
+        for slot in slots:
+            slot_name = _escape_html(str(slot.get("slot", "")))
+            href = _escape_html(str(slot.get("href", "")))
+            top = slot.get("top", [])
+            top_html = "".join(
+                f"<li>{_escape_html(str(t))}</li>" for t in top[:4] if isinstance(t, str) and t.strip()
+            )
+            slot_cards.append(
+                f"""
+                <a class=\"slot\" href=\"{href}\">
+                  <div class=\"slotHead\">
+                    <div class=\"slotTitle\">{slot_name}</div>
+                    <div class=\"slotMeta\">Open digest</div>
+                  </div>
+                  <ul class=\"slotList\">{top_html}</ul>
+                </a>
+                """
+            )
+
+        cards.append(
+            f"""
+            <section class=\"day\">
+              <div class=\"dayHeader\">
+                <div class=\"dayTitle\">{day_key}</div>
+                <div class=\"daySub\">Timezone: {tz_name}</div>
+              </div>
+              <div class=\"grid\">{''.join(slot_cards)}</div>
+            </section>
+            """
+        )
+
+    body = "".join(cards) if cards else "<div class=\"empty\">No digests yet.</div>"
+
+    return f"""<!doctype html>
+<html lang=\"en\">
+  <head>
+    <meta charset=\"utf-8\" />
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
+    <title>AI Digest Dashboard</title>
+    {font_css}
+    <style>
+      :root{{
+        --bg0:#07090d;
+        --bg1:#0d1120;
+        --ink:#e9eefc;
+        --muted:#aab4d6;
+        --card:#0d1224cc;
+        --line:#1f2a4d;
+        --glow:#7b61ff;
+        --glow2:#00d1ff;
+        --accent:#f6d365;
+      }}
+      *{{box-sizing:border-box}}
+      html,body{{height:100%}}
+      body{{
+        margin:0;
+        color:var(--ink);
+        font-family:"IBM Plex Sans", ui-sans-serif, system-ui;
+        background:
+          radial-gradient(1000px 600px at 12% 18%, color-mix(in oklab, var(--glow) 35%, transparent) 0%, transparent 60%),
+          radial-gradient(900px 520px at 78% 22%, color-mix(in oklab, var(--glow2) 28%, transparent) 0%, transparent 62%),
+          radial-gradient(800px 500px at 40% 88%, color-mix(in oklab, var(--accent) 18%, transparent) 0%, transparent 62%),
+          linear-gradient(180deg, var(--bg0), var(--bg1));
+      }}
+      .wrap{{max-width:1100px;margin:0 auto;padding:32px 18px 60px;}}
+      .top{{display:flex;gap:18px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;}}
+      .brand{{
+        font-family:"Fraunces", serif;
+        font-size:34px;
+        letter-spacing:-0.02em;
+        line-height:1.05;
+      }}
+      .tag{{color:var(--muted);font-size:14px;max-width:640px;}}
+      .pillRow{{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}}
+      .pill{{
+        border:1px solid var(--line);
+        background:linear-gradient(180deg, #0f1630cc, #0b1022cc);
+        padding:8px 12px;
+        border-radius:999px;
+        color:var(--muted);
+        font-size:13px;
+      }}
+      .day{{margin-top:26px;}}
+      .dayHeader{{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:12px;}}
+      .dayTitle{{font-family:"Fraunces", serif;font-size:22px;}}
+      .daySub{{color:var(--muted);font-size:13px;}}
+      .grid{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}}
+      @media (max-width:980px){{.grid{{grid-template-columns:repeat(2,minmax(0,1fr));}}}}
+      @media (max-width:640px){{.grid{{grid-template-columns:1fr;}}}}
+      .slot{{
+        text-decoration:none;
+        color:inherit;
+        border:1px solid var(--line);
+        border-radius:18px;
+        background:linear-gradient(180deg, #0e1430cc, #0a0f1fcc);
+        padding:14px 14px 12px;
+        position:relative;
+        overflow:hidden;
+        transition:transform .18s ease, border-color .18s ease;
+      }}
+      .slot:before{{
+        content:"";
+        position:absolute;
+        inset:-2px;
+        background:radial-gradient(600px 160px at 30% 0%, color-mix(in oklab, var(--glow) 26%, transparent), transparent 60%);
+        opacity:.55;
+        pointer-events:none;
+      }}
+      .slot:hover{{transform:translateY(-2px);border-color:color-mix(in oklab, var(--glow) 60%, var(--line));}}
+      .slotHead{{display:flex;justify-content:space-between;align-items:baseline;gap:10px;position:relative;}}
+      .slotTitle{{font-weight:700;letter-spacing:.01em;}}
+      .slotMeta{{color:var(--muted);font-size:12px;}}
+      .slotList{{margin:10px 0 0;padding-left:18px;color:var(--ink);opacity:.92;font-size:13px;line-height:1.35;position:relative;}}
+      .slotList li{{margin:6px 0;}}
+      .empty{{
+        margin-top:28px;
+        border:1px dashed var(--line);
+        border-radius:18px;
+        padding:18px;
+        color:var(--muted);
+      }}
+      .footer{{margin-top:28px;color:var(--muted);font-size:12px;}}
+      .footer a{{color:var(--muted);}}
+    </style>
+  </head>
+  <body>
+    <div class=\"wrap\">
+      <div class=\"top\">
+        <div>
+          <div class=\"brand\">AI Digest Dashboard</div>
+          <div class=\"tag\">Three snapshots a day. Click a card to open the digest HTML.</div>
+          <div class=\"pillRow\">
+            <div class=\"pill\">Morning · 8:00</div>
+            <div class=\"pill\">Afternoon · 14:00</div>
+            <div class=\"pill\">Evening · 20:00</div>
+          </div>
+        </div>
+      </div>
+      {body}
+      <div class=\"footer\">Generated locally · Archive: <code>output/archive</code></div>
+    </div>
+  </body>
+</html>"""
+
+
+@function_tool
+def write_dashboard_files(digest_json: str) -> str:
+    """Write dashboard files: output/latest.json and output/latest.html.
+
+    Also writes repo-backed digest JSON under `digests/archive/YYYY-MM-DD/<slot>.json`
+    and updates `digests/archive/index.json`.
+
+    Args:
+        digest_json: Digest JSON string.
+
+    Returns:
+        JSON status payload with written paths.
+    """
+
+    try:
+        digest_obj = json.loads(digest_json)
+    except Exception as exc:
+        raise ValueError("digest_json must be valid JSON") from exc
+
+    _OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    _REPO_DIGESTS_DIR.mkdir(parents=True, exist_ok=True)
+
+    json_path = _OUTPUT_DIR / "latest.json"
+    html_path = _OUTPUT_DIR / "latest.html"
+    index_path = _OUTPUT_DIR / "index.html"
+
+    repo_index_path = _REPO_DIGESTS_DIR / "index.json"
+
+    json_path.write_text(json.dumps(digest_obj, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    html = _render_email_html(digest_obj)
+    html_path.write_text(html, encoding="utf-8")
+
+    day_key = _date_key(digest_obj)
+    slot = str(digest_obj.get("slot", "")).strip() or "Unknown"
+    safe_slot = "".join(ch for ch in slot if ch.isalnum() or ch in {"_", "-"})
+    if not safe_slot:
+        safe_slot = "Unknown"
+
+    archive_day_dir = _ARCHIVE_DIR / day_key
+    archive_day_dir.mkdir(parents=True, exist_ok=True)
+
+    archive_json = archive_day_dir / f"{safe_slot}.json"
+    archive_html = archive_day_dir / f"{safe_slot}.html"
+    archive_json.write_text(json.dumps(digest_obj, indent=2, ensure_ascii=False), encoding="utf-8")
+    archive_html.write_text(html, encoding="utf-8")
+
+    repo_day_dir = _REPO_DIGESTS_DIR / day_key
+    repo_day_dir.mkdir(parents=True, exist_ok=True)
+    repo_slot_json = repo_day_dir / f"{safe_slot}.json"
+    repo_slot_json.write_text(json.dumps(digest_obj, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    tz_name = os.getenv("TIMEZONE", "America/Chicago")
+    day_dirs = sorted([p for p in _ARCHIVE_DIR.glob("*") if p.is_dir()], reverse=True)
+    dashboard_index: List[Dict[str, Any]] = []
+    for day_dir in day_dirs[:30]:
+        day = day_dir.name
+        slots: List[Dict[str, Any]] = []
+        for slot_file in sorted(day_dir.glob("*.json")):
+            try:
+                payload = json.loads(slot_file.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+
+            items = payload.get("items", [])
+            titles: List[str] = []
+            if isinstance(items, list):
+                for item in items:
+                    if isinstance(item, dict):
+                        title = item.get("title")
+                        if isinstance(title, str) and title.strip():
+                            titles.append(title.strip())
+
+            slot_name = payload.get("slot") or slot_file.stem
+            href = f"archive/{day}/{slot_file.stem}.html"
+            slots.append({"slot": slot_name, "href": href, "top": titles})
+
+        if slots:
+            dashboard_index.append({"date": day, "slots": slots})
+
+    index_path.write_text(_render_dashboard_html(dashboard_index, tz_name=tz_name), encoding="utf-8")
+
+    def load_repo_index() -> Dict[str, Any]:
+        if not repo_index_path.exists():
+            return {"timezone": tz_name, "days": []}
+        try:
+            existing = json.loads(repo_index_path.read_text(encoding="utf-8"))
+        except Exception:
+            return {"timezone": tz_name, "days": []}
+        if not isinstance(existing, dict):
+            return {"timezone": tz_name, "days": []}
+        if "days" not in existing or not isinstance(existing.get("days"), list):
+            existing["days"] = []
+        existing["timezone"] = tz_name
+        return existing
+
+    repo_index = load_repo_index()
+    days: List[Dict[str, Any]] = repo_index.get("days", [])
+
+    def slot_label(raw: str) -> str:
+        v = (raw or "").strip().lower()
+        if v == "am":
+            return "Morning"
+        if v == "pm":
+            return "Afternoon"
+        if v == "evening":
+            return "Evening"
+        return raw or "Unknown"
+
+    def top_titles(payload: Dict[str, Any]) -> List[str]:
+        items = payload.get("items", [])
+        if not isinstance(items, list):
+            return []
+        titles: List[str] = []
+        for item in items:
+            if isinstance(item, dict):
+                t = item.get("title")
+                if isinstance(t, str) and t.strip():
+                    titles.append(t.strip())
+        return titles[:6]
+
+    entry = {
+        "slot": slot,
+        "label": slot_label(slot),
+        "path": f"{day_key}/{safe_slot}.json",
+        "generated_at": digest_obj.get("generated_at"),
+        "top": top_titles(digest_obj),
+        "counts": {
+            "total": len(digest_obj.get("items", []) or []),
+        },
+    }
+
+    day_record = next((d for d in days if isinstance(d, dict) and d.get("date") == day_key), None)
+    if day_record is None:
+        day_record = {"date": day_key, "slots": []}
+        days.append(day_record)
+    slots_list = day_record.get("slots")
+    if not isinstance(slots_list, list):
+        slots_list = []
+        day_record["slots"] = slots_list
+
+    replaced = False
+    for i, existing in enumerate(slots_list):
+        if isinstance(existing, dict) and str(existing.get("slot", "")).strip() == slot:
+            slots_list[i] = entry
+            replaced = True
+            break
+    if not replaced:
+        slots_list.append(entry)
+
+    days.sort(key=lambda d: str(d.get("date", "")), reverse=True)
+    for d in days:
+        if isinstance(d, dict) and isinstance(d.get("slots"), list):
+            d["slots"].sort(key=lambda s: {"AM": 0, "PM": 1, "Evening": 2}.get(str(s.get("slot")), 99))
+
+    repo_index_path.write_text(json.dumps(repo_index, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    return json.dumps(
+        {
+            "ok": True,
+            "json_path": str(json_path),
+            "html_path": str(html_path),
+            "index_path": str(index_path),
+            "archive_json": str(archive_json),
+            "archive_html": str(archive_html),
+            "repo_slot_json": str(repo_slot_json),
+            "repo_index_json": str(repo_index_path),
+        },
+        ensure_ascii=False,
+    )

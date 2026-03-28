@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-03-27T00:00:00Z",
+  "slot": "AM",
+  "timezone": "America/Los_Angeles",
+  "items": [
+    {
+      "category": "product",
+      "title": "ChatGPT mobile gets a simplified sidebar (Release Notes)",
+      "url": "https://help.openai.com/es-es/articles/6825453-chatgpt-release-notes",
+      "source": "OpenAI Help Center",
+      "published_at": "2026-03-26T00:00:00Z",
+      "why_it_matters": "UI changes that reduce friction tend to increase daily usage and make Projects/Chats easier to manage on mobile.",
+      "brief": "OpenAI shipped a simplified sidebar on mobile in ChatGPT.",
+      "details": "OpenAI updated ChatGPT’s mobile UI with a simplified sidebar to free up screen space for chats and projects. This is a small but meaningful usability improvement for heavy mobile users. If your workflows rely on quickly switching between projects/chats, expect fewer taps and more room for content. Watch for follow-on UI changes that may affect navigation patterns and team onboarding docs.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Claude Code ships new releases (terminal coding agent)",
+      "url": "https://github.com/anthropics/claude-code/releases",
+      "source": "GitHub (anthropics/claude-code)",
+      "published_at": null,
+      "why_it_matters": "Claude Code is one of the most-used agentic coding CLIs; frequent releases can change permissions, tool behavior, and reliability.",
+      "brief": "Anthropic continues shipping updates to Claude Code via GitHub releases.",
+      "details": "Anthropic’s Claude Code repository shows ongoing releases, indicating active iteration on the terminal-based coding agent. These updates often include fixes and behavior changes that impact how the agent executes commands, edits files, and interacts with your repo. If you run Claude Code in CI or standardized dev environments, pin versions and review release notes before rolling forward. Teams should also re-validate guardrails (allowed commands, sandboxing) after upgrades.",
+      "is_update": false
+    },
+    {
+      "category": "open_source",
+      "title": "Microsoft open-sources Agent Framework repo (orchestration framework)",
+      "url": "https://github.com/microsoft/agent-framework",
+      "source": "GitHub (microsoft/agent-framework)",
+      "published_at": null,
+      "why_it_matters": "A first-party Microsoft agent framework can become a default building block for enterprise agent orchestration across languages.",
+      "brief": "Microsoft’s Agent Framework repo is live on GitHub for building/orchestrating AI agents.",
+      "details": "Microsoft has a public “Agent Framework” repository positioned as a multi-language framework for building, orchestrating, and deploying AI agents. This is notable because Microsoft-backed frameworks often integrate well with Azure and enterprise deployment patterns. If you’re evaluating orchestration stacks, this is worth benchmarking against LangGraph/LangChain-style approaches and your existing toolchain. Expect ecosystem growth via samples, connectors, and opinionated deployment guidance.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "NVIDIA reiterates ‘inference inflection point’ as market focus shifts",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-says-inflection-point-inference-070500373.html",
+      "source": "Yahoo Finance (reporting on NVIDIA commentary)",
+      "published_at": null,
+      "why_it_matters": "Inference economics (latency/$/W) increasingly drive model deployment decisions and hardware roadmaps.",
+      "brief": "NVIDIA is emphasizing inference as the next major growth driver.",
+      "details": "Recent reporting highlights NVIDIA leadership framing the current moment as an “inflection point” for inference demand. The key takeaway is strategic: the industry is shifting from training-only capex to sustained inference workloads at scale. For builders, this usually translates into more focus on batching, quantization, KV-cache efficiency, and deployment tooling. For buyers, it signals continued competition around inference-optimized systems and pricing.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "Practical: build agentic workflows with Claude Code (hands-on video)",
+      "url": "https://www.youtube.com/watch?v=tDGiWn0flK8",
+      "source": "YouTube (Nate Herk)",
+      "published_at": null,
+      "why_it_matters": "A concrete walkthrough helps teams adopt agentic coding safely (permissions, task decomposition, repo context).",
+      "brief": "Nate Herk’s walkthrough shows how to go from zero to an agentic workflow using Claude Code.",
+      "details": "This video demonstrates a start-to-finish setup of an agentic workflow using Claude Code, focusing on getting productive quickly. It’s useful as a template for onboarding teammates and standardizing prompts/tasks. Even if you use a different coding agent, the workflow patterns (scoping tasks, verifying changes, iterating) transfer well. Consider extracting a team “agent runbook” from the steps shown.",
+      "is_update": false
+    },
+    {
+      "category": "funding",
+      "title": "Report: Anthropic testing ‘Mythos’ model after leak (unconfirmed product timing)",
+      "url": "https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/",
+      "source": "Fortune",
+      "published_at": "2026-03-26T00:00:00Z",
+      "why_it_matters": "If accurate, a new frontier model could shift enterprise adoption and tooling priorities—but details remain limited.",
+      "brief": "Fortune reports Anthropic is testing a new model dubbed ‘Mythos’ after a leak revealed its existence.",
+      "details": "Fortune reports that Anthropic acknowledged testing a model called “Mythos,” described as a “step change” in capabilities, after an accidental leak surfaced references to it. There’s no confirmed public release timeline in the report. Treat this as directional signal rather than actionable roadmap until Anthropic publishes primary documentation. If you’re planning model migrations, keep an eye on official Anthropic channels for concrete specs and availability.",
+      "is_update": false
+    }
+  ]
+}
