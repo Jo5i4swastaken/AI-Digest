@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-03-29T00:00:00-05:00",
+  "slot": "AM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "Google launches Gemini 3.1 Flash Live + Live API for real-time voice/vision agents",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-3-1-flash-live/",
+      "source": "Google Blog",
+      "published_at": null,
+      "why_it_matters": "Real-time multimodal agents get easier to build with an official low-latency model + API surface.",
+      "brief": "Gemini 3.1 Flash Live is now available via the Live API in Google AI Studio for realtime voice/vision agents.",
+      "details": "Google announced Gemini 3.1 Flash Live and the Live API in Google AI Studio, aimed at building real-time conversational agents that can handle voice and vision. The focus is low-latency, natural dialogue suitable for interactive experiences. This is a concrete step toward production-grade realtime agent apps without stitching together multiple services. If you build assistants, this is a new default option to evaluate for latency and streaming UX.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Google details Gemini 3.1 Flash Live as its highest-quality audio model",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-live/",
+      "source": "Google Blog",
+      "published_at": null,
+      "why_it_matters": "Signals Google is pushing hard on streaming audio quality/reliability—key for call-center and voice-agent workloads.",
+      "brief": "Google positions Gemini 3.1 Flash Live as its top audio model for reliable real-time dialogue; available through Gemini APIs.",
+      "details": "In a companion post, Google describes Gemini 3.1 Flash Live as its highest-quality audio model, optimized for natural, reliable real-time dialogue. The post emphasizes developer access via Gemini APIs and the model’s suitability for interactive voice experiences. For teams building voice agents, this clarifies where Google wants you to standardize: one model for streaming conversation rather than separate ASR + LLM + TTS pipelines. Expect rapid iteration here as realtime becomes table stakes.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Search Live expands globally, powered by Gemini 3.1 Flash Live",
+      "url": "https://blog.google/products-and-platforms/products/search/search-live-global-expansion/",
+      "source": "Google Blog",
+      "published_at": null,
+      "why_it_matters": "Mainstream distribution: real-time conversational search in 200+ regions pressures competitors on voice+camera UX.",
+      "brief": "Google is expanding Search Live to 200+ regions with multilingual voice conversations and camera-based Q&A.",
+      "details": "Google says Search Live is expanding globally, enabling users to ask questions aloud and use the camera for real-time help in the Google app. Gemini 3.1 Flash Live powers multilingual conversations across 200+ regions. This matters because it operationalizes realtime multimodal interaction at consumer scale, which tends to drive developer expectations and platform APIs. If you ship consumer assistants, watch for users to normalize “talk + show” as the default interface.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "ChatGPT release notes: legacy deep research mode removal scheduled (Mar 26, 2026)",
+      "url": "https://help.openai.com/fr-ca/articles/6825453-chatgpt-release-notes",
+      "source": "OpenAI Help Center",
+      "published_at": null,
+      "why_it_matters": "Deprecations can break workflows—teams relying on legacy research mode should validate the current experience now.",
+      "brief": "OpenAI notes the legacy deep research mode is being removed; current deep research remains.",
+      "details": "OpenAI’s ChatGPT release notes state that the legacy deep research mode would be removed on March 26, 2026, while the current deep research experience remains. This is a reminder to audit internal playbooks, saved prompts, and training materials that reference the legacy mode. If your org standardized on a specific “research” workflow, re-test output quality and citations in the current experience. Deprecations like this often precede broader UX consolidation.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "NVIDIA: maximizing performance-per-watt for inference ‘token factories’",
+      "url": "https://developer.nvidia.com/blog/scaling-token-factory-revenue-and-ai-efficiency-by-maximizing-performance-per-watt/",
+      "source": "NVIDIA Developer Blog",
+      "published_at": null,
+      "why_it_matters": "Inference economics are shifting to perf/W; this influences hardware choices, batching, and serving stack design.",
+      "brief": "NVIDIA frames inference as a ‘token factory’ business and argues perf-per-watt is the key lever for margins.",
+      "details": "NVIDIA published guidance on scaling inference efficiency, framing production inference as a ‘token factory’ where revenue and cost track tokens served. The post emphasizes maximizing performance per watt as the primary lever for better unit economics. For practitioners, this reinforces that serving architecture (batching, KV cache strategy, quantization, routing) is now as strategic as model choice. It also signals where NVIDIA will keep optimizing its platform story: end-to-end inference throughput and energy efficiency.",
+      "is_update": false
+    },
+    {
+      "category": "funding",
+      "title": "Shield AI reportedly raises at $12.7B valuation",
+      "url": "https://www.reuters.com/business/aerospace-defense/defense-technology-startup-shield-ai-valued-127-billion-latest-funding-round-2026-03-26/",
+      "source": "Reuters",
+      "published_at": "2026-03-26T00:00:00Z",
+      "why_it_matters": "Big defense-tech rounds indicate sustained demand for autonomy/AI systems and can pull talent and compute into the sector.",
+      "brief": "Reuters reports Shield AI is raising a new round valuing it at $12.7B.",
+      "details": "Reuters reports defense technology company Shield AI is raising a new funding round at a $12.7B valuation. While not a foundation-model launch, it’s a signal that capital continues flowing into applied autonomy and AI systems with real-world deployment constraints. This can accelerate procurement, partnerships, and downstream tooling for robust perception, planning, and edge inference. If you track AI commercialization, defense remains a major demand driver for reliable, compute-efficient models.",
+      "is_update": false
+    }
+  ]
+}

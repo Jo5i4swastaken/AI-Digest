@@ -1,9 +1,26 @@
 {
-  "timezone": "",
+  "timezone": "America/Chicago",
   "days": [
     {
       "date": "2026-03-29",
       "slots": [
+        {
+          "slot": "AM",
+          "label": "Morning",
+          "path": "2026-03-29/AM.json",
+          "generated_at": "2026-03-29T00:00:00-05:00",
+          "top": [
+            "Google launches Gemini 3.1 Flash Live + Live API for real-time voice/vision agents",
+            "Google details Gemini 3.1 Flash Live as its highest-quality audio model",
+            "Search Live expands globally, powered by Gemini 3.1 Flash Live",
+            "ChatGPT release notes: legacy deep research mode removal scheduled (Mar 26, 2026)",
+            "NVIDIA: maximizing performance-per-watt for inference ‘token factories’",
+            "Shield AI reportedly raises at $12.7B valuation"
+          ],
+          "counts": {
+            "total": 6
+          }
+        },
         {
           "slot": "Evening",
           "label": "Evening",
