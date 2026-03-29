@@ -2,7 +2,7 @@ name: AI Digest
 
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
     inputs:
       slot:
@@ -53,6 +53,22 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
         run: |
+          missing=0
+          for k in OPENAI_BASE_URL OPENAI_API_KEY SERPAPI_API_KEY; do
+            if [ -z "${!k}" ]; then
+              echo "Missing required GitHub secret/env: $k"
+              missing=1
+            fi
+          done
+          if [ "$missing" = "1" ]; then
+            echo "Set these in GitHub -> Settings -> Secrets and variables -> Actions"
+            exit 1
+          fi
+
+          if [ -z "${TIMEZONE}" ]; then
+            TIMEZONE="America/Chicago"
+          fi
+
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             SLOT="${{ inputs.slot }}"
             if [ "${{ inputs.email }}" = "true" ]; then
@@ -63,6 +79,13 @@ jobs:
           else
             python ai_digest_agent/scripts/run_if_due.py --timezone "${TIMEZONE:-America/Chicago}" --mode brief --email
           fi
+
+      - name: Upload agent logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-digest-output
+          path: ai_digest_agent/output/
 
       - name: Commit and push digests
         run: |
