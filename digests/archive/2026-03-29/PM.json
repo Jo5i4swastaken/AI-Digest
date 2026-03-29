@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-03-29T00:00:00-05:00",
+  "slot": "PM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "Google launches Gemini 3.1 Flash Live + Live API for real-time voice/vision agents",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-live/",
+      "source": "Google Blog",
+      "published_at": "2026-03-26T00:00:00Z",
+      "why_it_matters": "Real-time, low-latency multimodal models + an API unlock production-grade voice/vision agents.",
+      "brief": "Gemini 3.1 Flash Live ships with a Live API for realtime conversational agents (audio + vision).",
+      "details": "Google introduced Gemini 3.1 Flash Live, positioned as a more natural and reliable audio model for real-time interactions. Alongside it, Google is making the capability available via a Live API in Google AI Studio for developers building voice/vision agents. This is a notable step toward “always-on” assistants that can listen, see, and respond with low latency. If you’re building call-center, tutoring, or device assistants, this is the kind of model/API combo that reduces glue code and latency workarounds.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Google TV gets new Gemini features (richer answers, deep dives, sports briefs)",
+      "url": "https://blog.google/products-and-platforms/platforms/google-tv/new-gemini-features-march-2026/",
+      "source": "Google Blog",
+      "published_at": "2026-03-00T00:00:00Z",
+      "why_it_matters": "Gemini is moving from “chat” into ambient, living-room UX—useful signal for where consumer AI is headed.",
+      "brief": "Google TV adds Gemini-powered visual answers, topic deep-dives, and sports briefs.",
+      "details": "Google announced new Gemini features coming to Google TV, including richer visual answers and “deep dive” explorations. The update also adds sports briefs, suggesting a push toward quick, context-aware summaries on the big screen. This matters because it’s another example of Gemini being embedded into everyday surfaces rather than living as a standalone app. For teams building consumer AI, it’s a reminder that UI/UX integration is becoming the differentiator.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Anthropic: Claude Code ‘auto mode’ (safer skipping of permission prompts)",
+      "url": "https://www.anthropic.com/engineering/claude-code-auto-mode",
+      "source": "Anthropic Engineering",
+      "published_at": "2026-03-25T00:00:00Z",
+      "why_it_matters": "Permissioning is the bottleneck for coding agents; better auto-approval improves speed without fully dropping guardrails.",
+      "brief": "Claude Code adds an “auto mode” that uses classifiers to decide when it’s safe to skip permission prompts.",
+      "details": "Anthropic detailed a new Claude Code auto mode designed to reduce friction from frequent permission prompts. The approach uses classifiers to decide when actions are safe enough to proceed without explicit approval, aiming to preserve safety while improving flow. This is a practical pattern for agent builders: combine policy + lightweight risk models to keep humans in the loop only when needed. Expect more “adaptive autonomy” features like this across coding agents.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "OpenAI: ChatGPT release notes highlight legacy deep research mode removal (Mar 26, 2026)",
+      "url": "https://help.openai.com/es-es/articles/6825453-chatgpt-release-notes",
+      "source": "OpenAI Help Center",
+      "published_at": null,
+      "why_it_matters": "Deprecations signal where product investment is going; teams relying on legacy modes need to migrate.",
+      "brief": "ChatGPT removes the legacy deep research mode (Mar 26, 2026); check release notes for migration impact.",
+      "details": "OpenAI’s ChatGPT release notes indicate the legacy deep research mode was removed on March 26, 2026. While the current deep research experience remains, this kind of change can break workflows, internal docs, or training materials that reference the old mode. If your org standardized on “deep research” behaviors, validate outputs and update playbooks. Treat release notes as operational risk inputs, not just feature marketing.",
+      "is_update": true
+    },
+    {
+      "category": "open_source",
+      "title": "OpenFang v0.3.30: ‘Security Hardening’ release (agent operating system)",
+      "url": "https://github.com/RightNow-AI/openfang",
+      "source": "GitHub (RightNow-AI/openfang)",
+      "published_at": null,
+      "why_it_matters": "Agent runtimes are maturing; security hardening releases are a strong signal for production readiness.",
+      "brief": "OpenFang ships a March 2026 security-hardening release (v0.3.30).",
+      "details": "The OpenFang project (an open-source “agent operating system”) notes a v0.3.30 security hardening release in March 2026. While still pre-1.0, the emphasis on hardening suggests the maintainers are prioritizing safer defaults and more robust deployments. If you’re evaluating agent runtimes, track projects that invest in security posture early. Review the repo’s release notes/changes before adopting, especially around permissions, sandboxing, and secret handling.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "Nate Herk: ‘Stop Learning n8n in 2026… Learn THIS Instead’ (automation stack guidance)",
+      "url": "https://www.youtube.com/watch?v=ZeJXI2MAhj0",
+      "source": "YouTube (Nate Herk | AI Automation)",
+      "published_at": null,
+      "why_it_matters": "Practical automation stack choices matter; creator walkthroughs often surface real-world agent/automation patterns.",
+      "brief": "Nate Herk shares an updated 2026 automation stack perspective (what to learn instead of n8n).",
+      "details": "Nate Herk published a recent video arguing for an alternative learning path to n8n for 2026 automation. Even if you disagree with the premise, these creator breakdowns can be useful for seeing what tooling is resonating with practitioners right now. Use it as a prompt to reassess your own automation stack: orchestration, connectors, error handling, and human-in-the-loop checkpoints. If you’re building AI automations for clients, the “stack narrative” can influence adoption as much as raw capability.",
+      "is_update": false
+    }
+  ]
+}

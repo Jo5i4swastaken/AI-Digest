@@ -22,6 +22,23 @@
           }
         },
         {
+          "slot": "PM",
+          "label": "Afternoon",
+          "path": "2026-03-29/PM.json",
+          "generated_at": "2026-03-29T00:00:00-05:00",
+          "top": [
+            "Google launches Gemini 3.1 Flash Live + Live API for real-time voice/vision agents",
+            "Google TV gets new Gemini features (richer answers, deep dives, sports briefs)",
+            "Anthropic: Claude Code ‘auto mode’ (safer skipping of permission prompts)",
+            "OpenAI: ChatGPT release notes highlight legacy deep research mode removal (Mar 26, 2026)",
+            "OpenFang v0.3.30: ‘Security Hardening’ release (agent operating system)",
+            "Nate Herk: ‘Stop Learning n8n in 2026… Learn THIS Instead’ (automation stack guidance)"
+          ],
+          "counts": {
+            "total": 6
+          }
+        },
+        {
           "slot": "Evening",
           "label": "Evening",
           "path": "2026-03-29/Evening.json",
