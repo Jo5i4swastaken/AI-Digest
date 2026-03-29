@@ -20,13 +20,6 @@ export function DashboardClient({ index }: { index: DigestIndex }) {
     () => new Set<DigestCategory>(),
   );
   const [loading, setLoading] = useState(false);
-  const [runKey, setRunKey] = useState<string>("");
-  const [runStatus, setRunStatus] = useState<string>("");
-
-  useEffect(() => {
-    const saved = sessionStorage.getItem("run_digest_key") ?? "";
-    if (saved) setRunKey(saved);
-  }, []);
 
   const availableSlots = useMemo(() => {
     const d = days.find((x) => x.date === selectedDate);
@@ -80,38 +73,6 @@ export function DashboardClient({ index }: { index: DigestIndex }) {
 
   const hasFilters = selectedCats.size > 0 || query.trim().length > 0;
 
-  async function triggerRun(nextSlot: Slot) {
-    setRunStatus(`Triggering ${nextSlot}…`);
-    try {
-      const res = await fetch("/api/run-digest", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          ...(runKey ? { "x-run-key": runKey } : {}),
-        },
-        body: JSON.stringify({ slot: nextSlot, email: false }),
-      });
-
-      if (!res.ok) {
-        const txt = await res.text();
-        setRunStatus(`Failed (${res.status}): ${txt.slice(0, 140)}`);
-        return;
-      }
-
-      setRunStatus(`Queued ${nextSlot}. Check Actions for progress.`);
-    } catch (e) {
-      setRunStatus(`Failed: ${String(e)}`);
-    }
-  }
-
-  function setAndSaveRunKey() {
-    const next = window.prompt("Run key", runKey) ?? "";
-    const trimmed = next.trim();
-    setRunKey(trimmed);
-    if (trimmed) sessionStorage.setItem("run_digest_key", trimmed);
-    else sessionStorage.removeItem("run_digest_key");
-  }
-
   return (
     <div className="mx-auto max-w-6xl px-4 pb-14 pt-10">
       <div className="flex flex-col gap-6">
@@ -130,41 +91,7 @@ export function DashboardClient({ index }: { index: DigestIndex }) {
               <div className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700">
                 {index.timezone}
               </div>
-              <button
-                type="button"
-                onClick={setAndSaveRunKey}
-                className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50"
-              >
-                Test runs
-              </button>
             </div>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="flex flex-wrap items-center gap-2">
-              <button
-                type="button"
-                onClick={() => void triggerRun("AM")}
-                className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
-              >
-                Run AM
-              </button>
-              <button
-                type="button"
-                onClick={() => void triggerRun("PM")}
-                className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
-              >
-                Run PM
-              </button>
-              <button
-                type="button"
-                onClick={() => void triggerRun("Evening")}
-                className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
-              >
-                Run Evening
-              </button>
-            </div>
-            {runStatus ? <div className="text-sm text-slate-600">{runStatus}</div> : null}
           </div>
 
           <div className="flex flex-wrap items-center justify-between gap-3">

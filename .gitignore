@@ -30,3 +30,21 @@ pnpm-debug.log*
 ai_digest_agent/output/
 ai_digest_agent/data/*.log
 ai_digest_agent/data/*.tmp
+
+# Markdown files
+
+md-files/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build / Output / Coverage
+build/
+dist/
+coverage/
+htmlcov/
+.coverage
+.tox/
