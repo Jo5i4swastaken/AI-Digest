@@ -1,0 +1,84 @@
+{
+  "generated_at": "2026-03-29T00:00:00Z",
+  "slot": "Evening",
+  "timezone": "UTC",
+  "items": [
+    {
+      "category": "product",
+      "title": "OpenAI: Codex adds a curated plugins directory (Enterprise & Edu)",
+      "url": "https://help.openai.com/en/articles/10128477-chatgpt-enterprise-edu-release-notes",
+      "source": "OpenAI Help Center",
+      "published_at": "2026-03-26T00:00:00Z",
+      "why_it_matters": "Makes Codex more extensible with packaged workflows, reducing glue-code for enterprise automation.",
+      "brief": "Codex now includes a plugins directory to discover/install packaged workflows.",
+      "details": "OpenAI updated the ChatGPT Enterprise & Edu release notes to add “Plugins in Codex.” The update describes a curated plugins directory for discovering and installing packaged workflows built from connected apps/services. For teams standardizing developer workflows, this is a step toward repeatable, governed automation inside Codex. Check the release notes section dated March 26, 2026 for specifics.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "OpenAI: Legacy “deep research mode” removal (ChatGPT release notes)",
+      "url": "https://help.openai.com/fr-ca/articles/6825453-chatgpt-release-notes",
+      "source": "OpenAI Help Center",
+      "published_at": "2026-03-26T00:00:00Z",
+      "why_it_matters": "Signals consolidation of research UX—important if your org trained users or docs around the legacy mode.",
+      "brief": "OpenAI says the legacy deep research mode will be removed March 26, 2026.",
+      "details": "OpenAI’s ChatGPT release notes state that the legacy deep research mode will be removed on Thursday, March 26, 2026. The note clarifies this affects only the legacy mode, not the current deep research experience. If you have internal enablement materials or SOPs referencing the old mode, you’ll want to update them. Use the release notes as the canonical reference for the change.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Google: Gemini 3.1 Flash Live + Live API for real-time voice/vision agents",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-3-1-flash-live/",
+      "source": "Google Blog",
+      "published_at": null,
+      "why_it_matters": "Real-time multimodal agents (voice + vision) become easier to build with an official low-latency model/API.",
+      "brief": "Google is launching Gemini 3.1 Flash Live via the Live API in Google AI Studio for realtime agents.",
+      "details": "Google announced Gemini 3.1 Flash Live and availability through a Live API in Google AI Studio aimed at building real-time conversational agents. The positioning emphasizes low-latency dialogue and multimodal inputs (voice and vision) for interactive experiences. For agent builders, this is a direct “official path” to production-style streaming interactions rather than batch chat. Review the post for API entry points and recommended use cases.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Google: Search Live expands globally (powered by Gemini 3.1 Flash Live)",
+      "url": "https://blog.google/products-and-platforms/products/search/search-live-global-expansion/",
+      "source": "Google Blog",
+      "published_at": "2026-03-26T00:00:00Z",
+      "why_it_matters": "Broader rollout increases user exposure to voice-first AI search, shaping expectations for conversational UX.",
+      "brief": "Google says Search Live is expanding globally, enabled by Gemini 3.1 Flash Live.",
+      "details": "Google’s product blog says Search Live is expanding globally. The post ties the expansion to Gemini 3.1 Flash Live, highlighting improvements in audio/voice capabilities. If you build for search discovery or conversational interfaces, this is a signal that voice-driven “live” search interactions are moving mainstream. It may also affect how users expect follow-ups and clarifications to work in search.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "NVIDIA: GTC 2026 highlights Omniverse + “physical AI” focus",
+      "url": "https://blogs.nvidia.com/blog/gtc-2026-virtual-worlds-physical-ai/",
+      "source": "NVIDIA Blog",
+      "published_at": "2026-03-26T00:00:00Z",
+      "why_it_matters": "Shows NVIDIA’s platform direction: simulation/digital twins as core infrastructure for robotics and embodied agents.",
+      "brief": "NVIDIA’s GTC 2026 recap emphasizes Omniverse virtual worlds powering “physical AI.”",
+      "details": "NVIDIA’s blog recap of GTC 2026 frames Omniverse and virtual-world simulation as key to the “physical AI era.” The theme is that synthetic environments and digital twins accelerate training, testing, and deployment for robotics and embodied systems. For teams building agents that act in the real world, this points to simulation tooling becoming as important as model choice. The post is a useful overview of NVIDIA’s platform narrative and where ecosystem investment is heading.",
+      "is_update": false
+    },
+    {
+      "category": "funding",
+      "title": "Harvey raises at $11B valuation to scale agents across law firms and enterprises",
+      "url": "https://www.harvey.ai/blog/harvey-raises-at-dollar11-billion-valuation-to-scale-agents-across-law-firms-and-enterprises",
+      "source": "Harvey (company blog)",
+      "published_at": null,
+      "why_it_matters": "Big valuation + explicit “agents” focus suggests rapid enterprise adoption of AI-native legal workflows.",
+      "brief": "Harvey says it raised at an $11B valuation to scale agent deployments in legal/enterprise.",
+      "details": "Harvey published a post announcing a financing round valuing the company at $11B, with the stated goal of scaling agents across law firms and enterprises. The framing is notable: “agents” are positioned as the product wedge, not just chat. For buyers, it’s another signal that regulated, document-heavy industries are moving from copilots to workflow automation. Use the company post as the primary source for investor list and intended product direction.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "YouTube (Nate Herk): “Stop Learning n8n in 2026… Learn THIS Instead”",
+      "url": "https://www.youtube.com/watch?v=ZeJXI2MAhj0",
+      "source": "Nate Herk | AI Automation (YouTube)",
+      "published_at": null,
+      "why_it_matters": "Practical perspective on choosing automation stacks as agent tooling shifts beyond classic workflow builders.",
+      "brief": "Nate Herk argues for a different automation approach than n8n for 2026-era AI workflows.",
+      "details": "Nate Herk published a video positioning an alternative learning path to n8n for building automations in 2026. While it’s not an official product release, it’s useful as a practitioner signal on what tooling is becoming “default” for AI-first workflows. If you’re standardizing internal automation, it can help you pressure-test whether your stack is agent-ready (streaming, tool calling, observability). Watch for concrete examples and the recommended toolchain.",
+      "is_update": false
+    }
+  ]
+}
