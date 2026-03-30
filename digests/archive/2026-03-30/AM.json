@@ -1,0 +1,84 @@
+{
+  "generated_at": "2026-03-30T00:30:00-05:00",
+  "slot": "AM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "ChatGPT: shopping updates (improved discovery/compare/decide flow)",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes?ref=thelgtm.dev",
+      "source": "OpenAI Help Center (Release Notes)",
+      "published_at": "2026-03-24T00:00:00Z",
+      "why_it_matters": "Signals continued push to make ChatGPT a consumer decision surface (and potential commerce funnel).",
+      "brief": "OpenAI updated ChatGPT’s shopping experience to make product discovery and comparison easier.",
+      "details": "OpenAI’s ChatGPT release notes describe new shopping improvements aimed at helping users discover, compare, and decide on products more easily. While details are high-level, the direction is clear: ChatGPT is being positioned as a front door for product research. If you build consumer workflows, expect more structured product outputs and higher expectations for citations and comparisons.",
+      "is_update": true
+    },
+    {
+      "category": "agent_tooling",
+      "title": "OpenAI: Introducing Model Spec Evals",
+      "url": "https://alignment.openai.com/model-spec-evals/",
+      "source": "OpenAI Alignment",
+      "published_at": "2026-03-25T00:00:00Z",
+      "why_it_matters": "A concrete eval suite you can mirror internally to measure instruction-following and policy adherence over time.",
+      "brief": "OpenAI published ‘Model Spec Evals,’ an evaluation suite for how well models follow the OpenAI Model Spec.",
+      "details": "OpenAI released ‘Model Spec Evals,’ describing a new evaluation suite intended to measure how well models adhere to the OpenAI Model Spec. This is useful both as a transparency artifact and as a template for organizations building their own policy-alignment and instruction-following tests. Teams running model upgrades can use similar eval harnesses to catch regressions in refusal behavior, safety boundaries, and instruction hierarchy compliance.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "ChatGPT Enterprise/Edu: impact survey timing change",
+      "url": "https://help.openai.com/zh-hant-hk/articles/10128477-chatgpt-enterprise-edu-release-notes",
+      "source": "OpenAI Help Center (Enterprise & Edu Release Notes)",
+      "published_at": "2026-03-31T00:00:00Z",
+      "why_it_matters": "If you manage rollouts/compliance, these operational changes can affect internal comms and measurement windows.",
+      "brief": "OpenAI adjusted timing for OpenAI-created impact surveys for Enterprise/Edu (now begin on/after Mar 31, 2026).",
+      "details": "In the Enterprise & Edu release notes, OpenAI notes a schedule change: OpenAI-created impact surveys will now begin on or after March 31, 2026 (instead of March 26). This is a small but practical operational update for admins coordinating adoption measurement and stakeholder reporting. If you rely on these surveys for ROI narratives, adjust your timelines accordingly.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Gemini app: ‘Past chats’ becomes ‘memory’ + chat history imports rolling out",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/switch-to-gemini-app/",
+      "source": "Google Blog",
+      "published_at": null,
+      "why_it_matters": "Memory + history import raises the ceiling for long-lived assistants (and increases the need for controls/governance).",
+      "brief": "Google is rolling out Gemini ‘memory’ and chat history imports to carry context across conversations.",
+      "details": "Google announced updates to the Gemini app where ‘Past chats’ is now labeled ‘memory,’ reflecting the assistant’s ability to remember conversations. The post also says memory and chat history imports are rolling out, making it easier to bring prior context into Gemini. For users and teams, this improves continuity for ongoing projects, but it also increases the importance of reviewing what’s stored, how it’s used, and how to clear or manage it.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "NVIDIA at KubeCon 2026: KAI Scheduler onboarded as a CNCF Sandbox project",
+      "url": "https://blogs.nvidia.com/blog/nvidia-at-kubecon-2026/",
+      "source": "NVIDIA Blog",
+      "published_at": null,
+      "why_it_matters": "If you run AI workloads on Kubernetes, scheduler-level tooling can materially improve GPU utilization and cost efficiency.",
+      "brief": "NVIDIA says its AI workload scheduler ‘KAI Scheduler’ has been onboarded into the CNCF Sandbox.",
+      "details": "NVIDIA’s KubeCon 2026 post highlights that its KAI Scheduler has been onboarded as a CNCF Sandbox project. That’s a meaningful step toward broader community adoption and governance for AI workload scheduling in Kubernetes environments. For platform teams, this is a signal to watch for improved scheduling primitives for GPU-heavy inference/training clusters and potential integrations with existing K8s tooling.",
+      "is_update": false
+    },
+    {
+      "category": "open_source",
+      "title": "AutoResearchClaw v0.3.2: cross-platform support + stability; supports multiple agent backends",
+      "url": "https://github.com/aiming-lab/AutoResearchClaw",
+      "source": "GitHub (aiming-lab/AutoResearchClaw)",
+      "published_at": null,
+      "why_it_matters": "A practical pattern: one research workflow that can swap agent backends (Claude Code/Codex CLI/etc.) without rewriting the pipeline.",
+      "brief": "AutoResearchClaw shipped v0.3.2 with cross-platform support and stability improvements; claims compatibility with multiple agent backends.",
+      "details": "The AutoResearchClaw repository notes a v0.3.2 update emphasizing cross-platform support and major stability improvements. The project positions itself as an autonomous research agent that can run on different ACP-compatible backends (as described in the repo). If you’re standardizing agent workflows, this ‘backend-agnostic’ approach is worth tracking: it reduces lock-in and makes it easier to benchmark agents under the same task harness.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "Nate Herk: ‘5 boring AI workflows businesses actually want’",
+      "url": "https://www.youtube.com/watch?v=Y3PcRp5RFzk",
+      "source": "YouTube (Nate Herk | AI Automation)",
+      "published_at": null,
+      "why_it_matters": "Good menu of sellable, repeatable automations (lead gen, ops, reporting) that map cleanly to agent + RPA stacks.",
+      "brief": "New video outlining practical, ‘boring’ AI workflows that are easier to sell and deliver than flashy demos.",
+      "details": "Nate Herk published a new video focused on ‘boring’ AI workflows that businesses will pay for, emphasizing practical automation over novelty. These typically include repeatable internal processes like lead qualification, reporting, customer support triage, and ops checklists. If you’re building with agents, this is a useful framing: pick workflows with clear inputs/outputs, measurable time savings, and low integration risk.",
+      "is_update": false
+    }
+  ]
+}

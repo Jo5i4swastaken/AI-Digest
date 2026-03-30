@@ -2,6 +2,28 @@
   "timezone": "America/Chicago",
   "days": [
     {
+      "date": "2026-03-30",
+      "slots": [
+        {
+          "slot": "AM",
+          "label": "Morning",
+          "path": "2026-03-30/AM.json",
+          "generated_at": "2026-03-30T00:30:00-05:00",
+          "top": [
+            "ChatGPT: shopping updates (improved discovery/compare/decide flow)",
+            "OpenAI: Introducing Model Spec Evals",
+            "ChatGPT Enterprise/Edu: impact survey timing change",
+            "Gemini app: ‘Past chats’ becomes ‘memory’ + chat history imports rolling out",
+            "NVIDIA at KubeCon 2026: KAI Scheduler onboarded as a CNCF Sandbox project",
+            "AutoResearchClaw v0.3.2: cross-platform support + stability; supports multiple agent backends"
+          ],
+          "counts": {
+            "total": 7
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-03-29",
       "slots": [
         {
