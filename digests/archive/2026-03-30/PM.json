@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-03-30T20:00:00-05:00",
+  "slot": "PM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "ChatGPT update: simplified mobile sidebar (more space for chats/projects)",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes?ref=thelgtm.dev",
+      "source": "OpenAI Help Center (ChatGPT Release Notes)",
+      "published_at": "2026-03-26T00:00:00Z",
+      "why_it_matters": "Small UX changes compound for daily users; this signals continued focus on mobile-first ChatGPT workflows.",
+      "brief": "OpenAI updated ChatGPT with a simplified mobile sidebar to free up screen space.",
+      "details": "OpenAI’s ChatGPT release notes list a March 26, 2026 change that simplifies the sidebar on mobile. The stated goal is to provide more room to view critical chats and projects. While not a model upgrade, this is a high-frequency surface area improvement for heavy mobile users. If your team relies on ChatGPT Projects, expect slightly faster navigation and less UI clutter.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "ChatGPT Business: legacy Deep Research mode removal scheduled",
+      "url": "https://help.openai.com/es-es/articles/11391654-chatgpt-business-release-notes",
+      "source": "OpenAI Help Center (ChatGPT Business Release Notes)",
+      "published_at": "2026-03-26T00:00:00Z",
+      "why_it_matters": "If you built workflows around the legacy mode, you need to validate parity and update internal docs/training before it disappears.",
+      "brief": "OpenAI says the legacy Deep Research mode in ChatGPT Business will be removed (current experience remains).",
+      "details": "In the ChatGPT Business release notes, OpenAI states the legacy deep research mode will be removed on Thursday, March 26, 2026. The note clarifies this only affects the legacy mode, not the current deep research experience. For orgs with SOPs or enablement materials referencing the old UI/behavior, this is a prompt to refresh documentation. It also suggests OpenAI is consolidating research UX to reduce fragmentation.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Google launches Gemini 3.1 Flash Live (audio-focused model)",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-live/",
+      "source": "Google Blog",
+      "published_at": "2026-03-26T00:00:00Z",
+      "why_it_matters": "Real-time audio models are key for voice agents, call-center copilots, and low-latency multimodal apps.",
+      "brief": "Google announced Gemini 3.1 Flash Live, positioning it as a more natural/reliable audio AI model.",
+      "details": "Google’s blog post introduces Gemini 3.1 Flash Live and frames it as an advance toward more natural and reliable audio AI. The announcement emphasizes broader availability (noted as 200+ countries/territories in the post). This is a meaningful step for developers building voice-first assistants where latency and stability matter. Watch for downstream integrations in Gemini app and Google’s device surfaces.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Google TV gets new Gemini features (richer answers, deep dives, sports briefs)",
+      "url": "https://blog.google/products-and-platforms/platforms/google-tv/new-gemini-features-march-2026/",
+      "source": "Google Blog",
+      "published_at": null,
+      "why_it_matters": "Gemini is moving into living-room surfaces, expanding where conversational search and summaries can live.",
+      "brief": "Google is adding multiple Gemini features to Google TV, including richer visual answers and sports briefs.",
+      "details": "Google announced three new Gemini features coming to Google TV, including richer visual answers, deeper topic exploration, and sports briefs. This continues the trend of embedding LLM experiences into ambient consumer devices. For product teams, it’s another signal that “assistant UX” is becoming a platform layer across screens. For creators/brands, it may change how content is discovered and summarized on TV.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "NVIDIA donates Dynamic Resource Allocation driver for GPUs to Kubernetes community",
+      "url": "https://blogs.nvidia.com/blog/nvidia-at-kubecon-2026/",
+      "source": "NVIDIA Blog",
+      "published_at": null,
+      "why_it_matters": "Better GPU sharing/scheduling in Kubernetes reduces wasted capacity and lowers the cost of running inference/training clusters.",
+      "brief": "NVIDIA announced a Kubernetes-focused open-source donation: a Dynamic Resource Allocation GPU driver.",
+      "details": "NVIDIA’s KubeCon Europe 2026 post says it is donating a Dynamic Resource Allocation (DRA) driver for GPUs to the Kubernetes community. DRA is a key building block for more flexible resource allocation beyond static device plugins. Practically, this can improve utilization for multi-tenant clusters and bursty inference workloads. Platform teams running GPU fleets on K8s should track how quickly this lands in upstream Kubernetes and vendor distributions.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "Nate Herk: “Stop Learning n8n in 2026… Learn THIS Instead” (automation stack guidance)",
+      "url": "https://www.youtube.com/watch?v=ZeJXI2MAhj0",
+      "source": "YouTube (Nate Herk | AI Automation)",
+      "published_at": null,
+      "why_it_matters": "If you’re building AI automations, tool choice matters; this video is a practical prompt to reassess your orchestration stack.",
+      "brief": "Nate Herk shares an updated 2026 take on what to learn instead of (or alongside) n8n for AI automation.",
+      "details": "Nate Herk published a new video arguing you should reconsider focusing on n8n in 2026 and learn an alternative approach/tooling instead. While it’s creator content (not a primary vendor release), it’s useful as a practical “stack review” for teams building automations around LLMs and agents. Use it as a checklist: orchestration, connectors, observability, and maintainability. If you’re standardizing internally, compare the suggested stack against your security and deployment constraints.",
+      "is_update": false
+    }
+  ]
+}

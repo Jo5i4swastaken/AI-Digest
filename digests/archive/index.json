@@ -20,6 +20,23 @@
           "counts": {
             "total": 7
           }
+        },
+        {
+          "slot": "PM",
+          "label": "Afternoon",
+          "path": "2026-03-30/PM.json",
+          "generated_at": "2026-03-30T20:00:00-05:00",
+          "top": [
+            "ChatGPT update: simplified mobile sidebar (more space for chats/projects)",
+            "ChatGPT Business: legacy Deep Research mode removal scheduled",
+            "Google launches Gemini 3.1 Flash Live (audio-focused model)",
+            "Google TV gets new Gemini features (richer answers, deep dives, sports briefs)",
+            "NVIDIA donates Dynamic Resource Allocation driver for GPUs to Kubernetes community",
+            "Nate Herk: “Stop Learning n8n in 2026… Learn THIS Instead” (automation stack guidance)"
+          ],
+          "counts": {
+            "total": 6
+          }
         }
       ]
     },
