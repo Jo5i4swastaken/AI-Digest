@@ -37,20 +37,19 @@ def _parse_iso(dt: str) -> Optional[datetime]:
         return None
 
 
-def _date_key(digest: Dict[str, Any]) -> str:
-    tz_name = os.getenv("TIMEZONE", "America/Chicago")
+def _local_tz() -> ZoneInfo:
+    tz_name = os.getenv("TIMEZONE") or "America/Chicago"
     try:
-        tz = ZoneInfo(tz_name)
+        return ZoneInfo(tz_name)
     except Exception:
-        tz = timezone.utc
+        return ZoneInfo("America/Chicago")
 
-    dt = _parse_iso(str(digest.get("generated_at", "")))
-    if dt is None:
-        dt = datetime.now(timezone.utc)
-    if dt.tzinfo is None:
-        dt = dt.replace(tzinfo=timezone.utc)
 
-    local = dt.astimezone(tz)
+def _date_key() -> str:
+    tz = _local_tz()
+    # Use current wall-clock time in the configured timezone, not the
+    # agent's generated_at (which may be rounded or slightly off).
+    local = datetime.now(tz)
     return local.date().isoformat()
 
 
@@ -601,7 +600,7 @@ def write_dashboard_files(digest_json: str) -> str:
     html = _render_email_html(digest_obj)
     html_path.write_text(html, encoding="utf-8")
 
-    day_key = _date_key(digest_obj)
+    day_key = _date_key()
     slot = str(digest_obj.get("slot", "")).strip() or "Unknown"
     safe_slot = "".join(ch for ch in slot if ch.isalnum() or ch in {"_", "-"})
     if not safe_slot:
@@ -620,7 +619,7 @@ def write_dashboard_files(digest_json: str) -> str:
     repo_slot_json = repo_day_dir / f"{safe_slot}.json"
     repo_slot_json.write_text(json.dumps(digest_obj, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    tz_name = os.getenv("TIMEZONE", "America/Chicago")
+    tz_name = os.getenv("TIMEZONE") or "America/Chicago"
     day_dirs = sorted([p for p in _ARCHIVE_DIR.glob("*") if p.is_dir()], reverse=True)
     dashboard_index: List[Dict[str, Any]] = []
     for day_dir in day_dirs[:30]:
