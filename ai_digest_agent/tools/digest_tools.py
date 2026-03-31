@@ -191,20 +191,28 @@ def _send_gmail_email(
 
 @function_tool
 def send_digest_email(
-    slot: str,
-    html_body: str,
+    digest_json: str,
     to_email: Optional[str] = None,
     from_email: Optional[str] = None,
 ) -> str:
-    """Send a digest email with a fixed subject based on the slot.
+    """Send a styled digest email. The HTML is rendered automatically from the digest JSON.
 
-    Subjects:
-    - AM -> "Morning AI Digest"
-    - PM -> "Afternoon AI Digest"
-    - Evening -> "Evening AI Digest"
+    Args:
+        digest_json: The same digest JSON string passed to write_dashboard_files.
+        to_email: Recipient email; falls back to EMAIL_TO env var.
+        from_email: Sender email; defaults to GMAIL_ADDRESS env var.
+
+    Returns:
+        Status payload.
     """
 
-    normalized = (slot or "").strip().lower()
+    try:
+        digest_obj = json.loads(digest_json)
+    except Exception as exc:
+        raise ValueError("digest_json must be valid JSON") from exc
+
+    slot = str(digest_obj.get("slot", "")).strip()
+    normalized = slot.lower()
     subject_map = {
         "am": "Morning AI Digest",
         "pm": "Afternoon AI Digest",
@@ -213,6 +221,8 @@ def send_digest_email(
     subject = subject_map.get(normalized)
     if not subject:
         raise ValueError("slot must be one of: AM, PM, Evening")
+
+    html_body = _render_email_html(digest_obj)
 
     return _send_gmail_email(
         subject=subject,

@@ -36,7 +36,7 @@ Workflow:
 4) Produce a JSON object matching the schema below.
 5) Call `write_dashboard_files` with that JSON serialized as a JSON string.
 6) Update dedupe state and call `save_digest_state`.
-7) If the user requested email sending, call `send_digest_email` with the slot and the HTML body.
+7) If the user requested email sending, call `send_digest_email` with the same digest JSON string from step 5. The email HTML is rendered automatically.
 
 Hard limits:
 - Maximum 8 total search tool calls per run (combined `web_search` + `youtube_search`).
