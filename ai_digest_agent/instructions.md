@@ -29,10 +29,16 @@ Output requirements:
 - `detailed` can expand each brief item to 3–5 sentences.
 - Every item must include: title, source, URL, and one-line "why it matters".
 
+Freshness rule:
+- Only include items published TODAY (same calendar date in the digest's timezone).
+- Add "today" or "past 24 hours" to every search query to filter for current news.
+- If an item's published date is yesterday or older, discard it — even if it ranks high.
+- If you cannot determine the published date, only include it if the source page clearly indicates it is from today.
+
 Workflow:
 1) Determine the slot: AM, PM, or Evening (the user prompt will tell you).
-2) Run targeted searches per category. Prefer primary sources.
-3) Build a ranked list of items. Keep only the most important.
+2) Run targeted searches per category. Prefer primary sources. Append "today" to queries.
+3) Build a ranked list of items. Keep only the most important. Discard anything not from today.
 4) Produce a JSON object matching the schema below.
 5) Call `write_dashboard_files` with that JSON serialized as a JSON string.
 6) Update dedupe state and call `save_digest_state`.
