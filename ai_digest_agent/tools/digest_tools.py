@@ -231,17 +231,47 @@ def _escape_html(text: str) -> str:
     )
 
 
+def _category_style(category: str) -> tuple:
+    """Return (label, bg_color, text_color) for a category badge."""
+    styles = {
+        "product": ("Product", "#EEF2FF", "#4338CA"),
+        "open_source": ("Open Source", "#F0FDF4", "#166534"),
+        "agent_tooling": ("Agent Tooling", "#FFF7ED", "#9A3412"),
+        "hardware": ("Hardware", "#FDF2F8", "#9D174D"),
+        "funding": ("Funding", "#FFFBEB", "#92400E"),
+        "ways_to_use": ("Ways to Use", "#F0F9FF", "#075985"),
+    }
+    label, bg, fg = styles.get(category, (category.replace("_", " ").title(), "#F3F4F6", "#374151"))
+    return label, bg, fg
+
+
+def _slot_greeting(slot: str) -> str:
+    greetings = {"AM": "Good morning", "PM": "Good afternoon", "Evening": "Good evening"}
+    return greetings.get(slot, "Hello")
+
+
+def _format_date(iso_str: str) -> str:
+    """Convert ISO-8601 string to 'Month Day, Year' format."""
+    dt = _parse_iso(iso_str)
+    if dt is None:
+        return iso_str
+    return dt.strftime("%B %d, %Y").replace(" 0", " ")
+
+
 def _render_email_html(digest: Dict[str, Any]) -> str:
     slot = _escape_html(str(digest.get("slot", "")))
-    generated_at = _escape_html(str(digest.get("generated_at", "")))
+    raw_generated = str(digest.get("generated_at", ""))
+    formatted_date = _escape_html(_format_date(raw_generated))
     items = digest.get("items", [])
     if not isinstance(items, list):
         items = []
 
-    brief_lines: List[str] = []
-    detail_blocks: List[str] = []
+    greeting = _slot_greeting(slot)
+    slot_labels = {"AM": "Morning", "PM": "Afternoon", "Evening": "Evening"}
+    slot_label = slot_labels.get(slot, slot)
 
-    for item in items:
+    item_rows: List[str] = []
+    for i, item in enumerate(items):
         if not isinstance(item, dict):
             continue
 
@@ -251,32 +281,124 @@ def _render_email_html(digest: Dict[str, Any]) -> str:
         why = _escape_html(str(item.get("why_it_matters", "")))
         brief = _escape_html(str(item.get("brief", "")))
         details = _escape_html(str(item.get("details", "")))
-        category = _escape_html(str(item.get("category", "")))
+        category = str(item.get("category", ""))
+        is_update = item.get("is_update", False)
 
-        brief_lines.append(
-            f"<li><a href=\"{url}\">{title}</a> — {brief} <span style=\"color:#555\">({source})</span><br/><span style=\"color:#333\"><em>{why}</em></span></li>"
+        cat_label, cat_bg, cat_fg = _category_style(category)
+        update_badge = (
+            '<span style="display:inline-block;padding:2px 8px;border-radius:10px;'
+            'font-size:11px;font-weight:600;background:#FEF3C7;color:#92400E;'
+            'margin-left:6px;">Update</span>'
+            if is_update else ""
         )
 
-        detail_blocks.append(
-            """
-            <div style="margin-top:14px;">
-              <div style="font-weight:600;">{title}</div>
-              <div style="color:#555; font-size:13px;">{category} · {source} · <a href="{url}">link</a></div>
-              <div style="margin-top:6px;">{details}</div>
-            </div>
-            """.format(title=title, category=category, source=source, url=url, details=details)
+        border_top = 'border-top:1px solid #E5E7EB;' if i > 0 else ''
+
+        item_rows.append(
+            f'''<tr><td style="padding:20px 28px;{border_top}">
+              <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td>
+                <span style="display:inline-block;padding:3px 10px;border-radius:12px;
+                  font-size:11px;font-weight:600;background:{cat_bg};color:{cat_fg};
+                  letter-spacing:0.3px;">{_escape_html(cat_label)}</span>
+                {update_badge}
+              </td></tr></table>
+              <h3 style="margin:10px 0 6px;font-size:16px;font-weight:700;color:#111827;line-height:1.3;">
+                <a href="{url}" style="color:#111827;text-decoration:none;">{title}</a>
+              </h3>
+              <p style="margin:0 0 8px;font-size:14px;color:#374151;line-height:1.5;">{brief}</p>
+              <p style="margin:0 0 10px;font-size:13px;color:#6B7280;line-height:1.5;">{details}</p>
+              <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
+                <td style="font-size:12px;color:#9CA3AF;">
+                  <em>{why}</em>
+                </td>
+                <td align="right" style="font-size:12px;">
+                  <a href="{url}" style="color:#6366F1;text-decoration:none;font-weight:600;">{source} &rarr;</a>
+                </td>
+              </tr></table>
+            </td></tr>'''
         )
 
-    return """
-    <div style="font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; line-height:1.4;">
-      <div style="font-size:18px; font-weight:700;">AI Update — {slot}</div>
-      <div style="color:#555; font-size:12px;">Generated: {generated_at}</div>
-      <h3 style="margin-top:16px;">Brief</h3>
-      <ul>{brief}</ul>
-      <h3 style="margin-top:18px;">More detail</h3>
-      {details}
-    </div>
-    """.format(slot=slot, generated_at=generated_at, brief="".join(brief_lines), details="".join(detail_blocks))
+    item_count = len(item_rows)
+
+    slot_colors = {
+        "AM": {
+            "header": "linear-gradient(135deg,#F59E0B 0%,#F97316 100%)",
+            "summary_bg": "#FFFBEB",
+            "summary_border": "#FDE68A",
+            "summary_fg": "#92400E",
+        },
+        "PM": {
+            "header": "linear-gradient(135deg,#0EA5E9 0%,#2563EB 100%)",
+            "summary_bg": "#EFF6FF",
+            "summary_border": "#BFDBFE",
+            "summary_fg": "#1E40AF",
+        },
+        "Evening": {
+            "header": "linear-gradient(135deg,#4F46E5 0%,#7C3AED 100%)",
+            "summary_bg": "#EEF2FF",
+            "summary_border": "#E0E7FF",
+            "summary_fg": "#4338CA",
+        },
+    }
+    colors = slot_colors.get(slot, slot_colors["Evening"])
+    header_gradient = colors["header"]
+    summary_bg = colors["summary_bg"]
+    summary_border = colors["summary_border"]
+    summary_fg = colors["summary_fg"]
+
+    return f'''<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+<body style="margin:0;padding:0;background:#F3F4F6;-webkit-font-smoothing:antialiased;">
+  <table cellpadding="0" cellspacing="0" border="0" width="100%"
+    style="background:#F3F4F6;padding:24px 16px;">
+    <tr><td align="center">
+      <table cellpadding="0" cellspacing="0" border="0" width="600"
+        style="max-width:600px;width:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;">
+
+        <!-- Header -->
+        <tr><td style="padding:32px 28px 24px;background:{header_gradient};
+          border-radius:16px 16px 0 0;">
+          <h1 style="margin:0 0 4px;font-size:24px;font-weight:800;color:#FFFFFF;letter-spacing:-0.3px;">
+            AI Digest
+          </h1>
+          <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.8);">
+            {greeting} &mdash; your {slot_label.lower()} briefing
+          </p>
+        </td></tr>
+
+        <!-- Summary bar -->
+        <tr><td style="padding:14px 28px;background:{summary_bg};border-bottom:1px solid {summary_border};">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
+            <td style="font-size:13px;color:{summary_fg};font-weight:600;">
+              {item_count} item{"s" if item_count != 1 else ""} today
+            </td>
+            <td align="right" style="font-size:12px;color:{summary_fg};">
+              {formatted_date}
+            </td>
+          </tr></table>
+        </td></tr>
+
+        <!-- Items -->
+        <tr><td style="background:#FFFFFF;">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            {"".join(item_rows)}
+          </table>
+        </td></tr>
+
+        <!-- Footer -->
+        <tr><td style="padding:20px 28px;background:#F9FAFB;border-top:1px solid #E5E7EB;
+          border-radius:0 0 16px 16px;text-align:center;">
+          <p style="margin:0;font-size:12px;color:#9CA3AF;line-height:1.5;">
+            Generated by AI Digest Agent &middot; Powered by OmniAgents
+          </p>
+        </td></tr>
+
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>'''
 
 
 def _render_dashboard_html(index: List[Dict[str, Any]], *, tz_name: str) -> str:
