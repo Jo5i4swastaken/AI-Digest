@@ -5,6 +5,23 @@
       "date": "2026-03-31",
       "slots": [
         {
+          "slot": "AM",
+          "label": "Morning",
+          "path": "2026-03-31/AM.json",
+          "generated_at": "2026-03-31T00:00:00-05:00",
+          "top": [
+            "ChatGPT: model picker simplified + Business deep research mode removal (Mar 2026)",
+            "Gemini 3.1 Flash Live launches (audio-focused)",
+            "New Gemini features coming to Google TV",
+            "Agent Swarm: multi-agent AI coding team framework",
+            "OpenFang v0.3.30: security hardening release (agent OS)",
+            "Enterprise AI agent startup raises $65M seed (report)"
+          ],
+          "counts": {
+            "total": 6
+          }
+        },
+        {
           "slot": "Evening",
           "label": "Evening",
           "path": "2026-03-31/Evening.json",

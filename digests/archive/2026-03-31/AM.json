@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-03-31T00:00:00-05:00",
+  "slot": "AM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "ChatGPT: model picker simplified + Business deep research mode removal (Mar 2026)",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "source": "OpenAI Help Center (Release Notes)",
+      "published_at": null,
+      "why_it_matters": "Model/UX changes and mode removals affect day-to-day reliability and which workflows remain supported.",
+      "brief": "OpenAI updated ChatGPT’s model picker (simpler reasoning choices) and is removing legacy deep research mode in Business.",
+      "details": "OpenAI’s ChatGPT release notes describe a simplified model picker intended to make it easier to choose the right reasoning level. Separately, the ChatGPT Business release notes state the legacy deep research mode is being removed (per the notes). If you rely on deep research-style workflows, confirm what replaces it and update internal docs/training. Also re-check default model selection for teams to avoid silent behavior changes.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Gemini 3.1 Flash Live launches (audio-focused)",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-live/",
+      "source": "Google Blog",
+      "published_at": "2026-03-26T00:00:00Z",
+      "why_it_matters": "A stronger real-time audio model expands voice agents, call-center copilots, and live assistants.",
+      "brief": "Google announced Gemini 3.1 Flash Live, targeting more natural, reliable audio AI.",
+      "details": "Google introduced Gemini 3.1 Flash Live as a new model aimed at real-time audio interactions. The positioning emphasizes more natural and reliable audio behavior, which typically maps to lower latency and fewer conversational breakdowns. If you’re building voice agents, this is a cue to benchmark against your current stack (latency, barge-in handling, hallucination rate). Watch for API availability/limits and regional rollout details in the post.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "New Gemini features coming to Google TV",
+      "url": "https://blog.google/products-and-platforms/platforms/google-tv/new-gemini-features-march-2026/",
+      "source": "Google Blog",
+      "published_at": null,
+      "why_it_matters": "Signals Google’s continued push to embed Gemini into consumer surfaces—useful for anticipating UX patterns and multimodal answer formats.",
+      "brief": "Google TV is getting Gemini-powered richer visual answers, deep dives, and sports briefs.",
+      "details": "Google says new Gemini features are coming to Google TV, including richer visual answers and “deep dives,” plus sports briefs. While consumer-facing, these features often preview how Google packages retrieval + summarization + UI. If you build knowledge assistants, note the emphasis on structured briefs and visual answer presentation. It’s also a reminder to design outputs that are “screen-native,” not just chat-native.",
+      "is_update": false
+    },
+    {
+      "category": "open_source",
+      "title": "Agent Swarm: multi-agent AI coding team framework",
+      "url": "https://github.com/desplega-ai/agent-swarm",
+      "source": "GitHub",
+      "published_at": null,
+      "why_it_matters": "Another practical pattern for coordinating multiple coding agents (lead + workers) with integrations like Slack/GitHub.",
+      "brief": "Agent Swarm proposes a lead-agent + sub-agent setup for autonomous coding task breakdown and execution.",
+      "details": "The Agent Swarm repo describes a framework for running a team of AI coding agents that coordinate autonomously. The core idea is a lead agent that decomposes work and delegates to sub-agents, with hooks for common entry points like Slack or GitHub. If you’re evaluating agent orchestration, compare its task routing, tool permissions, and failure recovery to your current approach. Treat it as a reference architecture even if you don’t adopt it directly.",
+      "is_update": false
+    },
+    {
+      "category": "open_source",
+      "title": "OpenFang v0.3.30: security hardening release (agent OS)",
+      "url": "https://github.com/RightNow-AI/openfang",
+      "source": "GitHub",
+      "published_at": null,
+      "why_it_matters": "Security hardening in agent runtimes is becoming a differentiator as teams move from demos to production.",
+      "brief": "OpenFang shipped a v0.3.30 “Security Hardening” release for its agent operating system.",
+      "details": "RightNow-AI’s OpenFang project lists a v0.3.30 release focused on security hardening. For teams deploying agents with tool access, hardening releases are often where permissioning, sandboxing, and auditability improve. Skim the release notes/commits to see what changed around secrets handling, tool execution boundaries, and defaults. If you’re building internal agent platforms, this is a useful checklist source.",
+      "is_update": false
+    },
+    {
+      "category": "funding",
+      "title": "Enterprise AI agent startup raises $65M seed (report)",
+      "url": "https://techcrunch.com/2026/03/30/former-coatue-partner-raises-huge-65m-seed-for-enterprise-ai-agent-startup/",
+      "source": "TechCrunch",
+      "published_at": "2026-03-30T00:00:00Z",
+      "why_it_matters": "Large seed rounds signal aggressive enterprise demand for agent build/orchestration/security platforms.",
+      "brief": "TechCrunch reports a former Coatue partner raised a $65M seed for an enterprise AI agent startup.",
+      "details": "TechCrunch reports a $65M seed round for a startup focused on helping enterprises build, secure, and orchestrate AI agents. The size suggests investors expect rapid adoption and a platform land-grab in enterprise agent infrastructure. If you’re buying rather than building, expect more vendor options (and more consolidation pressure) in orchestration, policy, and observability. Use this as a prompt to clarify your build-vs-buy criteria and security requirements.",
+      "is_update": false
+    }
+  ]
+}
