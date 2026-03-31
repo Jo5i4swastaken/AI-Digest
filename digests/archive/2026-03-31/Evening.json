@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-03-31T00:00:00-05:00",
+  "slot": "Evening",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "Gemini Drop (March 2026): new Gemini app updates",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-updates-march-2026/",
+      "source": "Google Blog",
+      "published_at": null,
+      "why_it_matters": "Signals Google’s near-weekly shipping cadence in the consumer assistant, often preceding API/Workspace rollouts.",
+      "brief": "Google published March’s Gemini Drop with a bundle of Gemini app improvements.",
+      "details": "Google’s March 2026 Gemini Drop rounds up new features and UX changes in the Gemini app. These Drops are a reliable place to spot what’s rolling out (and what may soon land in Workspace or developer surfaces). If you standardize on Gemini internally, this is the fastest way to track capability drift and new defaults. Review the post for any changes that affect history/memory, sharing, or integrations.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Bring your AI memories and chat history to Gemini",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/switch-to-gemini-app/",
+      "source": "Google Blog",
+      "published_at": null,
+      "why_it_matters": "Lower switching costs can accelerate Gemini adoption and make long-term memory/history a competitive differentiator.",
+      "brief": "Google describes how to transfer chat history/memories when switching to the Gemini app.",
+      "details": "Google published guidance on moving your AI memories and chat history into the Gemini app. Portability matters because it reduces lock-in friction and makes it easier for teams to trial Gemini without losing context. If you’re evaluating assistants, this is a practical signal that Google is investing in continuity and personalization. Check the post for what data moves, what doesn’t, and any privacy/admin controls.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "New Gemini features coming to Google TV",
+      "url": "https://blog.google/products-and-platforms/platforms/google-tv/new-gemini-features-march-2026/",
+      "source": "Google Blog",
+      "published_at": null,
+      "why_it_matters": "Shows Gemini expanding into ambient/lean-back surfaces—useful for multimodal answer UX patterns.",
+      "brief": "Google TV is getting Gemini-powered richer answers, deep dives, and sports briefs.",
+      "details": "Google announced Gemini features for Google TV, including richer visual answers and topic deep-dives. While consumer-focused, these launches often preview interaction patterns (summaries, follow-ups, “briefs”) that later appear in other Google products. If you build multimodal assistants, it’s worth noting how Google packages context and citations on a TV UI. Watch for whether these features rely on on-device vs cloud inference.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "ChatGPT release notes: updates to the model picker (March 2026)",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes?ref=thelgtm.dev",
+      "source": "OpenAI Help Center",
+      "published_at": null,
+      "why_it_matters": "Model-selection UX changes can materially affect cost, latency, and output quality for teams using ChatGPT day-to-day.",
+      "brief": "OpenAI notes changes to ChatGPT’s model picker aimed at simplifying reasoning choices.",
+      "details": "OpenAI’s ChatGPT release notes include a March 2026 entry describing updates to the model picker. Even small UI changes can shift which models users pick by default, impacting response quality and compute cost. If you manage a team rollout, align internal guidance (which model for which task) with the new picker. Also check adjacent entries for any changes to tools, memory, or file handling.",
+      "is_update": true
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Claude Code auto mode: a safer way to skip permissions",
+      "url": "https://www.anthropic.com/engineering?_rsc=kdrjt",
+      "source": "Anthropic Engineering",
+      "published_at": null,
+      "why_it_matters": "Permissioning is the bottleneck for coding agents; safer “auto” modes can increase throughput without blowing up risk.",
+      "brief": "Anthropic highlights a Claude Code “auto mode” focused on safer permission skipping.",
+      "details": "Anthropic’s engineering page lists an item on “Claude Code auto mode” positioned as a safer way to skip permissions. This is directly relevant to teams trying to balance agent autonomy with guardrails in real repos. If you’re piloting Claude Code, look for what actions can be auto-approved, what remains gated, and how auditability is handled. Treat this as a prompt to revisit your internal policies for agent-run commands.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "Video: “Stop Learning n8n in 2026…Learn THIS Instead”",
+      "url": "https://www.youtube.com/watch?v=ZeJXI2MAhj0",
+      "source": "Nate Herk | AI Automation (YouTube)",
+      "published_at": null,
+      "why_it_matters": "Practical automation guidance can save weeks when choosing an orchestration stack for AI workflows.",
+      "brief": "Nate Herk shares an updated take on what to learn for AI automation instead of n8n.",
+      "details": "Nate Herk published a recent video arguing for an alternative learning path to n8n for 2026-era AI automation. Even if you disagree with the premise, it’s a useful survey of current automation primitives and where agentic workflows are heading. If you’re building internal automations, use it to sanity-check your stack choices (connectors, retries, human-in-the-loop, secrets). Skim for concrete examples and tool comparisons rather than broad predictions.",
+      "is_update": false
+    }
+  ]
+}
