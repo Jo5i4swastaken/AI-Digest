@@ -138,8 +138,7 @@ def _env(name: str) -> str:
     return value
 
 
-@function_tool
-def send_gmail_email(
+def _send_gmail_email(
     subject: str,
     html_body: str,
     to_email: Optional[str] = None,
@@ -215,7 +214,7 @@ def send_digest_email(
     if not subject:
         raise ValueError("slot must be one of: AM, PM, Evening")
 
-    return send_gmail_email(
+    return _send_gmail_email(
         subject=subject,
         html_body=html_body,
         to_email=to_email,
