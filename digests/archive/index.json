@@ -22,6 +22,18 @@
           }
         },
         {
+          "slot": "PM",
+          "label": "Afternoon",
+          "path": "2026-03-31/PM.json",
+          "generated_at": "2026-03-31T00:00:00-05:00",
+          "top": [
+            "OpenAI releases an official Codex plugin for Anthropic’s Claude Code"
+          ],
+          "counts": {
+            "total": 1
+          }
+        },
+        {
           "slot": "Evening",
           "label": "Evening",
           "path": "2026-03-31/Evening.json",

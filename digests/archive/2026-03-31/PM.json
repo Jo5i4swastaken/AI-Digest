@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-03-31T00:00:00-05:00",
+  "slot": "PM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "agent_tooling",
+      "title": "OpenAI releases an official Codex plugin for Anthropic’s Claude Code",
+      "url": "https://github.com/openai/codex-plugin-cc",
+      "source": "GitHub (openai/codex-plugin-cc)",
+      "published_at": null,
+      "why_it_matters": "It’s a rare cross-vendor bridge that lets teams keep Claude Code as the front-end while delegating reviews/tasks to Codex—useful for multi-model coding workflows.",
+      "brief": "OpenAI shipped an open-source Codex plugin for Claude Code, enabling Codex-powered reviews and delegated tasks from inside Claude Code.",
+      "details": "OpenAI published an official, open-source plugin that integrates Codex into Anthropic’s Claude Code workflow. The repo describes using Codex from inside Claude Code for code reviews and delegating tasks, which effectively turns Claude Code into a multi-backend coding cockpit. This is notable because it reduces switching costs between coding agents and encourages ‘best model for the job’ routing. If you already standardize on Claude Code, this adds Codex as an additional execution/review engine without changing your developer UX.",
+      "is_update": false
+    }
+  ]
+}
