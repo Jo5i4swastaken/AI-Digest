@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-04-01T20:10:00-05:00",
+  "slot": "PM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "agent_tooling",
+      "title": "Anthropic confirms Claude Code internal source code leak",
+      "url": "https://www.cnbc.com/2026/03/31/anthropic-leak-claude-code-internal-source.html",
+      "source": "CNBC",
+      "published_at": "2026-03-31T00:00:00Z",
+      "why_it_matters": "Leaked agent internals can accelerate competitor tooling and reveals real-world agent architecture patterns.",
+      "brief": "Anthropic confirmed a leak of Claude Code internal source code via a public package artifact.",
+      "details": "CNBC reports Anthropic confirmed that part of Claude Code’s internal source code was inadvertently exposed. The incident appears tied to a published artifact that enabled access to internal implementation details. While not a product launch, it’s a rare window into how a production coding agent is built and operated. Expect rapid community replication of patterns (tool calling, orchestration, safety gates) and faster iteration in open-source coding agents.",
+      "is_update": false
+    }
+  ]
+}

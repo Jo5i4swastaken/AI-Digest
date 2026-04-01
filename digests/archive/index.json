@@ -17,6 +17,18 @@
           "counts": {
             "total": 3
           }
+        },
+        {
+          "slot": "PM",
+          "label": "Afternoon",
+          "path": "2026-04-01/PM.json",
+          "generated_at": "2026-04-01T20:10:00-05:00",
+          "top": [
+            "Anthropic confirms Claude Code internal source code leak"
+          ],
+          "counts": {
+            "total": 1
+          }
         }
       ]
     },
