@@ -2,6 +2,25 @@
   "timezone": "America/Chicago",
   "days": [
     {
+      "date": "2026-04-01",
+      "slots": [
+        {
+          "slot": "AM",
+          "label": "Morning",
+          "path": "2026-04-01/AM.json",
+          "generated_at": "2026-04-01T09:00:00-05:00",
+          "top": [
+            "Google launches Veo 3.1 Lite (paid preview) via Gemini API + AI Studio",
+            "Nvidia deepens AI infrastructure push with $2B Marvell deal",
+            "Anthropic says it accidentally leaked part of Claude Code’s internal source"
+          ],
+          "counts": {
+            "total": 3
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-03-31",
       "slots": [
         {

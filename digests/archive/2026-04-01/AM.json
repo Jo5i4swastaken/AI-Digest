@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-04-01T09:00:00-05:00",
+  "slot": "AM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "Google launches Veo 3.1 Lite (paid preview) via Gemini API + AI Studio",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/veo-3-1-lite/",
+      "source": "Google Blog",
+      "published_at": "2026-03-31T00:00:00Z",
+      "why_it_matters": "Cheaper, faster video generation lowers the barrier for shipping video features in apps and agent workflows.",
+      "brief": "Veo 3.1 Lite is now in paid preview in the Gemini API and available to test in Google AI Studio.",
+      "details": "Google introduced Veo 3.1 Lite as a lower-cost option for AI video generation. It’s available in paid preview through the Gemini API and can be tried in Google AI Studio. The positioning is speed/cost efficiency for developers who need higher throughput. This is a practical step toward making video generation a default capability in product experiences.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "Nvidia deepens AI infrastructure push with $2B Marvell deal",
+      "url": "https://www.datacenterknowledge.com/infrastructure/nvidia-deepens-ai-push-with-2b-marvell-deal",
+      "source": "Data Center Knowledge",
+      "published_at": "2026-03-31T00:00:00Z",
+      "why_it_matters": "Signals Nvidia’s strategy to control more of the AI stack (networking + interconnect + semi-custom infra), not just GPUs.",
+      "brief": "Nvidia is pairing a $2B investment with deeper collaboration with Marvell around AI infrastructure components.",
+      "details": "Nvidia is expanding its AI infrastructure footprint via a partnership with Marvell that includes a reported $2B investment. The coverage frames this as Nvidia pushing further into the broader control layer of AI systems, beyond accelerators. For builders, this likely means tighter integration across compute, networking, and system design options. It also reinforces the market shift toward inference-heavy deployments and AI “factory” buildouts.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Anthropic says it accidentally leaked part of Claude Code’s internal source",
+      "url": "https://www.cnbc.com/2026/03/31/anthropic-leak-claude-code-internal-source.html",
+      "source": "CNBC",
+      "published_at": "2026-03-31T00:00:00Z",
+      "why_it_matters": "Raises immediate supply-chain/security concerns for coding-agent tooling and may accelerate copycat/open-source reimplementations.",
+      "brief": "CNBC reports Anthropic acknowledged an accidental leak of internal Claude Code source code.",
+      "details": "CNBC reports that Anthropic accidentally leaked part of the internal source code for Claude Code, per an Anthropic spokesperson. Even partial code exposure can reveal architecture, prompts, tool schemas, and operational details that competitors and attackers can reuse. For teams adopting coding agents, this is a reminder to treat agent tooling as part of your security perimeter (dependency pinning, provenance checks, and monitoring). Expect rapid community analysis and potential forks/imitations.",
+      "is_update": false
+    }
+  ]
+}
