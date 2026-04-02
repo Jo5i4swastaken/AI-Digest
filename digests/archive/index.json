@@ -20,6 +20,20 @@
           "counts": {
             "total": 6
           }
+        },
+        {
+          "slot": "PM",
+          "label": "Afternoon",
+          "path": "2026-04-02/PM.json",
+          "generated_at": "2026-04-02T19:00:00-05:00",
+          "top": [
+            "Google Slides: Gemini can now generate fully editable, brand-matched slide decks",
+            "NVIDIA: GH200 sets STAC-ML record for single-digit microsecond latency inference",
+            "Anthropic: Claude Code GitHub Action v1.0 now generally available"
+          ],
+          "counts": {
+            "total": 3
+          }
         }
       ]
     },

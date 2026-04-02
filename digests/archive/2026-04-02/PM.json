@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-04-02T19:00:00-05:00",
+  "slot": "PM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "Google Slides: Gemini can now generate fully editable, brand-matched slide decks",
+      "url": "https://workspaceupdates.googleblog.com/2026/04/enerate-beautiful-and-editable-slides-with-ease-in-Google-Slides.html?m=1",
+      "source": "Google Workspace Updates",
+      "published_at": "2026-04-02T00:00:00Z",
+      "why_it_matters": "Turns prompt-to-deck into something teams can actually ship (editable, on-brand), reducing the last-mile manual formatting work.",
+      "brief": "Gemini in Slides now generates editable, brand-matched decks with dynamic layouts.",
+      "details": "Google rolled out an upgrade to Gemini in Google Slides that generates complete slide decks that remain fully editable. The feature emphasizes brand-matched styling and dynamic layouts tailored to your content, aiming to reduce the time spent on formatting and design cleanup. This is a practical step from ‘AI drafts’ to ‘AI deliverables’ for business presentations. Check rollout/eligibility details on the Workspace Updates post.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "NVIDIA: GH200 sets STAC-ML record for single-digit microsecond latency inference",
+      "url": "https://developer.nvidia.com/blog/achieving-single-digit-microsecond-latency-inference-for-capital-markets/",
+      "source": "NVIDIA Developer Blog",
+      "published_at": "2026-04-02T00:00:00Z",
+      "why_it_matters": "Shows where GPU inference is heading for ultra-low-latency workloads (finance, real-time control), not just throughput benchmarks.",
+      "brief": "NVIDIA details GH200 results hitting single-digit microsecond inference latency on STAC-ML.",
+      "details": "NVIDIA published a deep dive on achieving single-digit microsecond latency inference for capital markets workloads, highlighting results on the STAC-ML benchmark using the GH200 Grace Hopper Superchip. The post focuses on end-to-end latency engineering rather than only tokens/sec, which is increasingly relevant for agentic systems that must act in real time. If you build latency-sensitive inference stacks, the tuning and system-level considerations here are the main value. The article includes the benchmark framing and the hardware/software setup at a high level.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Anthropic: Claude Code GitHub Action v1.0 now generally available",
+      "url": "https://github.com/anthropics/claude-code-action/releases",
+      "source": "GitHub Releases (anthropics/claude-code-action)",
+      "published_at": "2026-04-02T00:00:00Z",
+      "why_it_matters": "Makes it easier to operationalize Claude Code in CI (PR automation, repo tasks) with a stable 1.0 release.",
+      "brief": "Claude Code GitHub Action hits v1.0 GA for CI-based agent workflows.",
+      "details": "Anthropic shipped a v1.0 release of the Claude Code GitHub Action, marking general availability. A GA milestone typically signals more stable interfaces and clearer operational expectations for teams wiring agentic coding into CI/CD. If you’re experimenting with PR review, refactors, or automated repo chores, Actions is the fastest path to productionizing those flows. Review the release notes for configuration and any breaking changes before upgrading.",
+      "is_update": false
+    }
+  ]
+}
