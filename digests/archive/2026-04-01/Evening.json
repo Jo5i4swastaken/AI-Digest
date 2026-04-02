@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-04-02T00:00:00-05:00",
+  "slot": "Evening",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "agent_tooling",
+      "title": "Anthropic confirms Claude Code internal source code was accidentally included in a release",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-01/anthropic-accidentally-releases-source-code-for-claude-ai-agent",
+      "source": "Bloomberg",
+      "published_at": "2026-04-01T00:00:00Z",
+      "why_it_matters": "Leaked agent tooling internals can accelerate competitors and raise security/process questions for teams shipping AI devtools.",
+      "brief": "Anthropic says a Claude Code release mistakenly shipped internal source code; it says no customer data/credentials were exposed.",
+      "details": "Multiple outlets report Anthropic acknowledged that a Claude Code release earlier today included internal source code. Anthropic stated that no sensitive customer data or credentials were involved or exposed. The incident appears tied to packaging/release processes around the Claude Code tool. For teams adopting AI coding agents, it’s a reminder to treat agent tooling as production software with rigorous release hygiene and supply-chain controls.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "NVIDIA posts MLPerf Inference v6.0 records; cites up to 2.7× gains from TensorRT-LLM updates",
+      "url": "https://developer.nvidia.com/blog/nvidia-extreme-co-design-delivers-new-mlperf-inference-records/",
+      "source": "NVIDIA Developer Blog",
+      "published_at": "2026-04-01T00:00:00Z",
+      "why_it_matters": "Inference efficiency improvements directly reduce cost/latency for LLM deployments and can shift best-practice stacks toward NVIDIA’s latest software.",
+      "brief": "NVIDIA claims new MLPerf Inference records and says TensorRT-LLM updates can deliver up to 2.7× higher performance on the same Blackwell Ultra GPUs.",
+      "details": "NVIDIA published a post highlighting its MLPerf Inference v6.0 submissions and positioning them as new performance records. The company attributes a large portion of gains to software, specifically TensorRT-LLM updates, claiming up to 2.7× performance improvements on the same Blackwell Ultra GPUs. This reinforces that inference wins are increasingly software-driven (kernels, scheduling, quantization, serving). If you run LLM inference at scale, it’s a prompt to re-benchmark after upgrading TensorRT-LLM rather than assuming hardware alone dictates throughput.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Google recap: Gemini updates and new tooling to reduce ‘outdated docs’ failures in coding agents",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026/",
+      "source": "Google Blog",
+      "published_at": null,
+      "why_it_matters": "Keeping agents synced with current API docs is a core reliability bottleneck; first-party ‘docs-to-agent’ plumbing can materially improve codegen accuracy.",
+      "brief": "Google highlights Gemini improvements and calls out Gemini API Docs MCP + Agent Skills aimed at keeping coding agents aligned with up-to-date documentation.",
+      "details": "Google’s official blog roundup includes a section on improving coding agents’ performance by addressing a common failure mode: generating code against outdated APIs. It points to Gemini API Docs MCP and Agent Skills as mechanisms to feed current documentation and structured capabilities into agent workflows. While the post is a recap format, the emphasis signals Google is productizing “docs freshness” as an agent reliability feature. For builders, this is a concrete pattern: treat documentation as a live tool/source, not static context in a prompt.",
+      "is_update": false
+    }
+  ]
+}

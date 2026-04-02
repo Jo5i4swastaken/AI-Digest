@@ -29,6 +29,20 @@
           "counts": {
             "total": 1
           }
+        },
+        {
+          "slot": "Evening",
+          "label": "Evening",
+          "path": "2026-04-01/Evening.json",
+          "generated_at": "2026-04-02T00:00:00-05:00",
+          "top": [
+            "Anthropic confirms Claude Code internal source code was accidentally included in a release",
+            "NVIDIA posts MLPerf Inference v6.0 records; cites up to 2.7× gains from TensorRT-LLM updates",
+            "Google recap: Gemini updates and new tooling to reduce ‘outdated docs’ failures in coding agents"
+          ],
+          "counts": {
+            "total": 3
+          }
         }
       ]
     },
