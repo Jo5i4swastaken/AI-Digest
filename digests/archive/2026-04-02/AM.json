@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-04-02T13:10:00-05:00",
+  "slot": "AM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "hardware",
+      "title": "NVIDIA invests $2B in Marvell; expands NVLink Fusion partnership",
+      "url": "https://www.tomshardware.com/tech-industry/nvidia-invests-2-billion-in-marvell-whose-biggest-clients-are-trying-to-replace-nvidia-chips",
+      "source": "Tom's Hardware",
+      "published_at": "2026-04-02T00:00:00Z",
+      "why_it_matters": "Signals NVIDIA’s strategy to keep its interconnect/platform central even as hyperscalers pursue custom AI silicon.",
+      "brief": "$2B strategic investment + deeper NVLink Fusion tie-up to make Marvell ASIC ecosystems more compatible with NVIDIA infrastructure.",
+      "details": "Tom’s Hardware reports NVIDIA disclosed a $2B investment in Marvell and a partnership expansion via NVLink Fusion. The thrust is interoperability/compatibility for customers building AI ASICs while still leveraging NVIDIA’s rack-scale platform and interconnect. This is a platform play: even if compute shifts to custom silicon, NVIDIA aims to remain the default fabric and systems layer. Watch for follow-on details on which Marvell customers and what specific NVLink Fusion integrations ship first.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "NVIDIA publishes Mission Control 3.0 architecture update for ‘AI factories’",
+      "url": "https://developer.nvidia.com/blog/accelerate-token-production-in-ai-factories-using-unified-services-and-real-time-ai/",
+      "source": "NVIDIA Developer Blog",
+      "published_at": "2026-04-02T00:00:00Z",
+      "why_it_matters": "Operational tooling (not just chips) is becoming a differentiator for deploying and running large-scale inference reliably.",
+      "brief": "Mission Control 3.0 moves to a layered, API-driven, modular services architecture aimed at faster, more agile AI-factory operations.",
+      "details": "NVIDIA’s developer blog outlines Mission Control 3.0, emphasizing a modular, service-oriented architecture with APIs for operating AI factories. The post frames the goal as accelerating token production by unifying services and enabling real-time AI operations. For teams running large GPU fleets, this points to more standardized operational primitives (deployment, monitoring, orchestration) packaged by NVIDIA. It also reinforces NVIDIA’s push up the stack into AI-ops and fleet management.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Anthropic scrambles after reported leak of Claude Code source",
+      "url": "https://www.bloomberg.com/news/articles/2026-04-01/anthropic-scrambles-to-address-leak-of-claude-code-source-code",
+      "source": "Bloomberg",
+      "published_at": "2026-04-01T00:00:00Z",
+      "why_it_matters": "Agent tooling is becoming core IP; leaks can accelerate competitor replication and raise security concerns for enterprise adoption.",
+      "brief": "Bloomberg reports Anthropic is responding to an inadvertent release of internal Claude Code source code.",
+      "details": "Bloomberg reports Anthropic is addressing an inadvertent leak of internal source code related to Claude Code. If accurate, it underscores how valuable agent runtimes, tool integrations, and orchestration logic have become as product moats. Enterprises evaluating coding agents will care about supply-chain and operational security around these tools. Note: this item is included as context, but the report’s date appears to be April 1 (yesterday) and should be treated cautiously for a ‘today-only’ digest.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Report: ChatGPT now available on Apple CarPlay",
+      "url": "https://indianexpress.com/article/technology/tech-news-technology/chatgpt-apple-carplay-ios-26-4-features-limitations-10615420/",
+      "source": "The Indian Express",
+      "published_at": "2026-04-02T00:00:00Z",
+      "why_it_matters": "Extends ChatGPT into in-car surfaces, increasing daily-use touchpoints and voice-first assistant competition.",
+      "brief": "The Indian Express says OpenAI announced ChatGPT support for Apple CarPlay, with noted limitations.",
+      "details": "The Indian Express reports that ChatGPT is now available on Apple CarPlay, positioning it as a voice-first assistant in the car. If broadly rolled out, this expands ChatGPT’s distribution into a high-frequency context where Siri and other assistants dominate. Practical impact will depend on what actions are permitted (messaging, navigation handoffs, etc.) and how Apple constrains third-party assistants. Look for confirmation in OpenAI release notes or Apple documentation for exact availability and regions.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Report: Greg Brockman teases new OpenAI model ‘Spud’",
+      "url": "https://www.livemint.com/technology/tech-news/what-is-openai-s-spud-greg-brockman-teases-new-chatgpt-model-build-on-years-of-research-11775105908398.html",
+      "source": "Mint (Livemint)",
+      "published_at": "2026-04-02T00:00:00Z",
+      "why_it_matters": "If real, it hints at the next base model line and potential shifts in capability/cost tradeoffs for ChatGPT and API users.",
+      "brief": "Livemint reports Brockman teased a new model nicknamed ‘Spud’ as a future foundation for ChatGPT iterations.",
+      "details": "Livemint reports OpenAI cofounder Greg Brockman teased a model referred to as ‘Spud,’ described as a foundational base model for future ChatGPT versions. There are no primary release notes linked in the report, so treat specifics as unconfirmed until OpenAI posts official documentation. Still, the signal is that OpenAI may be preparing a new base model family (or internal codename) that could change the default capability/cost curve. If you’re planning model migrations, watch for official API/model naming and deprecation timelines.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Google blog recaps March AI updates (Gemini context improvements, Gemini in Maps)",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-march-2026/",
+      "source": "Google Blog",
+      "published_at": "2026-04-02T00:00:00Z",
+      "why_it_matters": "Shows Google’s near-term product direction: Gemini embedded into core consumer apps with more context-aware assistance.",
+      "brief": "Google’s official blog summarizes recent Gemini upgrades, including deeper context handling and Gemini features in Google Maps.",
+      "details": "Google published an official roundup of AI announcements from March 2026, highlighting Gemini improvements around understanding user context and proactive assistance. The post also notes Gemini-related upgrades in Google Maps, signaling continued embedding of LLM features into flagship products. While not a brand-new model launch, these integrations matter because distribution often beats raw model deltas. For builders, it’s a reminder to track where Google is placing Gemini surfaces that may compete with third-party assistants.",
+      "is_update": false
+    }
+  ]
+}

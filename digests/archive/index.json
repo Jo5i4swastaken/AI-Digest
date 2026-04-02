@@ -2,6 +2,28 @@
   "timezone": "America/Chicago",
   "days": [
     {
+      "date": "2026-04-02",
+      "slots": [
+        {
+          "slot": "AM",
+          "label": "Morning",
+          "path": "2026-04-02/AM.json",
+          "generated_at": "2026-04-02T13:10:00-05:00",
+          "top": [
+            "NVIDIA invests $2B in Marvell; expands NVLink Fusion partnership",
+            "NVIDIA publishes Mission Control 3.0 architecture update for ‘AI factories’",
+            "Anthropic scrambles after reported leak of Claude Code source",
+            "Report: ChatGPT now available on Apple CarPlay",
+            "Report: Greg Brockman teases new OpenAI model ‘Spud’",
+            "Google blog recaps March AI updates (Gemini context improvements, Gemini in Maps)"
+          ],
+          "counts": {
+            "total": 6
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-04-01",
       "slots": [
         {
