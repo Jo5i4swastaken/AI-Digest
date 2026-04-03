@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-04-03T13:00:00-05:00",
+  "slot": "AM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "open_source",
+      "title": "Google DeepMind launches Gemma 4 open models (agentic + reasoning focus)",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/",
+      "source": "Google Blog",
+      "published_at": "2026-04-03T00:00:00Z",
+      "why_it_matters": "A major new open-model drop from Google shifts the baseline for on-device/edge agentic workflows.",
+      "brief": "Gemma 4 arrives as Google’s most capable open model family yet, positioned for reasoning + agentic use cases.",
+      "details": "Google announced Gemma 4 as its newest open model family, emphasizing stronger reasoning and support for agentic workflows. The launch is positioned as a step up from prior Gemma releases and targeted at developers who want high capability without relying solely on hosted APIs. Expect rapid downstream adoption via fine-tunes, quantizations, and integrations across popular inference stacks. If you build local/edge agents, this is a new default to benchmark against.",
+      "is_update": false
+    },
+    {
+      "category": "open_source",
+      "title": "Developer-focused launch post: “Bring state-of-the-art agentic skills to the edge with Gemma 4”",
+      "url": "https://developers.googleblog.com/bring-state-of-the-art-agentic-skills-to-the-edge-with-gemma-4/",
+      "source": "Google Developers Blog",
+      "published_at": "2026-04-03T00:00:00Z",
+      "why_it_matters": "More implementation detail (positioning, deployment targets) helps teams decide whether to pilot Gemma 4 now.",
+      "brief": "Google’s developer blog frames Gemma 4 as an edge-friendly open model for agentic apps.",
+      "details": "Google’s Developers Blog published a companion post describing Gemma 4 as a family of open models aimed at bringing agentic capabilities to your own hardware. The framing suggests an emphasis on practical deployment and developer workflows rather than purely academic benchmarks. This is the post to share internally if you need justification for a quick evaluation sprint. Pair it with your existing tool-calling / orchestration stack to test end-to-end agent reliability.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "ChatGPT comes to Apple CarPlay (voice-first experience)",
+      "url": "https://www.aol.com/articles/openai-launches-chatgpt-voice-carplay-202417706.html",
+      "source": "AOL (reporting on OpenAI announcement)",
+      "published_at": "2026-04-03T00:00:00Z",
+      "why_it_matters": "Puts ChatGPT into a high-frequency surface (cars), expanding voice usage and safety/UX expectations for assistants.",
+      "brief": "OpenAI is rolling out a voice-first ChatGPT experience in Apple CarPlay.",
+      "details": "Reporting indicates OpenAI announced a voice-first ChatGPT experience for Apple CarPlay. This extends ChatGPT into the car dashboard context where hands-free interaction is critical and latency/accuracy matter more. It also raises the bar for competing assistants on in-car platforms and could accelerate “assistant as co-pilot” workflows for commuting. If you build voice agents, watch for UX patterns and constraints CarPlay imposes.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Anthropic says Claude Code leak did not expose customer data",
+      "url": "https://www.pymnts.com/cybersecurity/2026/anthropic-says-claude-code-leak-did-not-expose-customer-data/",
+      "source": "PYMNTS",
+      "published_at": "2026-04-03T00:00:00Z",
+      "why_it_matters": "Claude Code is a key agentic dev tool; security posture and supply-chain hygiene matter for adoption.",
+      "brief": "Anthropic says an internal-source-code inclusion in a Claude Code release didn’t expose customer data/credentials.",
+      "details": "PYMNTS reports Anthropic stated that a Claude Code release inadvertently included some internal source code. The company says no sensitive customer data or credentials were involved or exposed. For teams evaluating Claude Code, this is a reminder to treat agent tooling like any other dependency: pin versions, review release notes, and monitor advisories. If you already deployed it, confirm your installed version and follow any remediation guidance from Anthropic.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Fact-check coverage: Claude Code leak was not an April Fools’ prank",
+      "url": "https://tech.yahoo.com/ai/claude/articles/fact-check-leak-anthropics-claude-024353356.html",
+      "source": "Yahoo Tech",
+      "published_at": "2026-04-03T00:00:00Z",
+      "why_it_matters": "Clarifies the incident’s reality amid social chatter; reduces confusion for security/compliance teams.",
+      "brief": "Yahoo Tech says the Claude Code source leak was real (not a prank), summarizing what’s known.",
+      "details": "Yahoo Tech published a fact-check piece addressing claims that the Claude Code source leak was an April Fools’ joke. The article frames the event as a real incident and recaps the public narrative around what was exposed. This matters because misinformation can slow internal approvals for new agent tooling. Use this as a quick reference for stakeholders who saw conflicting posts on social media.",
+      "is_update": false
+    },
+    {
+      "category": "open_source",
+      "title": "SkillZero (SKILL0) repo: in-context reinforcement learning for skill internalization",
+      "url": "https://github.com/ZJU-REAL/SkillZero",
+      "source": "GitHub (ZJU-REAL)",
+      "published_at": null,
+      "why_it_matters": "Potentially useful technique for making agents reliably acquire and reuse skills with less finetuning.",
+      "brief": "New-ish research code drop: SKILL0/SkillZero for in-context RL aimed at “skill internalization.”",
+      "details": "The ZJU-REAL/SkillZero repository presents code for “SKILL0,” described as an in-context reinforcement learning framework for skill internalization. If validated, this line of work could improve how agents pick up reusable behaviors from limited context rather than repeated prompt engineering. However, the GitHub page in search results doesn’t clearly show a “published today” timestamp, so treat this as tentative until you confirm the repo’s release/commit date. If it is fresh, it’s worth a quick skim for reproducible training/eval scripts.",
+      "is_update": false
+    }
+  ]
+}

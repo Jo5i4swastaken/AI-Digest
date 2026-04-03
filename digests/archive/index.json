@@ -2,6 +2,28 @@
   "timezone": "America/Chicago",
   "days": [
     {
+      "date": "2026-04-03",
+      "slots": [
+        {
+          "slot": "AM",
+          "label": "Morning",
+          "path": "2026-04-03/AM.json",
+          "generated_at": "2026-04-03T13:00:00-05:00",
+          "top": [
+            "Google DeepMind launches Gemma 4 open models (agentic + reasoning focus)",
+            "Developer-focused launch post: “Bring state-of-the-art agentic skills to the edge with Gemma 4”",
+            "ChatGPT comes to Apple CarPlay (voice-first experience)",
+            "Anthropic says Claude Code leak did not expose customer data",
+            "Fact-check coverage: Claude Code leak was not an April Fools’ prank",
+            "SkillZero (SKILL0) repo: in-context reinforcement learning for skill internalization"
+          ],
+          "counts": {
+            "total": 6
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-04-02",
       "slots": [
         {
