@@ -34,6 +34,23 @@
           "counts": {
             "total": 3
           }
+        },
+        {
+          "slot": "Evening",
+          "label": "Evening",
+          "path": "2026-04-02/Evening.json",
+          "generated_at": "2026-04-03T23:30:00-05:00",
+          "top": [
+            "ChatGPT release notes updated (GPT-5.3 Instant follow-up tone + less teaser phrasing)",
+            "Anthropic says Claude Code release accidentally included internal source code; claims no customer data exposed",
+            "Report: critical vulnerability found in Claude Code days after source leak",
+            "NVIDIA blog: single-digit microsecond latency inference for capital markets using GH200",
+            "Nextplatform: NVIDIA software pushes MLPerf Inference results higher",
+            "HKUDS/OpenSpace: ‘Make Your Agents Smarter, Low-Cost, Self-…’ (new repo trending)"
+          ],
+          "counts": {
+            "total": 6
+          }
         }
       ]
     },

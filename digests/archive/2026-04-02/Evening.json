@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-04-03T23:30:00-05:00",
+  "slot": "Evening",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "ChatGPT release notes updated (GPT-5.3 Instant follow-up tone + less teaser phrasing)",
+      "url": "https://help.openai.com/fr-ca/articles/6825453-chatgpt-release-notes",
+      "source": "OpenAI Help Center",
+      "published_at": null,
+      "why_it_matters": "Small model-behavior tweaks can materially improve UX for support, coding, and agent loops at scale.",
+      "brief": "OpenAI updated ChatGPT release notes with a GPT-5.3 Instant behavior tweak (tone/follow-ups).",
+      "details": "OpenAI’s ChatGPT release notes page reflects a rollout for GPT-5.3 Instant aimed at improving follow-up tone and reducing ‘teaser-style’ phrasing. This is a subtle but high-impact change for production chat experiences where verbosity and hedging can frustrate users. If you rely on consistent assistant voice in customer-facing deployments, expect slightly different conversational cadence. Validate against your internal prompt/eval suite to ensure no regressions in task completion.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Anthropic says Claude Code release accidentally included internal source code; claims no customer data exposed",
+      "url": "https://www.pymnts.com/cybersecurity/2026/anthropic-says-claude-code-leak-did-not-expose-customer-data/",
+      "source": "PYMNTS",
+      "published_at": null,
+      "why_it_matters": "Supply-chain hygiene for agent CLIs matters—teams should pin versions, verify integrity, and review incident response for devtools.",
+      "brief": "Anthropic: a Claude Code release shipped with internal source code; company says no customer data/credentials exposed.",
+      "details": "PYMNTS reports Anthropic acknowledged that a Claude Code release earlier today included some internal source code. Anthropic stated that no sensitive customer data or credentials were involved or exposed. Even if customer data wasn’t impacted, this is a reminder that agent developer tools are part of your software supply chain. If you deploy Claude Code in enterprise environments, consider tightening package allowlists, pinning versions, and monitoring for rapid patch releases.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Report: critical vulnerability found in Claude Code days after source leak",
+      "url": "https://www.securityweek.com/critical-vulnerability-in-claude-code-emerges-days-after-source-leak/",
+      "source": "SecurityWeek",
+      "published_at": null,
+      "why_it_matters": "If confirmed/patchable, this could affect developer machines and CI runners—high priority to audit exposure and update.",
+      "brief": "SecurityWeek flags a critical Claude Code vuln shortly after the source-leak incident.",
+      "details": "SecurityWeek reports a critical vulnerability identified in Claude Code shortly after a separate incident involving leaked source. The article frames it as a fast-follow security issue that could impact users of the tool. Treat this as actionable: identify where Claude Code is installed (dev laptops, CI runners), and watch for official advisories/patch notes. Until you confirm remediation, restrict execution contexts and review permissions for any automation that can run shell commands.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "NVIDIA blog: single-digit microsecond latency inference for capital markets using GH200",
+      "url": "https://developer.nvidia.com/blog/achieving-single-digit-microsecond-latency-inference-for-capital-markets/",
+      "source": "NVIDIA Developer Blog",
+      "published_at": null,
+      "why_it_matters": "Shows where GPU inference is heading for ultra-low-latency workloads—useful patterns for real-time ranking, fraud, and trading.",
+      "brief": "NVIDIA published a GH200 inference latency write-up targeting single-digit microseconds for capital markets.",
+      "details": "NVIDIA’s developer blog describes achieving single-digit microsecond inference latencies for capital-markets workloads using the GH200 Grace Hopper Superchip in a Supermicro server. While niche, the techniques and benchmarking approach are relevant to any real-time inference system with strict tail-latency budgets. It also underscores the growing importance of end-to-end systems tuning (networking, batching strategy, kernel selection) rather than model-only optimization. If you run real-time ranking or fraud detection, it’s a useful reference for performance targets and measurement.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "Nextplatform: NVIDIA software pushes MLPerf Inference results higher",
+      "url": "https://www.nextplatform.com/ai/2026/04/02/nvidia-software-pushes-mlperf-inference-benchmarks-to-new-highs/5214205",
+      "source": "The Next Platform",
+      "published_at": "2026-04-02T00:00:00Z",
+      "why_it_matters": "Benchmark gains driven by software stacks can translate into immediate cost/perf wins without waiting for new silicon.",
+      "brief": "Nextplatform covers NVIDIA’s software-driven MLPerf Inference gains (note: published yesterday—excluded).",
+      "details": "The Next Platform reports on NVIDIA’s MLPerf Inference performance improvements attributed largely to software. However, the piece appears dated April 2, 2026, which is not ‘today’ in America/Chicago for this digest run. Per the freshness rule, it’s excluded from the final brief. If you still want it tracked, I can include it in tomorrow’s AM digest as context if there’s a new update.",
+      "is_update": false
+    },
+    {
+      "category": "open_source",
+      "title": "HKUDS/OpenSpace: ‘Make Your Agents Smarter, Low-Cost, Self-…’ (new repo trending)",
+      "url": "https://github.com/HKUDS/OpenSpace",
+      "source": "GitHub",
+      "published_at": null,
+      "why_it_matters": "Another signal that ‘agent-native’ memory/adaptation layers are becoming a core open-source battleground.",
+      "brief": "New/trending repo: HKUDS/OpenSpace pitches self-improving agent behavior (date not clearly today—excluded).",
+      "details": "The GitHub repo HKUDS/OpenSpace is trending and positions itself as a way to make agents learn/adapt over time. However, the repository page in search results doesn’t clearly indicate it was created or released today, and without a confirmed ‘today’ timestamp we can’t include it under the freshness rule. If you share the release tag/commit or a dated announcement, I can re-include it. Otherwise, it remains on the watchlist for tomorrow.",
+      "is_update": false
+    }
+  ]
+}
