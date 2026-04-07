@@ -2,7 +2,11 @@ name: AI Digest
 
 on:
   schedule:
-    - cron: "1 * * * *"
+    # Run at the 3 digest times in America/Chicago, covering both CDT and CST:
+    #   8 AM CDT=13 UTC / CST=14 UTC
+    #   2 PM CDT=19 UTC / CST=20 UTC
+    #   8 PM CDT=01 UTC / CST=02 UTC
+    - cron: "0 1,2,13,14,19,20 * * *"
   workflow_dispatch:
     inputs:
       slot:
@@ -48,13 +52,14 @@ jobs:
           OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           TIMEZONE: ${{ secrets.TIMEZONE }}
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
         run: |
           missing=0
-          for k in OPENAI_BASE_URL OPENAI_API_KEY SERPAPI_API_KEY; do
+          for k in OPENAI_BASE_URL OPENAI_API_KEY; do
             if [ -z "${!k}" ]; then
               echo "Missing required GitHub secret/env: $k"
               missing=1
@@ -62,6 +67,12 @@ jobs:
           done
           if [ "$missing" = "1" ]; then
             echo "Set these in GitHub -> Settings -> Secrets and variables -> Actions"
+            exit 1
+          fi
+
+          # At least one search provider is required
+          if [ -z "${SERPAPI_API_KEY}" ] && [ -z "${TAVILY_API_KEY}" ]; then
+            echo "At least one of SERPAPI_API_KEY or TAVILY_API_KEY must be set"
             exit 1
           fi
 

@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   experimental: {
     typedRoutes: true,
   },
+  outputFileTracingIncludes: {
+    "app/api/digests/**": ["../digests/archive/**"],
+  },
 };
 
 export default nextConfig;

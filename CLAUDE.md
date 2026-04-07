@@ -45,13 +45,13 @@ npm run lint    # ESLint
 ### Two OmniAgents agents
 
 - **Root agent** (`agent.yml`, `tools/utils.py`): Starter-kit demo with `get_current_time`, `calculate`, `flip_coin`, `roll_dice`.
-- **Digest agent** (`ai_digest_agent/agent.yml`, `ai_digest_agent/tools/digest_tools.py`): Searches web/YouTube for AI news via SerpAPI, deduplicates against `ai_digest_agent/data/state.json`, writes JSON digests, renders HTML emails, and sends via Gmail SMTP.
+- **Digest agent** (`ai_digest_agent/agent.yml`, `ai_digest_agent/tools/digest_tools.py`): Searches web/YouTube for AI news via SerpAPI (with Tavily fallback), deduplicates against `ai_digest_agent/data/state.json`, writes JSON digests, renders HTML emails, and sends via Gmail SMTP.
 
-Custom tools use `@function_tool` from `omniagents` (not from `agents`). Tools are auto-discovered from `tools/` directories.
+Custom tools use `@function_tool` from `omniagents` (not from `agents`). Tools are auto-discovered from `tools/` directories. Custom tools with the same name as built-in tools override them (e.g., custom `web_search`/`youtube_search` replace the built-in SerpAPI-only versions with SerpAPI→Tavily fallback variants).
 
 ### Digest pipeline
 
-`run_if_due.py` (called hourly by GitHub Actions) checks the schedule (8h=AM, 14h=PM, 20h=Evening) against the configured timezone, skips if `digests/archive/YYYY-MM-DD/<slot>.json` already exists, then delegates to `run_scheduled.py`.
+`run_if_due.py` (called by GitHub Actions at scheduled times) checks the schedule (8h=AM, 14h=PM, 20h=Evening) against the configured timezone, skips if `digests/archive/YYYY-MM-DD/<slot>.json` already exists, then delegates to `run_scheduled.py`.
 
 `run_scheduled.py` starts the agent in server mode on a random port, connects via WebSocket (JSON-RPC 2.0), sends a prompt, auto-approves tool calls, and waits for `run_end`. The agent writes:
 - `ai_digest_agent/output/latest.json` + `latest.html` (local)
@@ -64,7 +64,7 @@ Next.js 15 + React 19 + Tailwind CSS 4 app in `dashboard/`. Reads digest JSON fr
 
 ### GitHub Actions
 
-`.github/workflows/ai-digest.yml` runs on cron (`1 * * * *` — first minute of each hour) and supports manual dispatch with slot/email inputs. Commits digest JSON files to `main` via `github-actions[bot]`. Required secrets: `OPENAI_BASE_URL`, `OPENAI_API_KEY`, `SERPAPI_API_KEY`, `GMAIL_ADDRESS`, `GMAIL_APP_PASSWORD`, `EMAIL_TO`, `TIMEZONE`.
+`.github/workflows/ai-digest.yml` runs on cron at 6 specific UTC hours covering CDT/CST DST variants for the 3 digest times (8 AM, 2 PM, 8 PM America/Chicago). Supports manual dispatch with slot/email inputs. Commits digest JSON files to `main` via `github-actions[bot]`. Required secrets: `OPENAI_BASE_URL`, `OPENAI_API_KEY`, at least one of `SERPAPI_API_KEY` or `TAVILY_API_KEY`, plus `GMAIL_ADDRESS`, `GMAIL_APP_PASSWORD`, `EMAIL_TO`, `TIMEZONE`.
 
 ### OmniAgents framework
 

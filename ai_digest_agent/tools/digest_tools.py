@@ -12,6 +12,8 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 from zoneinfo import ZoneInfo
 
+import requests as _requests
+
 from omniagents import function_tool
 
 
@@ -52,6 +54,213 @@ def _date_key() -> str:
     local = datetime.now(tz)
     return local.date().isoformat()
 
+
+# ---------------------------------------------------------------------------
+# Search helpers: SerpAPI primary, Tavily fallback
+# ---------------------------------------------------------------------------
+
+def _serpapi_request(params: Dict[str, Any]) -> tuple:
+    """Make a SerpAPI HTTP request. Returns (data_dict, None) or (None, error_str)."""
+    api_key = os.environ.get("SERPAPI_API_KEY")
+    if not api_key:
+        return None, "SERPAPI_API_KEY not set"
+    params["api_key"] = api_key
+    try:
+        resp = _requests.get("https://serpapi.com/search", params=params, timeout=30)
+        if resp.status_code != 200:
+            return None, f"SerpAPI HTTP {resp.status_code}"
+        return resp.json(), None
+    except Exception as exc:
+        return None, str(exc)
+
+
+def _tavily_request(query: str, max_results: int = 10) -> tuple:
+    """Tavily search fallback. Returns (data_dict, None) or (None, error_str)."""
+    api_key = os.environ.get("TAVILY_API_KEY")
+    if not api_key:
+        return None, "TAVILY_API_KEY not set"
+    try:
+        resp = _requests.post(
+            "https://api.tavily.com/search",
+            json={
+                "api_key": api_key,
+                "query": query,
+                "max_results": max_results,
+                "search_depth": "basic",
+            },
+            timeout=30,
+        )
+        if resp.status_code != 200:
+            return None, f"Tavily HTTP {resp.status_code}"
+        return resp.json(), None
+    except Exception as exc:
+        return None, str(exc)
+
+
+@function_tool
+def web_search(
+    query: str,
+    num_results: Optional[int] = None,
+    include_news: Optional[bool] = None,
+    time_period: Optional[str] = None,
+) -> str:
+    """Search the web using Google via SerpAPI with automatic Tavily fallback.
+
+    Args:
+        query: Search query string.
+        num_results: Number of results to return (max 100). Recommend 10 for most queries.
+        include_news: Whether to include news results (true or false).
+        time_period: Time filter: null, "past_day", "past_week", "past_month", or "past_year".
+
+    Returns:
+        JSON string with search results.
+    """
+    n = min(num_results or 10, 100)
+    news = include_news or False
+
+    # --- SerpAPI attempt ---
+    params: Dict[str, Any] = {"q": query, "num": n, "safe": "active", "gl": "us", "hl": "en"}
+    if time_period:
+        time_map = {"past_day": "d", "past_week": "w", "past_month": "m", "past_year": "y"}
+        if time_period in time_map:
+            params["tbs"] = f"qdr:{time_map[time_period]}"
+
+    data, serp_err = _serpapi_request(params)
+    if data:
+        result: Dict[str, Any] = {"status": "success", "query": query, "source": "serpapi", "organic_results": []}
+        for item in (data.get("organic_results") or [])[:n]:
+            result["organic_results"].append({
+                "title": item.get("title", ""),
+                "link": item.get("link", ""),
+                "snippet": item.get("snippet", ""),
+                "position": item.get("position", 0),
+                "displayed_link": item.get("displayed_link", ""),
+            })
+        if "answer_box" in data:
+            result["answer_box"] = data["answer_box"]
+        if "knowledge_graph" in data:
+            result["knowledge_graph"] = data["knowledge_graph"]
+        if news and "news_results" in data:
+            result["news"] = data["news_results"][:n]
+        return json.dumps(result, ensure_ascii=False)[:5000]
+
+    # --- Tavily fallback ---
+    tavily_data, tavily_err = _tavily_request(query, max_results=n)
+    if tavily_data:
+        result = {"status": "success", "query": query, "source": "tavily_fallback", "organic_results": []}
+        for i, item in enumerate((tavily_data.get("results") or [])[:n], 1):
+            result["organic_results"].append({
+                "title": item.get("title", ""),
+                "link": item.get("url", ""),
+                "snippet": (item.get("content") or "")[:300],
+                "position": i,
+                "displayed_link": item.get("url", ""),
+            })
+        return json.dumps(result, ensure_ascii=False)[:5000]
+
+    return json.dumps({"status": "error", "query": query, "error": f"SerpAPI: {serp_err}; Tavily: {tavily_err}"})
+
+
+@function_tool
+def youtube_search(
+    query: str,
+    num_results: Optional[int] = None,
+    sort_by: Optional[str] = None,
+    upload_date: Optional[str] = None,
+    duration: Optional[str] = None,
+) -> str:
+    """Search YouTube for videos. Uses SerpAPI with automatic Tavily fallback.
+
+    Args:
+        query: Search query string.
+        num_results: Number of results to return (max 100).
+        sort_by: Sort order: "relevance", "upload_date", "view_count", "rating".
+        upload_date: Filter by: "last_hour", "today", "this_week", "this_month", "this_year".
+        duration: Filter by: "short" (<4min), "medium" (4-20min), "long" (>20min).
+
+    Returns:
+        JSON string with YouTube search results.
+    """
+    n = min(num_results or 10, 100)
+
+    # --- SerpAPI YouTube engine ---
+    params: Dict[str, Any] = {
+        "search_query": query,
+        "engine": "youtube",
+        "num": n,
+        "gl": "us",
+        "hl": "en",
+        "safe": "active",
+    }
+
+    sort_params = {"upload_date": "CAI%253D", "view_count": "CAM%253D", "rating": "CAE%253D"}
+    sp_parts: List[str] = []
+    if sort_by and sort_by in sort_params:
+        sp_parts.append(sort_params[sort_by])
+
+    date_filters = {
+        "last_hour": "EgIIAQ%253D%253D",
+        "today": "EgQIAhAB",
+        "this_week": "EgQIAxAB",
+        "this_month": "EgQIBBAB",
+        "this_year": "EgQIBRAB",
+    }
+    if upload_date and upload_date in date_filters:
+        sp_parts.append(date_filters[upload_date])
+
+    duration_filters = {"short": "EgQQARgB", "medium": "EgQQARgC", "long": "EgQQARgD"}
+    if duration and duration in duration_filters:
+        sp_parts.append(duration_filters[duration])
+
+    if sp_parts:
+        params["sp"] = ",".join(sp_parts)
+
+    data, serp_err = _serpapi_request(params)
+    if data:
+        result: Dict[str, Any] = {"status": "success", "query": query, "source": "serpapi", "videos": []}
+        for item in (data.get("video_results") or [])[:n]:
+            video: Dict[str, Any] = {
+                "title": item.get("title", ""),
+                "link": item.get("link", ""),
+                "channel": {
+                    "name": (item.get("channel") or {}).get("name", ""),
+                    "link": (item.get("channel") or {}).get("link", ""),
+                },
+                "published_date": item.get("published_date", ""),
+                "views": item.get("views", ""),
+                "duration": item.get("duration_text", ""),
+                "description": item.get("description", ""),
+            }
+            if "link" in item and "v=" in str(item["link"]):
+                video["video_id"] = str(item["link"]).split("v=")[1].split("&")[0]
+            result["videos"].append(video)
+        return json.dumps(result, ensure_ascii=False)[:5000]
+
+    # --- Tavily fallback: search YouTube via web ---
+    yt_query = f"site:youtube.com {query}"
+    tavily_data, tavily_err = _tavily_request(yt_query, max_results=n)
+    if tavily_data:
+        result = {"status": "success", "query": query, "source": "tavily_fallback", "videos": []}
+        for item in (tavily_data.get("results") or [])[:n]:
+            url = item.get("url", "")
+            video = {
+                "title": item.get("title", ""),
+                "link": url,
+                "channel": {"name": "", "link": ""},
+                "published_date": item.get("published_date", ""),
+                "views": "",
+                "duration": "",
+                "description": (item.get("content") or "")[:300],
+            }
+            if "v=" in url:
+                video["video_id"] = url.split("v=")[1].split("&")[0]
+            result["videos"].append(video)
+        return json.dumps(result, ensure_ascii=False)[:5000]
+
+    return json.dumps({"status": "error", "query": query, "error": f"SerpAPI: {serp_err}; Tavily: {tavily_err}"})
+
+
+# ---------------------------------------------------------------------------
 
 @dataclass
 class DigestState:
