@@ -13,6 +13,16 @@
           "counts": {
             "total": 0
           }
+        },
+        {
+          "slot": "PM",
+          "label": "Afternoon",
+          "path": "2026-04-07/PM.json",
+          "generated_at": "2026-04-07T00:00:00-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
         }
       ]
     },
