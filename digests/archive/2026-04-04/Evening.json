@@ -1,6 +1,51 @@
 {
-  "generated_at": "2026-04-05T00:00:00-05:00",
+  "generated_at": "2026-04-04T20:00:00-05:00",
   "slot": "Evening",
   "timezone": "America/Chicago",
-  "items": []
+  "items": [
+    {
+      "category": "product",
+      "title": "Associated Press offering buyouts to 120+ journalists amid AI transformation",
+      "url": "https://fortune.com/2026/04/06/associated-press-starts-offering-buyouts-to-newspaper-journalists-amid-wider-ai-transformation/",
+      "source": "Fortune",
+      "published_at": "2026-04-04T00:00:00Z",
+      "why_it_matters": "Major news wire service restructuring around AI signals an inflection point for media industry transformation.",
+      "brief": "The AP is offering buyouts to 120+ U.S. journalists, pivoting toward visual journalism and AI-driven revenue sources.",
+      "details": "The Associated Press announced buyout offers to more than 120 U.S.-based staff members. The news organization is restructuring around visual journalism and developing new revenue streams, particularly from companies investing in AI. This is one of the most significant AI-driven workforce changes in journalism — the wire service that feeds thousands of outlets is explicitly reorganizing around AI capabilities.",
+      "is_update": false
+    },
+    {
+      "category": "open_source",
+      "title": "ByteDance releases DeerFlow 2.0 — open-source superagent for research, coding, and creative tasks",
+      "url": "https://aitoolly.com/ai-news/article/2026-03-25-bytedance-releases-deerflow-20-an-open-source-superagent-for-research-coding-and-creative-tasks",
+      "source": "AIToolly",
+      "published_at": "2026-04-04T00:00:00Z",
+      "why_it_matters": "Another major tech company open-sourcing agent frameworks increases competition and developer choice.",
+      "brief": "ByteDance open-sourced DeerFlow 2.0, a superagent framework handling research, coding, and creative workflows in a single system.",
+      "details": "ByteDance released DeerFlow 2.0, an open-source superagent framework that combines research, coding, and creative task capabilities. This is ByteDance's bid to compete in the agent framework space alongside Microsoft's Agent Governance Toolkit and LangChain. The multi-modal approach (research + code + creative) differentiates it from single-purpose agent tools.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "Bloomberg: 'Vibe Coding' is the AI trend fueling a new kind of developer FOMO",
+      "url": "https://www.bloomberg.com/news/newsletters/2026-04-05/what-is-vibe-coding-the-ai-trend-fueling-a-new-kind-of-fomo",
+      "source": "Bloomberg",
+      "published_at": "2026-04-04T00:00:00Z",
+      "why_it_matters": "Mainstream business press coverage means AI-assisted coding has crossed from dev niche to C-suite awareness.",
+      "brief": "Bloomberg covers the 'vibe coding' trend — developers describing intent in English while AI writes the code — and the FOMO it's creating.",
+      "details": "Bloomberg published a newsletter on vibe coding as a cultural phenomenon, not just a technical practice. The piece frames it as creating a new kind of FOMO among developers who worry about falling behind if they don't adopt AI coding tools. The mainstream business press coverage signals this has crossed from developer circles into executive awareness, which could accelerate enterprise adoption budgets.",
+      "is_update": false
+    },
+    {
+      "category": "funding",
+      "title": "Goldman Sachs: AI-led demand to drive sharp surge in semiconductor revenues",
+      "url": "https://www.aninews.in/news/business/ai-led-demand-to-drive-sharp-surge-in-semiconductor-revenues-goldman-sachs20260405145721/",
+      "source": "ANI News",
+      "published_at": "2026-04-04T00:00:00Z",
+      "why_it_matters": "Goldman's analysis reinforces that AI infrastructure spending is accelerating, not peaking.",
+      "brief": "Goldman Sachs projects a sharp surge in semiconductor revenues driven by AI demand, countering 'peak AI spending' narratives.",
+      "details": "Goldman Sachs released analysis projecting continued sharp growth in semiconductor revenues driven by AI workloads. The report pushes back against narratives that AI infrastructure spending is peaking, pointing to inference demand growth as the next wave after training buildout. This is relevant for anyone making infrastructure or cloud budget decisions — the analyst consensus says spend more, not less.",
+      "is_update": false
+    }
+  ]
 }

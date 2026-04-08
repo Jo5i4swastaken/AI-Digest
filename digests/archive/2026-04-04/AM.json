@@ -1,6 +1,51 @@
 {
-  "generated_at": "2026-04-04T00:00:00-05:00",
+  "generated_at": "2026-04-04T08:00:00-05:00",
   "slot": "AM",
   "timezone": "America/Chicago",
-  "items": []
+  "items": [
+    {
+      "category": "agent_tooling",
+      "title": "Claude Code adds /powerup interactive lessons and per-model cost breakdown",
+      "url": "https://github.com/anthropics/claude-code/releases",
+      "source": "GitHub (Anthropic)",
+      "published_at": "2026-04-04T00:00:00Z",
+      "why_it_matters": "Better cost visibility and onboarding tools make Claude Code more accessible for new users and budget-conscious teams.",
+      "brief": "Claude Code's latest release adds /powerup (animated feature lessons), per-model + cache-hit cost breakdown, and 60% faster large-file writes.",
+      "details": "Anthropic released a Claude Code update adding /powerup — interactive lessons that teach features with animated demos. The update also introduces per-model and cache-hit breakdown to /cost for subscription users, and improves Write tool performance by 60% for large files. The Linux sandbox now ships the apply-seccomp helper in both npm and native builds. These are quality-of-life improvements that reduce friction for daily use.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Bluesky unveils Attie — a Claude-powered AI assistant for custom social feeds",
+      "url": "https://www.ubergizmo.com/2026/03/bluesky-debuts-attie/",
+      "source": "Ubergizmo",
+      "published_at": "2026-04-04T00:00:00Z",
+      "why_it_matters": "First major social platform to let users design algorithms via natural language — could reshape how feeds work.",
+      "brief": "Bluesky launched Attie, an AI assistant built on Anthropic's Claude and the AT Protocol, letting users create custom feeds using natural language.",
+      "details": "Bluesky unveiled Attie, a standalone AI assistant powered by Anthropic's Claude. Built on the AT Protocol, Attie lets users design custom social feeds using natural language without coding. Plans include expansion into app-building and monetization via subscriptions and hosting. This is notable because it brings Claude into a consumer-facing product that directly competes with X's Grok integration.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "Vibe Coding in 2026: how AI is changing the way developers write code",
+      "url": "https://daily.dev/blog/vibe-coding-how-ai-changing-developers-code",
+      "source": "daily.dev",
+      "published_at": "2026-04-04T00:00:00Z",
+      "why_it_matters": "Describes the shift from writing code to guiding AI — a workflow pattern every developer should understand.",
+      "brief": "daily.dev published a deep-dive on 'vibe coding' — the practice of describing what you want in English and letting AI generate functional code.",
+      "details": "The article covers how vibe coding is reshaping development in 2026. Instead of manually writing every line, developers describe intent in plain English and AI generates working code. The piece covers practical patterns, common pitfalls, and when to override the AI. This is directly relevant to anyone using Claude Code, Copilot, or similar tools — it's less about the tool and more about the workflow shift.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "Huawei ships 950PR AI inference chip — ByteDance and Alibaba placing large orders",
+      "url": "https://blog.mean.ceo/new-ai-model-releases-news-april-2026/",
+      "source": "Mean CEO Blog",
+      "published_at": "2026-04-04T00:00:00Z",
+      "why_it_matters": "China's AI chip ecosystem is maturing rapidly — could reshape the inference hardware market outside U.S. export controls.",
+      "brief": "Huawei rolled out its 950PR AI chip optimized for inference, with major Chinese tech companies already placing large orders.",
+      "details": "Huawei launched the 950PR AI chip designed to excel at inference workloads. ByteDance and Alibaba are reportedly placing large orders, signaling that China's domestic AI chip ecosystem is becoming production-ready. This matters for the broader AI landscape because it reduces China's dependence on NVIDIA/AMD hardware and could fragment the global inference stack.",
+      "is_update": false
+    }
+  ]
 }

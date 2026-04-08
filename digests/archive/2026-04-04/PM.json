@@ -1,6 +1,51 @@
 {
-  "generated_at": "2026-04-04T00:00:00-05:00",
+  "generated_at": "2026-04-04T14:00:00-05:00",
   "slot": "PM",
   "timezone": "America/Chicago",
-  "items": []
+  "items": [
+    {
+      "category": "product",
+      "title": "OpenAI's vision for the AI economy: public wealth funds, robot taxes, four-day workweek",
+      "url": "https://techcrunch.com/2026/04/06/openais-vision-for-the-ai-economy-public-wealth-funds-robot-taxes-and-a-four-day-work-week/",
+      "source": "TechCrunch",
+      "published_at": "2026-04-04T00:00:00Z",
+      "why_it_matters": "OpenAI is now shaping policy, not just products — their economic proposals could influence regulation and labor markets.",
+      "brief": "OpenAI published 'Industrial Policy for the Intelligence Age' proposing public wealth funds, expanded safety nets, and a four-day workweek.",
+      "details": "OpenAI released a policy document outlining how wealth and work could be reshaped in the 'intelligence age.' Proposals include public wealth funds, robot/automation taxes, expanded social safety nets, and a four-day workweek. This is significant because OpenAI is actively positioning itself as a policy player, not just a technology company. The proposals will likely influence regulatory conversations in Washington.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Enterprise Agentic AI Landscape 2026: trust, flexibility, and vendor lock-in analysis",
+      "url": "https://www.kai-waehner.de/blog/2026/04/06/enterprise-agentic-ai-landscape-2026-trust-flexibility-and-vendor-lock-in/",
+      "source": "Kai Waehner Blog",
+      "published_at": "2026-04-04T00:00:00Z",
+      "why_it_matters": "Comprehensive analysis of the agentic AI vendor landscape — useful for enterprise architecture decisions.",
+      "brief": "A detailed landscape analysis covering trust, flexibility, and vendor lock-in risks across enterprise agentic AI platforms in 2026.",
+      "details": "Kai Waehner published a thorough analysis of the enterprise agentic AI landscape. The post covers trust models, platform flexibility, and vendor lock-in risks across major providers. Key takeaway: the market is splitting between open-framework approaches (LangChain, CrewAI) and vertically-integrated platforms (Microsoft, Google). Teams should evaluate based on their existing cloud commitments and agent autonomy requirements.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "SAP AI Developer Challenge: build AI agents with Generative AI Hub",
+      "url": "https://community.sap.com/t5/artificial-intelligence-blogs-posts/ai-developer-challenge-april-2026-build-ai-agents-with-generative-ai-hub/ba-p/14327218",
+      "source": "SAP Community",
+      "published_at": "2026-04-04T00:00:00Z",
+      "why_it_matters": "Enterprise-grade agent building is going mainstream — SAP running a public challenge signals broad adoption readiness.",
+      "brief": "SAP launched an April developer challenge focused on building AI agents using their Generative AI Hub, with hands-on RAG + agent orchestration.",
+      "details": "SAP is running an AI Developer Challenge for April 2026 focused on building AI agents that combine RAG with intelligent agent orchestration. Participants build agents using SAP's Generative AI Hub, learning document grounding and code-based agent patterns. This signals that enterprise agent development has moved from experimental to mainstream enough for public challenges.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "U.S. considering worldwide AI chip export controls for NVIDIA and AMD",
+      "url": "https://www.fool.com/investing/2026/03/05/nvidia-and-amd-could-face-worldwide-ai-chip-export/",
+      "source": "The Motley Fool",
+      "published_at": "2026-04-04T00:00:00Z",
+      "why_it_matters": "If enacted, global export controls would fundamentally reshape AI infrastructure access and accelerate domestic chip programs worldwide.",
+      "brief": "Bloomberg reports U.S. officials may require NVIDIA/AMD to get government approval before shipping any AI chips anywhere in the world.",
+      "details": "U.S. officials are considering rules that would require NVIDIA, AMD, and others to obtain government approval before shipping AI chips to any country, not just China. This would be a dramatic expansion of current export controls. The move could accelerate domestic chip programs in Europe, India, and elsewhere while potentially reducing revenue for U.S. chipmakers. Watch for formal rulemaking in coming weeks.",
+      "is_update": false
+    }
+  ]
 }

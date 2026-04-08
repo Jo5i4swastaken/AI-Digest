@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-04-03T20:00:00-05:00",
+  "slot": "Evening",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "OpenAI confirms Sora app shutting down April 26 — API sunset in September",
+      "url": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation",
+      "source": "OpenAI Help Center",
+      "published_at": "2026-04-03T00:00:00Z",
+      "why_it_matters": "OpenAI killing its flagship video product signals a strategic pivot toward coding tools and enterprise — compute is finite.",
+      "brief": "OpenAI is discontinuing Sora: web/app closes April 26, API closes September 24. The product was burning ~$1M/day with <500K users.",
+      "details": "OpenAI confirmed the two-stage shutdown of Sora. The web and app experiences close April 26, 2026, and the API follows September 24. Reports indicate Sora peaked at ~1M users before collapsing to under 500K while costing roughly $1M/day in compute. OpenAI is redirecting those resources toward coding tools and a unified ChatGPT 'super app.' If you built on Sora's API, start migrating to Google Veo or alternatives now.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Claude Code subscribers will need to pay extra for third-party tool usage (OpenClaw)",
+      "url": "https://techcrunch.com/2026/04/04/anthropic-says-claude-code-subscribers-will-need-to-pay-extra-for-openclaw-support/",
+      "source": "TechCrunch",
+      "published_at": "2026-04-03T00:00:00Z",
+      "why_it_matters": "Changes the economics for developers using Claude Code with third-party integrations — budget impact for power users.",
+      "brief": "Starting April 4, Claude subscription limits no longer cover third-party harnesses like OpenClaw — additional costs will apply.",
+      "details": "TechCrunch reports Anthropic is separating Claude Code subscription usage from third-party tool consumption. Subscribers who use tools like OpenClaw will face additional charges beyond their base subscription. This pricing change reflects the compute cost of agent tool-calling at scale and may push some developers toward self-hosted alternatives or prompt them to optimize tool call frequency.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Google launches Veo 3.1 Lite — video generation at half the cost of Veo 3.1 Fast",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/veo-3-1-lite/",
+      "source": "Google Blog",
+      "published_at": "2026-04-03T00:00:00Z",
+      "why_it_matters": "Dramatically lowers the cost barrier for building AI video into products, timed perfectly as OpenAI exits the space with Sora.",
+      "brief": "Google released Veo 3.1 Lite at $0.05/sec for 720p — less than half the price of Veo 3.1 Fast — as OpenAI discontinues Sora.",
+      "details": "Google introduced Veo 3.1 Lite as its most cost-effective video generation model, priced at $0.05 per second for 720p video. This is less than half the cost of Veo 3.1 Fast ($0.10/sec). The timing is strategic: it launches just as OpenAI confirms Sora's shutdown, positioning Google as the default for AI video generation. If you were evaluating Sora, Veo 3.1 Lite is the obvious migration target.",
+      "is_update": false
+    },
+    {
+      "category": "funding",
+      "title": "Q1 2026 venture funding shatters records — $300B globally, 87% AI-related",
+      "url": "https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/",
+      "source": "Crunchbase News",
+      "published_at": "2026-04-03T00:00:00Z",
+      "why_it_matters": "AI continues to dominate venture investment at historic levels — signals sustained infrastructure buildout ahead.",
+      "brief": "Investors poured $300B into 6,000 startups in Q1 2026, up 150%+ YoY. More than 87% went to AI-related companies.",
+      "details": "Crunchbase reports Q1 2026 set an all-time global venture funding record at $300 billion across 6,000 startups. U.S. and Canadian companies alone secured $252.6B. Over 87% of investment went to AI-related categories. Startup M&A was also strong at $56.6B in exits. This level of investment indicates the AI infrastructure buildout is accelerating, not plateauing.",
+      "is_update": false
+    }
+  ]
+}

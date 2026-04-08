@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-04-06T20:00:00-05:00",
+  "slot": "Evening",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "Anthropic revenue run rate hits $30B — 3x growth in under 4 months",
+      "url": "https://siliconangle.com/2026/04/06/anthropic-taps-google-broadcom-yet-ai-chips-revenue-run-rate-tops-30b/",
+      "source": "SiliconANGLE",
+      "published_at": "2026-04-06T00:00:00Z",
+      "why_it_matters": "Anthropic's growth trajectory validates enterprise AI demand and justifies massive infrastructure investments.",
+      "brief": "Anthropic's revenue run rate topped $30B, up from $9B at end of 2025, with 1,000+ customers spending $1M+ annually.",
+      "details": "SiliconANGLE reports Anthropic's revenue run rate has reached $30 billion, tripling from $9 billion at the end of 2025. The company now has over 1,000 business customers each spending more than $1 million annually. This growth rate is unprecedented in enterprise software and validates both the Claude product line and the massive infrastructure investments Anthropic is making with Google and Broadcom.",
+      "is_update": true
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Conway deep-dive: Anthropic's extension format, webhooks, and Chrome integration revealed",
+      "url": "https://atalupadhyay.wordpress.com/2026/04/06/claude-conway-decoded-anthropics-always-on-ai-agent-platform/",
+      "source": "Atal Upadhyay Blog",
+      "published_at": "2026-04-06T00:00:00Z",
+      "why_it_matters": "Technical details of Conway's architecture reveal Anthropic's vision for an extensible, always-on agent ecosystem.",
+      "brief": "A detailed analysis of Conway reveals .cnw.zip extension format, Chrome integration, webhook wake-up, and a three-panel UI (Search, Chat, System).",
+      "details": "A deep-dive into Anthropic's Conway agent reveals significant architectural details. The platform introduces a .cnw.zip extension format for third-party add-ons, Chrome browser integration for web automation, webhook-based wake-up for event-driven operation, and a three-panel sidebar (Search, Chat, System). An 'Manage your Conway instance' section hints at a self-hosted or managed deployment model. This is the most detailed look yet at Anthropic's agent-as-service vision.",
+      "is_update": true
+    },
+    {
+      "category": "ways_to_use",
+      "title": "14 AI tools transforming business workflows in 2026",
+      "url": "https://www.prezent.ai/blog/latest-ai-tools",
+      "source": "Prezent",
+      "published_at": "2026-04-06T00:00:00Z",
+      "why_it_matters": "Curated list of practical AI tools — useful for teams evaluating what to adopt next.",
+      "brief": "Prezent published a curated list of 14 AI tools making real impact in business workflows, from content creation to data analysis.",
+      "details": "Prezent's roundup covers 14 AI tools that are delivering measurable business value in 2026. The list spans content creation, data analysis, customer service, and workflow automation. Rather than covering every new tool, the article focuses on tools with proven enterprise adoption and clear ROI. Useful as a quick reference for teams doing tool evaluations or building an AI toolkit strategy.",
+      "is_update": false
+    },
+    {
+      "category": "open_source",
+      "title": "Anthropic Mythos 5 with 10T parameters announced for cybersecurity and coding",
+      "url": "https://www.searchcans.com/blog/ai-model-releases-april-2026-v2/",
+      "source": "SearchCans",
+      "published_at": "2026-04-06T00:00:00Z",
+      "why_it_matters": "A 10T parameter model specialized for security and coding could reshape both defensive and offensive security tooling.",
+      "brief": "Anthropic announced Claude Mythos 5 with 10 trillion parameters, purpose-built for advanced cybersecurity and coding tasks.",
+      "details": "Anthropic introduced Claude Mythos 5, a 10-trillion parameter model specialized for cybersecurity analysis and coding. The model is designed for deep code review, vulnerability detection, and complex software engineering tasks. The specialization approach — building massive models for specific domains rather than general-purpose — may signal a new trend in frontier model development.",
+      "is_update": false
+    }
+  ]
+}

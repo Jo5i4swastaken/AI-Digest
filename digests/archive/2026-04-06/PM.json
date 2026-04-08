@@ -1,6 +1,51 @@
 {
-  "generated_at": "2026-04-06T00:00:00Z",
+  "generated_at": "2026-04-06T14:00:00-05:00",
   "slot": "PM",
   "timezone": "America/Chicago",
-  "items": []
+  "items": [
+    {
+      "category": "product",
+      "title": "Google Gemini 3.1 Ultra launched with 2M token context window across all modalities",
+      "url": "https://www.mejba.me/blog/spring-2026-ai-model-updates",
+      "source": "Mejba Ahmed Blog",
+      "published_at": "2026-04-06T00:00:00Z",
+      "why_it_matters": "A 2M token context window working natively across text, image, audio, and video is a step change for multi-modal applications.",
+      "brief": "Google launched Gemini 3.1 Ultra with a 2-million token context window that works natively across text, image, audio, and video.",
+      "details": "Google released Gemini 3.1 Ultra featuring a 2-million token context window that operates natively across text, image, audio, and video inputs. This is a significant capability expansion — the multi-modal context window means you can feed entire codebases, video transcripts, and image collections into a single prompt. Expect this to enable new workflows in document analysis, code review, and media processing.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Claude Code adds Bedrock setup wizard and forceRemoteSettingsRefresh policy",
+      "url": "https://code.claude.com/docs/en/changelog",
+      "source": "Claude Code Docs",
+      "published_at": "2026-04-06T00:00:00Z",
+      "why_it_matters": "Enterprise deployment of Claude Code gets easier with native Bedrock integration and policy enforcement.",
+      "brief": "Claude Code's latest update adds an interactive Bedrock setup wizard and a new policy setting that blocks startup until remote settings are fetched.",
+      "details": "Anthropic added enterprise-focused features to Claude Code: a Bedrock setup wizard accessible from the login screen simplifies AWS integration, and forceRemoteSettingsRefresh blocks Claude Code startup until managed remote settings are freshly fetched. These features address enterprise deployment concerns around configuration management and cloud provider integration.",
+      "is_update": true
+    },
+    {
+      "category": "hardware",
+      "title": "Broadcom inks long-term deal to develop Google's next-gen custom AI chips",
+      "url": "https://www.fool.com/investing/2026/04/07/broadcom-inks-major-ai-chip-deals-with-google-and/",
+      "source": "The Motley Fool",
+      "published_at": "2026-04-06T00:00:00Z",
+      "why_it_matters": "Google doubling down on custom silicon with Broadcom signals long-term commitment to TPU architecture over NVIDIA GPUs.",
+      "brief": "Broadcom secured a long-term deal to develop Google's future AI chips, expanding beyond the existing TPU partnership.",
+      "details": "Broadcom signed a long-term agreement to develop Google's next-generation custom AI chips. This goes beyond the existing TPU manufacturing relationship — Broadcom will be involved in chip design and development. Combined with the Anthropic capacity deal, Broadcom is positioning itself as the critical infrastructure partner for two of the three largest AI players (Google and Anthropic).",
+      "is_update": true
+    },
+    {
+      "category": "funding",
+      "title": "Hermeus raises $350M to build unmanned hypersonic AI-powered fighters",
+      "url": "https://techcrunch.com/2026/04/07/hermeus-raises-350m-to-build-unmanned-hypersonic-fighters/",
+      "source": "TechCrunch",
+      "published_at": "2026-04-06T00:00:00Z",
+      "why_it_matters": "Defense AI funding continues to grow — autonomous systems represent a major adjacent market for AI capabilities.",
+      "brief": "Defense startup Hermeus raised $350M to develop unmanned hypersonic aircraft, combining AI autonomy with next-gen aerospace.",
+      "details": "Hermeus raised $350 million to develop what it calls the 'fastest unmanned aircraft,' combining AI-powered autonomous systems with hypersonic flight capabilities. This reflects the growing convergence of AI and defense technology, where autonomous decision-making and high-speed operation create unique engineering challenges. Defense AI remains one of the highest-funded AI application domains.",
+      "is_update": false
+    }
+  ]
 }

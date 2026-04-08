@@ -1,6 +1,51 @@
 {
-  "generated_at": "2026-04-07T00:00:00-05:00",
+  "generated_at": "2026-04-07T08:00:00-05:00",
   "slot": "AM",
   "timezone": "America/Chicago",
-  "items": []
+  "items": [
+    {
+      "category": "product",
+      "title": "Google drops Veo 3.1 Fast pricing — makes AI video generation accessible for products",
+      "url": "https://the-decoder.com/googles-veo-3-1-lite-cuts-video-generation-costs-by-more-than-half/",
+      "source": "The Decoder",
+      "published_at": "2026-04-07T00:00:00Z",
+      "why_it_matters": "Lower video generation costs remove a major barrier for integrating AI video into products and workflows.",
+      "brief": "Google cut Veo 3.1 Fast pricing on April 7, with the new Lite tier at $0.05/sec — making AI video economically viable for most products.",
+      "details": "Google reduced Veo 3.1 Fast pricing and launched Veo 3.1 Lite at $0.05 per second for 720p (half the cost of Fast at $0.10/sec). With OpenAI shutting down Sora, Google now dominates the AI video generation market with the most competitive pricing. For product teams, the Lite tier makes AI video generation economically viable for use cases that couldn't justify the previous pricing.",
+      "is_update": true
+    },
+    {
+      "category": "product",
+      "title": "Broadcom shares climb on Google and Anthropic deal momentum",
+      "url": "https://www.cnbc.com/2026/04/07/broadcom-shares-jump-before-bell-google-deal.html",
+      "source": "CNBC",
+      "published_at": "2026-04-07T00:00:00Z",
+      "why_it_matters": "Market reaction confirms custom AI chips are becoming the dominant infrastructure investment thesis.",
+      "brief": "Broadcom shares jumped in pre-market trading following the Google TPU and Anthropic capacity deals announced Sunday.",
+      "details": "Broadcom shares climbed in Monday pre-market trading as investors digested the dual deals with Google (next-gen TPU development) and Anthropic (3.5GW capacity). Analysts see this as validation that custom AI chips, not just GPUs, will drive the next wave of AI infrastructure revenue. The market is pricing in a structural shift from general-purpose GPUs toward purpose-built silicon.",
+      "is_update": true
+    },
+    {
+      "category": "product",
+      "title": "OpenAI, Anthropic, Google unite through Frontier Model Forum to combat model distillation",
+      "url": "https://www.japantimes.co.jp/business/2026/04/07/tech/openai-anthropic-google-china-copy/",
+      "source": "The Japan Times",
+      "published_at": "2026-04-07T00:00:00Z",
+      "why_it_matters": "The biggest AI competitors cooperating on security signals the distillation threat is considered existential.",
+      "brief": "The three largest U.S. AI companies are sharing intelligence through the Frontier Model Forum to detect and prevent adversarial model cloning.",
+      "details": "OpenAI, Anthropic, and Google confirmed they are working together through the Frontier Model Forum to combat adversarial distillation — where competitors systematically extract capabilities from frontier models. The companies are sharing detection methods and watermarking techniques. This is unprecedented cooperation among fierce competitors and suggests the model security challenge is more severe than publicly acknowledged.",
+      "is_update": true
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Anthropic's Conway spotted with Claude Code integration — agents running agents",
+      "url": "https://www.timesofai.com/news/anthropics-conway-being-tested/",
+      "source": "Times of AI",
+      "published_at": "2026-04-07T00:00:00Z",
+      "why_it_matters": "Conway running Claude Code creates an agent-within-agent architecture — the next evolution of autonomous development.",
+      "brief": "New reports show Conway can run Claude Code internally, enabling an always-on agent that autonomously writes and deploys code.",
+      "details": "Times of AI reports that Conway instances can now run Claude Code internally, creating a nested agent architecture. This means Conway could autonomously research a problem, write code to solve it, test it, and deploy — all without human intervention. While still in testing, this agent-running-agent pattern represents a significant step toward fully autonomous software development workflows.",
+      "is_update": true
+    }
+  ]
 }

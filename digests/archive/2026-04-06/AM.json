@@ -1,6 +1,51 @@
 {
-  "generated_at": "2026-04-06T00:00:00-05:00",
+  "generated_at": "2026-04-06T08:00:00-05:00",
   "slot": "AM",
   "timezone": "America/Chicago",
-  "items": []
+  "items": [
+    {
+      "category": "funding",
+      "title": "Broadcom signs expanded chip deals with Google and Anthropic — Broadcom shares jump",
+      "url": "https://www.cnbc.com/2026/04/06/broadcom-agrees-to-expanded-chip-deals-with-google-anthropic.html",
+      "source": "CNBC",
+      "published_at": "2026-04-06T00:00:00Z",
+      "why_it_matters": "Anthropic's $30B run rate and 3.5GW TPU deal signals massive scale and validates Google Cloud as the AI infrastructure leader.",
+      "brief": "Broadcom will produce future Google AI chips and supply Anthropic with 3.5GW of TPU capacity. Anthropic's revenue run rate hit $30B.",
+      "details": "Broadcom agreed to expanded deals: producing future Google TPU chips and giving Anthropic access to 3.5 gigawatts of TPU capacity starting 2027 (up from 1GW in 2026). Anthropic revealed its revenue run rate topped $30B, up from $9B at end of 2025, with 1,000+ enterprise customers spending $1M+ annually. Broadcom shares rose 3%. Mizuho estimates Broadcom will earn $21B in AI revenue from Anthropic in 2026 alone.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Anthropic expands use of Google Cloud TPUs for foundation model training",
+      "url": "https://www.googlecloudpresscorner.com/2026-04-06-Anthropic-Expands-Use-of-Google-Cloud-and-TPUs",
+      "source": "Google Cloud Press Corner",
+      "published_at": "2026-04-06T00:00:00Z",
+      "why_it_matters": "Deepens the Anthropic-Google relationship and confirms TPUs as a viable alternative to NVIDIA for frontier model training.",
+      "brief": "Anthropic expanded its Google Cloud TPU usage for training foundation models, agents, and enterprise applications at multi-gigawatt scale.",
+      "details": "Anthropic officially announced expanded use of Google Cloud TPUs for training its foundation models, agent systems, and enterprise applications. The deal covers multiple gigawatts of capacity, making it one of the largest cloud AI commitments ever. This cements TPUs as a credible alternative to NVIDIA GPUs for frontier model training and strengthens the Google-Anthropic partnership.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "OpenAI, Anthropic, Google cooperate to block Chinese model-cloning attempts",
+      "url": "https://www.japantimes.co.jp/business/2026/04/07/tech/openai-anthropic-google-china-copy/",
+      "source": "The Japan Times",
+      "published_at": "2026-04-06T00:00:00Z",
+      "why_it_matters": "Rare competitor cooperation on model security — the distillation threat is serious enough to unite rivals.",
+      "brief": "OpenAI, Anthropic, and Google are sharing information through the Frontier Model Forum to detect and block adversarial distillation from Chinese competitors.",
+      "details": "The Japan Times reports that OpenAI, Anthropic, and Google have begun cooperating through the Frontier Model Forum to combat Chinese competitors extracting capabilities from U.S. AI models. The companies are sharing detection methods for adversarial distillation attempts. This unprecedented cooperation between rivals signals the model-cloning threat is considered existential enough to set aside competitive dynamics.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "Prompt engineering simplified: the Persona + Task + Context + Format formula",
+      "url": "https://www.theneuron.ai/explainer-articles/how-to-actually-use-ai-in-2026-the-complete-guide/",
+      "source": "The Neuron",
+      "published_at": "2026-04-06T00:00:00Z",
+      "why_it_matters": "A practical, memorable framework for prompt engineering that teams can adopt immediately.",
+      "brief": "The Neuron published a comprehensive guide to using AI in 2026, centering on a simple prompt formula: Persona + Task + Context + Format.",
+      "details": "The Neuron's guide distills prompt engineering into a memorable formula: Persona (who the AI should be) + Task (what to do) + Context (background info) + Format (how to structure output). While experienced users may find this basic, it's an effective framework for onboarding non-technical team members to AI tools. The guide also covers verification practices and when to override AI suggestions.",
+      "is_update": false
+    }
+  ]
 }

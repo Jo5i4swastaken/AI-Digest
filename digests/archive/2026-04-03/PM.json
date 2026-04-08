@@ -1,6 +1,62 @@
 {
-  "generated_at": "2026-04-04T00:00:00-05:00",
+  "generated_at": "2026-04-03T19:00:00-05:00",
   "slot": "PM",
   "timezone": "America/Chicago",
-  "items": []
+  "items": [
+    {
+      "category": "agent_tooling",
+      "title": "Microsoft releases Agent Governance Toolkit — open-source runtime security for AI agents",
+      "url": "https://opensource.microsoft.com/blog/2026/04/02/introducing-the-agent-governance-toolkit-open-source-runtime-security-for-ai-agents/",
+      "source": "Microsoft Open Source Blog",
+      "published_at": "2026-04-02T00:00:00Z",
+      "why_it_matters": "First toolkit addressing all 10 OWASP agentic AI risks with sub-millisecond policy enforcement — sets a new bar for agent safety.",
+      "brief": "Microsoft open-sourced the Agent Governance Toolkit, covering Python, TypeScript, Rust, Go, and .NET with deterministic policy enforcement.",
+      "details": "Microsoft released an open-source Agent Governance Toolkit that intercepts every agent action before execution. Available in five languages, it includes Agent OS (a stateless policy engine) and addresses all 10 OWASP agentic AI risks. Teams deploying autonomous agents now have a vendor-neutral way to enforce guardrails at runtime without adding latency. If you run agents in production, this should be on your eval list immediately.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Microsoft Copilot Researcher gets multi-model Critique and Council modes",
+      "url": "https://dataconomy.com/2026/04/02/microsoft-upgrades-365-copilot-researcher-with-new-critique-mode/",
+      "source": "Dataconomy",
+      "published_at": "2026-04-02T00:00:00Z",
+      "why_it_matters": "Multi-model cross-checking in enterprise tools is a practical step toward more reliable AI outputs.",
+      "brief": "Copilot Researcher now lets one model draft and another (OpenAI or Claude) review for accuracy before delivery.",
+      "details": "Microsoft introduced Critique and Council modes to Copilot Researcher. In Critique, one AI model writes research while a second checks accuracy and source quality — delivering a 13.88% improvement on the DRACO benchmark. Council goes further: two models each produce full reports and a third compares them. This is significant because it operationalizes the 'model-as-reviewer' pattern many teams have been doing manually.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Anthropic testing Conway — an always-on, persistent AI agent platform",
+      "url": "https://dataconomy.com/2026/04/03/anthropic-tests-conway-platform-for-continuous-claude/",
+      "source": "Dataconomy",
+      "published_at": "2026-04-03T00:00:00Z",
+      "why_it_matters": "Shifts Claude from a chat tool to a background operator that can stay connected to external systems and respond to events.",
+      "brief": "Anthropic is testing Conway, an always-on agent that uses browsers, webhooks, and extensions to complete multi-step tasks autonomously.",
+      "details": "Reports reveal Anthropic is testing Conway, an always-on AI agent with its own UI, Chrome integration, webhook wake-up, and a .cnw.zip extension format for third-party add-ons. Unlike traditional chatbots, Conway operates as a persistent background service. This signals Anthropic's push toward agents-as-services rather than agents-as-conversations, competing directly with the 'computer use' paradigm.",
+      "is_update": false
+    },
+    {
+      "category": "open_source",
+      "title": "Claw Code open-source coding agent hits 72K GitHub stars in first days",
+      "url": "https://www.24-7pressrelease.com/press-release/533389/claw-code-launches-open-source-ai-coding-agent-framework-with-72000-github-stars-in-first-days",
+      "source": "24-7 Press Release",
+      "published_at": "2026-04-03T00:00:00Z",
+      "why_it_matters": "Fastest-growing open-source AI coding repo signals massive developer demand for alternatives to proprietary coding agents.",
+      "brief": "Claw Code, a Python/Rust AI coding agent framework, launched publicly and instantly became one of the most-starred repos in the AI tooling category.",
+      "details": "Claw Code launched as an open-source AI coding agent framework built in Python and Rust. Within days it surpassed 72,000 GitHub stars and 72,600 forks, making it one of the fastest-growing open-source repositories ever. The framework positions itself as a foundation for AI-assisted development, competing with proprietary offerings from Anthropic and others.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "Harness Engineering: structured workflows for AI-assisted development",
+      "url": "https://developers.redhat.com/articles/2026/04/07/harness-engineering-structured-workflows-ai-assisted-development",
+      "source": "Red Hat Developer",
+      "published_at": "2026-04-03T00:00:00Z",
+      "why_it_matters": "Practical framework for getting better code from AI by designing the environment, not just the prompt.",
+      "brief": "Red Hat Developer published a guide on harness engineering — structuring context for AI coding assistants instead of relying on free-form prompts.",
+      "details": "The article introduces 'harness engineering' as a practice where you design the structured context that AI works in, rather than writing better prompts. Key insight: AI writes better code when you give it well-structured project context (templates, conventions, constraints) rather than detailed instructions. This is immediately applicable to teams using Claude Code, Copilot, or any coding agent.",
+      "is_update": false
+    }
+  ]
 }

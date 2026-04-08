@@ -1,6 +1,51 @@
 {
-  "generated_at": "2026-04-05T00:00:00-05:00",
+  "generated_at": "2026-04-05T08:00:00-05:00",
   "slot": "AM",
   "timezone": "America/Chicago",
-  "items": []
+  "items": [
+    {
+      "category": "product",
+      "title": "AI is making crypto security worse — Ledger CTO warns about cheaper, easier hacks",
+      "url": "https://www.coindesk.com/tech/2026/04/05/ai-is-making-crypto-s-security-problem-even-worse-ledger-cto-warns",
+      "source": "CoinDesk",
+      "published_at": "2026-04-05T00:00:00Z",
+      "why_it_matters": "AI lowering the cost of sophisticated attacks has implications beyond crypto — any web-facing system is a target.",
+      "brief": "Ledger's CTO warns that AI is making cryptocurrency hacks cheaper and easier to execute at scale.",
+      "details": "Ledger's CTO told CoinDesk that AI is dramatically reducing the cost and skill required for crypto attacks. Phishing, social engineering, and even smart contract exploits are becoming commoditized through AI tooling. While the article focuses on crypto, the underlying pattern — AI lowering attack costs — applies to all software security. Teams should be updating threat models to account for AI-assisted attacks.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "NVIDIA's Rubin architecture set to replace Blackwell in H2 2026",
+      "url": "https://www.cnbc.com/2026/03/13/nvidia-gtc-ai-jensen-huang-cpu-gpu.html",
+      "source": "CNBC",
+      "published_at": "2026-04-05T00:00:00Z",
+      "why_it_matters": "NVIDIA's next-gen platform arriving this year means current Blackwell procurement decisions have a shorter useful life.",
+      "brief": "NVIDIA confirmed Rubin computing architecture will begin replacing Blackwell in H2 2026, with CPU-focused agentic optimization.",
+      "details": "NVIDIA revealed at GTC that the Rubin computing architecture will begin shipping in the second half of 2026, replacing Blackwell. Notably, NVIDIA is pivoting its CPU strategy with standalone processors already deployed in Meta data centers and agentic-optimized CPU configurations. This has direct procurement implications: if you're planning large Blackwell purchases, factor in the Rubin transition timeline.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "AI retail startups using virtual try-on tech to solve fashion's biggest margin problem",
+      "url": "https://www.cnbc.com/2026/04/05/ai-retail-start-ups-virtual-try-on-tech-margins.html",
+      "source": "CNBC",
+      "published_at": "2026-04-05T00:00:00Z",
+      "why_it_matters": "Practical AI application reducing returns in e-commerce — a real revenue impact use case beyond chatbots.",
+      "brief": "CNBC profiles AI startups tackling fashion retail's return problem with virtual try-on technology, calling returns 'silent killers' of margins.",
+      "details": "CNBC reports on AI startups building virtual try-on technology that addresses the fashion retail industry's massive return problem. Returns are described as 'silent killers' of margins, and AI-powered sizing and visualization tools are showing measurable reduction in return rates. This is one of the clearest ROI-positive AI applications in retail — not hype, just margin improvement.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "The 2nd Phase of Agentic Development — from demos to production",
+      "url": "https://cafeai.home.blog/2026/04/06/the-2nd-phase-of-agentic-development/",
+      "source": "Rick's Cafe AI",
+      "published_at": "2026-04-05T00:00:00Z",
+      "why_it_matters": "Frames the current moment in agent development — past the demo phase, now dealing with reliability and governance.",
+      "brief": "A thoughtful analysis arguing we've entered the second phase of agentic AI: moving from impressive demos to production-grade reliability.",
+      "details": "The blog post argues the agentic AI ecosystem has shifted from Phase 1 (impressive demos and rapid prototyping) to Phase 2 (production reliability, governance, and enterprise integration). Key themes include the rise of agent governance tools, the need for deterministic policy enforcement, and the challenge of debugging autonomous workflows. A good framing piece for anyone pitching agent projects internally.",
+      "is_update": false
+    }
+  ]
 }

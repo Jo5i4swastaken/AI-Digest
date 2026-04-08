@@ -1,6 +1,51 @@
 {
-  "generated_at": "2026-04-07T00:00:00-05:00",
+  "generated_at": "2026-04-07T14:00:00-05:00",
   "slot": "PM",
   "timezone": "America/Chicago",
-  "items": []
+  "items": [
+    {
+      "category": "ways_to_use",
+      "title": "Red Hat: structured context beats better prompts for AI-assisted development",
+      "url": "https://developers.redhat.com/articles/2026/04/07/harness-engineering-structured-workflows-ai-assisted-development",
+      "source": "Red Hat Developer",
+      "published_at": "2026-04-07T00:00:00Z",
+      "why_it_matters": "Actionable insight: invest in project structure and conventions, not just prompt engineering, to get better AI code output.",
+      "brief": "Red Hat's harness engineering article argues that designing structured context for AI (templates, conventions, constraints) outperforms prompt optimization.",
+      "details": "Red Hat Developer published a detailed guide on harness engineering for AI-assisted development. The core insight: AI writes better code when you design the environment it works in. Instead of crafting perfect prompts, invest in structured project conventions, templates, and constraints that give the AI reliable context. This approach applies to Claude Code, Copilot, and any coding assistant — and it's more maintainable than prompt libraries.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Anthropic ups compute deal with Google and Broadcom amid skyrocketing demand",
+      "url": "https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/",
+      "source": "TechCrunch",
+      "published_at": "2026-04-07T00:00:00Z",
+      "why_it_matters": "TechCrunch's detailed analysis of the deal reveals the scale of demand driving Anthropic's infrastructure expansion.",
+      "brief": "TechCrunch details how Anthropic's deal gives it 3.5GW of TPU capacity by 2027, driven by enterprise demand that's outpacing available compute.",
+      "details": "TechCrunch provides additional analysis on Anthropic's expanded compute deal: demand for Claude services is growing faster than available capacity, with the 3.5GW TPU commitment (up from 1GW) designed to prevent supply constraints through 2027. The article notes enterprise customers are increasingly using Claude for agentic workflows that consume significantly more compute than simple chat interactions.",
+      "is_update": true
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Microsoft Copilot Cowork: a new AI experience that manages your office workflows",
+      "url": "https://kersai.com/microsoft-copilot-cowork-complete-guide-2026/",
+      "source": "Kersai",
+      "published_at": "2026-04-07T00:00:00Z",
+      "why_it_matters": "Microsoft integrating agent-like capabilities directly into Office signals the mainstreaming of autonomous AI workflows.",
+      "brief": "Microsoft launched Copilot Cowork — an agent-like experience embedded in Office 365 that actively manages tasks, schedules, and workflows.",
+      "details": "Microsoft launched Copilot Cowork, going beyond Copilot's assistant model to an agent that actively manages office workflows. Rather than waiting for prompts, Cowork monitors your work patterns, suggests task prioritization, manages scheduling conflicts, and coordinates across Office apps. This is Microsoft's most aggressive move toward always-on AI assistance in the enterprise productivity space.",
+      "is_update": false
+    },
+    {
+      "category": "funding",
+      "title": "North America Q1 venture funding surges to record levels across all stages",
+      "url": "https://news.crunchbase.com/venture/funding-surges-all-stages-ai-north-america-q1-2026/",
+      "source": "Crunchbase News",
+      "published_at": "2026-04-07T00:00:00Z",
+      "why_it_matters": "Record funding at all stages (seed through growth) means AI startups face both more competition and more available capital.",
+      "brief": "North American Q1 2026 venture funding hit record highs at every stage — $252.6B total, with AI dominating across seed, Series A, and growth rounds.",
+      "details": "Crunchbase reports North American venture funding reached record levels at every stage in Q1 2026. The $252.6B total was driven overwhelmingly by AI-related companies. Notably, seed-stage AI funding also hit records, suggesting a continued pipeline of new AI startups despite market maturity. For founders, this means more capital available but also more competition. For incumbents, it signals an ongoing wave of AI-native competitors.",
+      "is_update": true
+    }
+  ]
 }

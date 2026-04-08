@@ -1,6 +1,51 @@
 {
-  "generated_at": "2026-04-05T00:00:00-05:00",
+  "generated_at": "2026-04-05T14:00:00-05:00",
   "slot": "PM",
   "timezone": "America/Chicago",
-  "items": []
+  "items": [
+    {
+      "category": "product",
+      "title": "Meta announces 4 new AI chips — raising competitive stakes with NVIDIA and AMD",
+      "url": "https://finance.yahoo.com/news/meta-announces-4-new-ai-chips-raising-competitive-stakes-with-nvidia-amd-140011384.html",
+      "source": "Yahoo Finance",
+      "published_at": "2026-04-05T00:00:00Z",
+      "why_it_matters": "Meta designing its own silicon further validates the custom chip trend and could reduce the industry's NVIDIA dependency.",
+      "brief": "Meta unveiled four new custom AI chips for training and inference, intensifying the custom silicon race against NVIDIA and AMD.",
+      "details": "Meta announced four new AI chips designed in-house, covering both training and inference workloads. This escalates the custom silicon trend alongside Google's TPUs and Amazon's Trainium/Inferentia. For the broader ecosystem, more custom chips means more inference options and potentially lower costs. For NVIDIA, it's another major customer partially moving away from GPU dependence.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Claude experiences service disruption — Anthropic investigating",
+      "url": "https://www.techradar.com/news/live/claude-anthropic-down-outage-april-6-2026",
+      "source": "TechRadar",
+      "published_at": "2026-04-05T00:00:00Z",
+      "why_it_matters": "Outage during a period of rapid growth highlights the reliability challenges as AI services scale.",
+      "brief": "Anthropic's Claude experienced intermittent outages, with TechRadar tracking the situation as it developed over the weekend.",
+      "details": "TechRadar tracked a Claude service disruption where users reported intermittent failures and degraded performance. While Anthropic investigated, the outage highlighted reliability challenges as AI services scale rapidly. For production workloads, this reinforces the importance of multi-model fallback strategies and SLA-aware architectures. Teams should have contingency plans for primary model outages.",
+      "is_update": false
+    },
+    {
+      "category": "open_source",
+      "title": "Cohere releases Transcribe — open-source ASR model supporting 14 languages",
+      "url": "https://blog.mean.ceo/new-ai-model-releases-news-april-2026/",
+      "source": "Mean CEO Blog",
+      "published_at": "2026-04-05T00:00:00Z",
+      "why_it_matters": "A competitive open-source transcription model gives teams an alternative to Whisper and commercial ASR services.",
+      "brief": "Cohere open-sourced Transcribe, an automatic speech recognition model optimized for transcription across 14 languages.",
+      "details": "Cohere released Transcribe as an open-source ASR model supporting 14 languages with strong benchmark performance. This positions it as an alternative to OpenAI's Whisper and commercial services like Deepgram and AssemblyAI. For teams building voice-enabled agents or transcription pipelines, this is worth benchmarking against your current solution.",
+      "is_update": false
+    },
+    {
+      "category": "funding",
+      "title": "Custom AI chips are the next trillion-dollar opportunity — Broadcom and Marvell positioned",
+      "url": "https://www.fool.com/investing/2026/03/26/forget-gpus-custom-ai-chips-are-the-next-trillion/",
+      "source": "The Motley Fool",
+      "published_at": "2026-04-05T00:00:00Z",
+      "why_it_matters": "Investment thesis shifting from GPU makers to custom ASIC designers signals a structural change in AI infrastructure.",
+      "brief": "Analysis argues the real AI hardware opportunity is shifting from GPUs to custom ASICs, with Broadcom and Marvell as key beneficiaries.",
+      "details": "The Motley Fool makes the case that custom AI chips (ASICs) represent a larger long-term opportunity than GPUs. With Google, Meta, Amazon, and now Anthropic investing in custom silicon via Broadcom and Marvell, the thesis is that inference optimization will favor purpose-built chips over general-purpose GPUs. This has implications for infrastructure planning — the most cost-effective inference in 2027+ may run on custom chips, not NVIDIA hardware.",
+      "is_update": false
+    }
+  ]
 }

@@ -1,6 +1,51 @@
 {
-  "generated_at": "2026-04-06T00:00:00-05:00",
+  "generated_at": "2026-04-05T20:00:00-05:00",
   "slot": "Evening",
   "timezone": "America/Chicago",
-  "items": []
+  "items": [
+    {
+      "category": "product",
+      "title": "Oregon and Idaho sign AI chatbot regulation bills into law",
+      "url": "https://www.jdsupra.com/legalnews/proposed-state-ai-law-update-april-6-9815133/",
+      "source": "JD Supra",
+      "published_at": "2026-04-05T00:00:00Z",
+      "why_it_matters": "State-level AI regulation is accelerating — compliance teams need to track a patchwork of new laws.",
+      "brief": "Oregon and Idaho signed chatbot-specific AI bills into law; Tennessee passed an AI-in-healthcare bill. State regulation is accelerating.",
+      "details": "JD Supra reports that Oregon and Idaho have signed AI chatbot regulation bills into law, while Tennessee passed healthcare-specific AI legislation. The state-by-state regulatory approach is creating a patchwork that companies deploying AI nationally must navigate. If you ship AI-powered products to U.S. consumers, compliance is becoming increasingly complex and state-specific.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "Synthesia simplifies AI video creation with script-to-video workflow",
+      "url": "https://www.fromdev.com/2026/04/how-to-use-ai-for-daily-productivity-boosts.html",
+      "source": "FromDev",
+      "published_at": "2026-04-05T00:00:00Z",
+      "why_it_matters": "AI video creation is becoming accessible enough for non-technical teams — changes content production economics.",
+      "brief": "Synthesia's script-to-video workflow turns text into professional videos with AI avatars and voiceovers — no video editing skills needed.",
+      "details": "Synthesia has simplified AI video production to a text-input workflow: write a script, and the platform generates a complete video with AI avatars, voiceovers, and pre-designed scenes. This is particularly relevant for training, onboarding, and internal communications teams who need video content but lack production resources. The quality gap between AI-generated and traditional video continues to narrow.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "NVIDIA releases OpenShell — open-source runtime guardrails for autonomous agents",
+      "url": "https://nvidianews.nvidia.com/news/ai-agents",
+      "source": "NVIDIA Newsroom",
+      "published_at": "2026-04-05T00:00:00Z",
+      "why_it_matters": "NVIDIA entering the agent governance space with open-source tooling adds credibility and vendor support to the category.",
+      "brief": "NVIDIA open-sourced OpenShell, a runtime that enforces policy-based security, network, and privacy guardrails for autonomous agents.",
+      "details": "NVIDIA released OpenShell, an open-source runtime for enforcing security, network, and privacy guardrails on autonomous agents. Coming from NVIDIA (rather than a startup), this adds significant credibility to the agent governance category. Combined with Microsoft's Agent Governance Toolkit released this week, there are now two major vendor-backed options for agent safety at runtime.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "OpenAI pretraining complete on 'Spud' — release 'a few weeks' away per Sam Altman",
+      "url": "https://blog.mean.ceo/new-ai-model-releases-news-april-2026/",
+      "source": "Mean CEO Blog",
+      "published_at": "2026-04-05T00:00:00Z",
+      "why_it_matters": "OpenAI's next major model is imminent — expect capability benchmarks and pricing to shift across the industry.",
+      "brief": "Sam Altman confirmed OpenAI completed pretraining on codename 'Spud' on March 24 and it's 'a few weeks' from release.",
+      "details": "OpenAI completed pretraining on a model codenamed 'Spud' on March 24, 2026. Sam Altman confirmed it's just weeks from release. Details are sparse, but the timing suggests this could be a next-gen GPT model or a specialized system. Given OpenAI's pattern, expect aggressive pricing and benchmark claims at launch. Teams should prepare evaluation criteria now.",
+      "is_update": false
+    }
+  ]
 }

@@ -8,20 +8,45 @@
           "slot": "AM",
           "label": "Morning",
           "path": "2026-04-07/AM.json",
-          "generated_at": "2026-04-07T00:00:00-05:00",
-          "top": [],
+          "generated_at": "2026-04-07T08:00:00-05:00",
+          "top": [
+            "Google drops Veo 3.1 Fast pricing — makes AI video generation accessible for products",
+            "Broadcom shares climb on Google and Anthropic deal momentum",
+            "OpenAI, Anthropic, Google unite through Frontier Model Forum to combat model distillation",
+            "Anthropic's Conway spotted with Claude Code integration — agents running agents"
+          ],
           "counts": {
-            "total": 0
+            "total": 4
           }
         },
         {
           "slot": "PM",
           "label": "Afternoon",
           "path": "2026-04-07/PM.json",
-          "generated_at": "2026-04-07T00:00:00-05:00",
-          "top": [],
+          "generated_at": "2026-04-07T14:00:00-05:00",
+          "top": [
+            "Red Hat: structured context beats better prompts for AI-assisted development",
+            "Anthropic ups compute deal with Google and Broadcom amid skyrocketing demand",
+            "Microsoft Copilot Cowork: a new AI experience that manages your office workflows",
+            "North America Q1 venture funding surges to record levels across all stages"
+          ],
           "counts": {
-            "total": 0
+            "total": 4
+          }
+        },
+        {
+          "slot": "Evening",
+          "label": "Evening",
+          "path": "2026-04-07/Evening.json",
+          "generated_at": "2026-04-07T20:00:00-05:00",
+          "top": [
+            "Claude Mythos 5 benchmarks emerge — claims state-of-the-art on security and coding tasks",
+            "Google Gemma 4 community adoption accelerates — fine-tunes and quantizations proliferating",
+            "Complete prompt engineering formula: Persona + Task + Context + Format in practice",
+            "AWS autonomous agents streamlining operational tasks for enterprise"
+          ],
+          "counts": {
+            "total": 4
           }
         }
       ]
@@ -33,20 +58,45 @@
           "slot": "AM",
           "label": "Morning",
           "path": "2026-04-06/AM.json",
-          "generated_at": "2026-04-06T00:00:00-05:00",
-          "top": [],
+          "generated_at": "2026-04-06T08:00:00-05:00",
+          "top": [
+            "Broadcom signs expanded chip deals with Google and Anthropic — Broadcom shares jump",
+            "Anthropic expands use of Google Cloud TPUs for foundation model training",
+            "OpenAI, Anthropic, Google cooperate to block Chinese model-cloning attempts",
+            "Prompt engineering simplified: the Persona + Task + Context + Format formula"
+          ],
           "counts": {
-            "total": 0
+            "total": 4
           }
         },
         {
           "slot": "PM",
           "label": "Afternoon",
           "path": "2026-04-06/PM.json",
-          "generated_at": "2026-04-06T00:00:00Z",
-          "top": [],
+          "generated_at": "2026-04-06T14:00:00-05:00",
+          "top": [
+            "Google Gemini 3.1 Ultra launched with 2M token context window across all modalities",
+            "Claude Code adds Bedrock setup wizard and forceRemoteSettingsRefresh policy",
+            "Broadcom inks long-term deal to develop Google's next-gen custom AI chips",
+            "Hermeus raises $350M to build unmanned hypersonic AI-powered fighters"
+          ],
           "counts": {
-            "total": 0
+            "total": 4
+          }
+        },
+        {
+          "slot": "Evening",
+          "label": "Evening",
+          "path": "2026-04-06/Evening.json",
+          "generated_at": "2026-04-06T20:00:00-05:00",
+          "top": [
+            "Anthropic revenue run rate hits $30B — 3x growth in under 4 months",
+            "Conway deep-dive: Anthropic's extension format, webhooks, and Chrome integration revealed",
+            "14 AI tools transforming business workflows in 2026",
+            "Anthropic Mythos 5 with 10T parameters announced for cybersecurity and coding"
+          ],
+          "counts": {
+            "total": 4
           }
         }
       ]
@@ -58,30 +108,45 @@
           "slot": "AM",
           "label": "Morning",
           "path": "2026-04-05/AM.json",
-          "generated_at": "2026-04-05T00:00:00-05:00",
-          "top": [],
+          "generated_at": "2026-04-05T08:00:00-05:00",
+          "top": [
+            "AI is making crypto security worse — Ledger CTO warns about cheaper, easier hacks",
+            "NVIDIA's Rubin architecture set to replace Blackwell in H2 2026",
+            "AI retail startups using virtual try-on tech to solve fashion's biggest margin problem",
+            "The 2nd Phase of Agentic Development — from demos to production"
+          ],
           "counts": {
-            "total": 0
+            "total": 4
           }
         },
         {
           "slot": "PM",
           "label": "Afternoon",
           "path": "2026-04-05/PM.json",
-          "generated_at": "2026-04-05T00:00:00-05:00",
-          "top": [],
+          "generated_at": "2026-04-05T14:00:00-05:00",
+          "top": [
+            "Meta announces 4 new AI chips — raising competitive stakes with NVIDIA and AMD",
+            "Claude experiences service disruption — Anthropic investigating",
+            "Cohere releases Transcribe — open-source ASR model supporting 14 languages",
+            "Custom AI chips are the next trillion-dollar opportunity — Broadcom and Marvell positioned"
+          ],
           "counts": {
-            "total": 0
+            "total": 4
           }
         },
         {
           "slot": "Evening",
           "label": "Evening",
           "path": "2026-04-05/Evening.json",
-          "generated_at": "2026-04-06T00:00:00-05:00",
-          "top": [],
+          "generated_at": "2026-04-05T20:00:00-05:00",
+          "top": [
+            "Oregon and Idaho sign AI chatbot regulation bills into law",
+            "Synthesia simplifies AI video creation with script-to-video workflow",
+            "NVIDIA releases OpenShell — open-source runtime guardrails for autonomous agents",
+            "OpenAI pretraining complete on 'Spud' — release 'a few weeks' away per Sam Altman"
+          ],
           "counts": {
-            "total": 0
+            "total": 4
           }
         }
       ]
@@ -93,30 +158,45 @@
           "slot": "AM",
           "label": "Morning",
           "path": "2026-04-04/AM.json",
-          "generated_at": "2026-04-04T00:00:00-05:00",
-          "top": [],
+          "generated_at": "2026-04-04T08:00:00-05:00",
+          "top": [
+            "Claude Code adds /powerup interactive lessons and per-model cost breakdown",
+            "Bluesky unveils Attie — a Claude-powered AI assistant for custom social feeds",
+            "Vibe Coding in 2026: how AI is changing the way developers write code",
+            "Huawei ships 950PR AI inference chip — ByteDance and Alibaba placing large orders"
+          ],
           "counts": {
-            "total": 0
+            "total": 4
           }
         },
         {
           "slot": "PM",
           "label": "Afternoon",
           "path": "2026-04-04/PM.json",
-          "generated_at": "2026-04-04T00:00:00-05:00",
-          "top": [],
+          "generated_at": "2026-04-04T14:00:00-05:00",
+          "top": [
+            "OpenAI's vision for the AI economy: public wealth funds, robot taxes, four-day workweek",
+            "Enterprise Agentic AI Landscape 2026: trust, flexibility, and vendor lock-in analysis",
+            "SAP AI Developer Challenge: build AI agents with Generative AI Hub",
+            "U.S. considering worldwide AI chip export controls for NVIDIA and AMD"
+          ],
           "counts": {
-            "total": 0
+            "total": 4
           }
         },
         {
           "slot": "Evening",
           "label": "Evening",
           "path": "2026-04-04/Evening.json",
-          "generated_at": "2026-04-05T00:00:00-05:00",
-          "top": [],
+          "generated_at": "2026-04-04T20:00:00-05:00",
+          "top": [
+            "Associated Press offering buyouts to 120+ journalists amid AI transformation",
+            "ByteDance releases DeerFlow 2.0 — open-source superagent for research, coding, and creative tasks",
+            "Bloomberg: 'Vibe Coding' is the AI trend fueling a new kind of developer FOMO",
+            "Goldman Sachs: AI-led demand to drive sharp surge in semiconductor revenues"
+          ],
           "counts": {
-            "total": 0
+            "total": 4
           }
         }
       ]
@@ -145,10 +225,31 @@
           "slot": "PM",
           "label": "Afternoon",
           "path": "2026-04-03/PM.json",
-          "generated_at": "2026-04-04T00:00:00-05:00",
-          "top": [],
+          "generated_at": "2026-04-03T19:00:00-05:00",
+          "top": [
+            "Microsoft releases Agent Governance Toolkit — open-source runtime security for AI agents",
+            "Microsoft Copilot Researcher gets multi-model Critique and Council modes",
+            "Anthropic testing Conway — an always-on, persistent AI agent platform",
+            "Claw Code open-source coding agent hits 72K GitHub stars in first days",
+            "Harness Engineering: structured workflows for AI-assisted development"
+          ],
           "counts": {
-            "total": 0
+            "total": 5
+          }
+        },
+        {
+          "slot": "Evening",
+          "label": "Evening",
+          "path": "2026-04-03/Evening.json",
+          "generated_at": "2026-04-03T20:00:00-05:00",
+          "top": [
+            "OpenAI confirms Sora app shutting down April 26 — API sunset in September",
+            "Claude Code subscribers will need to pay extra for third-party tool usage (OpenClaw)",
+            "Google launches Veo 3.1 Lite — video generation at half the cost of Veo 3.1 Fast",
+            "Q1 2026 venture funding shatters records — $300B globally, 87% AI-related"
+          ],
+          "counts": {
+            "total": 4
           }
         }
       ]
