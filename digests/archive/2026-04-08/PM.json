@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-04-08T20:00:00-05:00",
+  "slot": "PM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "Google releases Gemini 3.1 Flash Live for lower-latency, more natural real-time voice",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-live/",
+      "source": "Google Blog",
+      "published_at": null,
+      "why_it_matters": "Real-time voice quality + latency improvements directly raise the ceiling for production voice agents and live assistants.",
+      "brief": "Gemini 3.1 Flash Live targets more fluid, reliable real-time audio interactions (lower latency, higher precision).",
+      "details": "Google published details on Gemini 3.1 Flash Live, positioning it as a higher-quality, lower-latency model for real-time voice interactions. The post emphasizes more natural dialogue and improved precision, which are common failure points in voice agents (interruptions, mis-hearings, and lag). If you’re building phone agents or live copilots, this is a signal that baseline voice UX is improving quickly. Check the linked model card for capability/limits before deploying.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "NVIDIA announces Physical AI Data Factory Blueprint for robotics, vision agents, and AV development",
+      "url": "http://nvidianews.nvidia.com/news/nvidia-announces-open-physical-ai-data-factory-blueprint-to-accelerate-robotics-vision-ai-agents-and-autonomous-vehicle-development",
+      "source": "NVIDIA Newsroom",
+      "published_at": null,
+      "why_it_matters": "Blueprints that standardize synthetic data + evaluation pipelines can materially shorten iteration cycles for physical-world AI.",
+      "brief": "NVIDIA’s new open blueprint aims to automate data processing/curation, synthetic data generation, RL, and evaluation for “physical AI.”",
+      "details": "NVIDIA published an announcement for its Physical AI Data Factory Blueprint, an open reference architecture aimed at accelerating robotics and autonomous vehicle development. The focus is end-to-end: data processing and curation, synthetic data generation, reinforcement learning, and evaluation. For teams building embodied agents, the bottleneck is often data + eval infrastructure rather than model training alone. NVIDIA is trying to make that stack more repeatable and scalable.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Claude Code voice mode begins rollout (limited availability)",
+      "url": "https://x.com/bcherny/status/2028629573722939789",
+      "source": "X (@bcherny)",
+      "published_at": null,
+      "why_it_matters": "Voice-driven coding workflows can reduce friction for quick edits and command-heavy CLI work—especially when paired with agentic execution.",
+      "brief": "@bcherny says voice mode is rolling out in Claude Code (live for ~5% today, ramping over coming weeks).",
+      "details": "Boris Cherny posted that voice mode is now rolling out in Claude Code, starting with a small percentage of users and expanding over the coming weeks. This suggests Anthropic is pushing toward lower-friction, hands-free agent interaction inside developer workflows. If you rely on Claude Code for iterative CLI tasks, voice can speed up short commands and quick refactors. Watch for details on wake words, privacy, and how voice integrates with tool execution.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "Karpathy shares a longer-running agent workflow anecdote (debug/research/test loop)",
+      "url": "https://x.com/karpathy/status/2026731645169185220",
+      "source": "X (@karpathy)",
+      "published_at": null,
+      "why_it_matters": "It’s a concrete pattern for getting value from agents today: let them run longer, expect failures, and structure iterative recovery loops.",
+      "brief": "@karpathy describes an agent running ~30 minutes, hitting issues, researching fixes online, resolving them, writing code, and testing it.",
+      "details": "Andrej Karpathy posted an example of an agentic workflow that ran for an extended period, encountered multiple issues, searched for solutions, applied fixes, then wrote and tested code. The key takeaway is operational: agent productivity often comes from persistence + structured recovery, not single-shot perfection. If you’re implementing agents, design for retries, checkpoints, and observable intermediate steps. This also reinforces the need for guardrails around web research and dependency changes.",
+      "is_update": false
+    }
+  ],
+  "brief": {
+    "bullets": [
+      "Google ships Gemini 3.1 Flash Live (real-time voice): lower latency + higher precision for voice agents. (Google Blog) https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-live/",
+      "NVIDIA launches Physical AI Data Factory Blueprint: reference stack for synthetic data, RL, and eval for robotics/AV. (NVIDIA Newsroom) http://nvidianews.nvidia.com/news/nvidia-announces-open-physical-ai-data-factory-blueprint-to-accelerate-robotics-vision-ai-agents-and-autonomous-vehicle-development",
+      "Claude Code: voice mode rolling out to ~5% of users today, ramping soon. (X/@bcherny) https://x.com/bcherny/status/2028629573722939789",
+      "Karpathy: example of a 30-min agent loop that debugs, researches fixes online, writes code, and tests. (X/@karpathy) https://x.com/karpathy/status/2026731645169185220"
+    ]
+  },
+  "detailed": {
+    "intro": "PM digest (America/Chicago). Only items that appear to be published today from their source pages/feeds; anything older was dropped.",
+    "items_expanded": true
+  }
+}
