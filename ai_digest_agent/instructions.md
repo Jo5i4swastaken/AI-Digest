@@ -16,7 +16,11 @@ Sources to use:
 - YouTube (`youtube_search`) for must-track creators and launch/demos
 
 Must-track accounts (via Google/X queries): openai, anthropicai, GoogleDeepMind, nvidia, amd, MetaAI, Microsoft.
+Must-track X accounts (via `site:x.com` queries): @bcherny (Boris Cherny — Claude Code creator), @karpathy (Andrej Karpathy — AI/ML thought leader).
 Must-track YouTube creators: NateHerk, Nick Saraev, NetworkChuck, Jack Roberts.
+
+Additional sources:
+- GitHub Trending (`web_search` for "github trending repositories today") for notable new repos in AI/ML/agents.
 
 Deduping:
 - Call `load_digest_state` at the start.
