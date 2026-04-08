@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-04-08T12:30:00-05:00",
+  "slot": "AM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "agent_tooling",
+      "title": "OpenAI Codex: model availability update for ChatGPT-signed-in users",
+      "url": "https://developers.openai.com/codex/changelog",
+      "source": "OpenAI Developers (Codex changelog)",
+      "published_at": "2026-04-08T00:00:00-05:00",
+      "why_it_matters": "Codex model picker changes can break/alter coding-agent workflows and cost/perf assumptions overnight.",
+      "brief": "Codex changelog notes a model availability/picker update for ChatGPT-auth users (effective Apr 7/8 depending on timezone).",
+      "details": "OpenAI updated the Codex changelog with a note about changing which Codex models appear in the model picker for users who sign in with ChatGPT. If you rely on a specific Codex model name in tooling or docs, verify what’s still selectable and update defaults/pinning accordingly. This kind of change can affect latency, quality, and spend if your workflow silently falls back to a different model. Check your CI/agent configs for hard-coded model IDs and add monitoring for unexpected model switches.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Claude Code voice mode begins rollout",
+      "url": "https://x.com/bcherny/status/2028629573722939789",
+      "source": "X (@bcherny)",
+      "published_at": "2026-04-08T00:00:00-05:00",
+      "why_it_matters": "Voice-driven coding inside an agentic CLI can speed iteration and make “hands-free” debugging/refactoring practical.",
+      "brief": "Boris Cherny says voice mode is rolling out in Claude Code (live for ~5% of users today).",
+      "details": "@bcherny (Claude Code creator) posted that voice mode is rolling out now in Claude Code, starting with ~5% of users and ramping over coming weeks. If your workflow is terminal-first, this is a meaningful UX shift: you can dictate changes, ask for explanations, and drive edits without constant typing. Teams should consider how voice input affects prompt hygiene (accidental secrets) and logging/retention policies. If you’re piloting Claude Code internally, plan a quick evaluation of accuracy and noise handling in your environment.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Gemini app: release notes page highlights “rolling out starting today” changes",
+      "url": "https://gemini.google/release-notes/",
+      "source": "Google (Gemini release notes)",
+      "published_at": "2026-04-08T00:00:00-05:00",
+      "why_it_matters": "Gemini app capability/limit changes can immediately impact end-user workflows and enterprise support expectations.",
+      "brief": "Google’s Gemini release notes page lists new rollouts “starting today” (check plan limits + model availability).",
+      "details": "Google’s Gemini release notes page includes items labeled as rolling out “starting today,” including model availability and plan-limit changes. For teams standardizing on Gemini for knowledge work, these rollouts can change what users can access (and how often) without a separate product announcement. If you support a mixed fleet (free + paid tiers), capture the new limits and update internal enablement docs. Also verify whether changes are app-only or also affect Gemini API usage.",
+      "is_update": false
+    }
+  ],
+  "brief": {
+    "bullets": [
+      "OpenAI Codex: model availability/picker update for ChatGPT-auth users (Codex changelog) — https://developers.openai.com/codex/changelog — Why: can change your coding-agent defaults/costs.",
+      "Claude Code: voice mode rolling out (~5% today) (X @bcherny) — https://x.com/bcherny/status/2028629573722939789 — Why: enables faster, hands-free agentic coding.",
+      "Gemini app: new items marked ‘rolling out starting today’ (Gemini release notes) — https://gemini.google/release-notes/ — Why: shifts user access/limits without a big launch post."
+    ]
+  },
+  "detailed": {
+    "intro": "AM digest (America/Chicago) — only items with clear ‘today’ timing from primary/first-party sources or must-track accounts.",
+    "items_expanded": true
+  }
+}

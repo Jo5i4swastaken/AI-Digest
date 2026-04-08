@@ -2,6 +2,25 @@
   "timezone": "America/Chicago",
   "days": [
     {
+      "date": "2026-04-08",
+      "slots": [
+        {
+          "slot": "AM",
+          "label": "Morning",
+          "path": "2026-04-08/AM.json",
+          "generated_at": "2026-04-08T12:30:00-05:00",
+          "top": [
+            "OpenAI Codex: model availability update for ChatGPT-signed-in users",
+            "Claude Code voice mode begins rollout",
+            "Gemini app: release notes page highlights “rolling out starting today” changes"
+          ],
+          "counts": {
+            "total": 3
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-04-07",
       "slots": [
         {
