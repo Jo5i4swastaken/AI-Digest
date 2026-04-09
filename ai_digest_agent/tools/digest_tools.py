@@ -301,7 +301,9 @@ def _write_state(state: DigestState) -> None:
 def load_digest_state() -> str:
     """Load dedupe state for previously sent items.
 
-    Returns JSON string: {"seen": {"url": "ISO"}}.
+    Returns JSON string: {"seen": {"key": "ISO-timestamp"}}.
+    Keys can be URLs (e.g. "https://...") or topic keys (e.g. "topic:broadcom-google-chip-deal").
+    Check BOTH url keys and topic keys when deduplicating.
     """
 
     state = _read_state()
@@ -313,7 +315,10 @@ def save_digest_state(seen_json: str) -> str:
     """Persist dedupe state.
 
     Args:
-        seen_json: JSON string containing a map of url -> ISO timestamp.
+        seen_json: JSON string containing a map of key -> ISO timestamp.
+                   Keys should include both URLs and topic keys.
+                   Topic keys use the format "topic:<slug>" (e.g. "topic:broadcom-google-chip-deal").
+                   Include a topic key for every item so future slots can dedup by topic, not just URL.
 
     Returns:
         JSON status payload.
