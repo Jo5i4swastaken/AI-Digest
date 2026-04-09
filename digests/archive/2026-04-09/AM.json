@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-04-09T13:00:00-05:00",
+  "slot": "AM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "Meta announces Muse Spark, first model from Meta Superintelligence Labs",
+      "url": "https://ai.meta.com/blog/introducing-muse-spark-msl/",
+      "source": "Meta AI Blog",
+      "published_at": null,
+      "why_it_matters": "A new flagship Meta model + API preview changes the competitive baseline and may quickly land across Meta’s consumer surfaces.",
+      "brief": "Muse Spark launches on meta.ai/Meta AI app with a private API preview.",
+      "details": "Meta published an official launch post for Muse Spark, describing it as the first in a new series of models from Meta Superintelligence Labs. Meta says it’s available today via meta.ai and the Meta AI app, and that a private API preview is opening to select users. Watch for rapid downstream availability across WhatsApp/Instagram/Facebook/Messenger and developer access via the preview.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Boris Cherny: Claude Code ‘channels’ released (control sessions via MCPs like Telegram/Discord)",
+      "url": "https://x.com/bcherny/status/2034799341429272937",
+      "source": "X (@bcherny)",
+      "published_at": null,
+      "why_it_matters": "This is a concrete step toward event-driven coding agents—routing external signals (chat/alerts) into a persistent Claude Code session.",
+      "brief": "Claude Code channels let you drive a session through select MCP integrations (starting with Telegram/Discord).",
+      "details": "Claude Code lead Boris Cherny posted that ‘Claude Code channels’ have been released, enabling control of a Claude Code session through select MCPs. The initial integrations mentioned include Telegram and Discord. This pattern is useful for wiring CI alerts, PR comments, and ops notifications into an agent loop without building custom glue.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "AMD: Instinct MI300X powers new Azure ND MI300x v5 VM series optimized for AI",
+      "url": "https://ir.amd.com/news-events/press-releases/detail/1169/amd-brings-new-ai-and-compute-capabilities-to-microsoft-customers",
+      "source": "AMD IR (press release)",
+      "published_at": null,
+      "why_it_matters": "More MI300X availability in Azure increases real-world supply/options for inference and training outside NVIDIA-only stacks.",
+      "brief": "AMD says Azure is launching ND MI300x v5 VMs featuring Instinct MI300X for AI workloads.",
+      "details": "AMD published a press release detailing expanded AMD compute for Microsoft customers, highlighting Azure’s ND MI300x v5 VM series featuring AMD Instinct MI300X. The release positions the offering as optimized for AI workloads, alongside broader EPYC CPU availability. For teams capacity-constrained on H100/H200, this is another mainstream cloud path for large-model training/inference.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Meta’s About page: ‘Introducing Muse Spark’ announcement post",
+      "url": "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
+      "source": "Meta Newsroom (About)",
+      "published_at": null,
+      "why_it_matters": "Confirms the launch at the corporate newsroom level and is the canonical link many enterprises will cite.",
+      "brief": "Meta Newsroom posts the Muse Spark launch announcement.",
+      "details": "Meta’s corporate newsroom also published an announcement for Muse Spark. This is useful as a stable, shareable primary source for internal stakeholders and procurement/security reviews. Use the Meta AI blog post for technical framing and availability details.",
+      "is_update": false
+    },
+    {
+      "category": "open_source",
+      "title": "GitHub Trending: ‘CLAUDE.md’ prompt file to improve Claude Code behavior",
+      "url": "https://github.com/trending",
+      "source": "GitHub Trending",
+      "published_at": null,
+      "why_it_matters": "Signals a fast-moving best-practice: standardized repo-level instructions for coding agents (Claude Code) are becoming a de facto workflow.",
+      "brief": "A single CLAUDE.md file for Claude Code behavior is trending today.",
+      "details": "GitHub Trending today highlights a repo centered on a single CLAUDE.md file intended to improve Claude Code behavior. The idea: codify project-specific constraints, pitfalls, and conventions so the agent stays aligned across sessions. If you’re adopting coding agents, adding a CLAUDE.md (or equivalent) is a low-effort, high-leverage control surface.",
+      "is_update": false
+    }
+  ]
+}
