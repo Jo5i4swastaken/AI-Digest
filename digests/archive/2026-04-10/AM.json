@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-04-10T13:30:00-05:00",
+  "slot": "AM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "agent_tooling",
+      "title": "Claude Code starts rolling out Voice Mode (CLI)",
+      "url": "https://x.com/bcherny/status/2028629573722939789",
+      "source": "X (@bcherny)",
+      "published_at": null,
+      "why_it_matters": "Hands-free coding + faster iteration loops for agentic workflows in the terminal.",
+      "brief": "Voice Mode is rolling out now in Claude Code (initially ~5% of users).",
+      "details": "Boris Cherny says Voice Mode is now rolling out in Claude Code, live for ~5% of users with a broader ramp over the coming weeks. This adds a speech-driven interface to the CLI workflow, which can be especially useful when pairing with long-running agent tasks. Watch for docs/flags and platform support details as the rollout expands.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "NVIDIA unveils NVLink Fusion to enable semi-custom AI infrastructure with partners",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-nvlink-fusion-semi-custom-ai-infrastructure-partner-ecosystem",
+      "source": "NVIDIA Newsroom",
+      "published_at": null,
+      "why_it_matters": "Signals NVIDIA pushing NVLink beyond its own systems—making it easier for partners to build custom AI silicon/infrastructure around NVIDIA’s interconnect ecosystem.",
+      "brief": "NVIDIA announced NVLink Fusion for building semi-custom AI infrastructure with partners (COMPUTEX).",
+      "details": "NVIDIA announced NVLink Fusion, positioning it as a way for industry partners to build semi-custom AI infrastructure using the NVIDIA NVLink ecosystem. The announcement names multiple ecosystem partners (e.g., MediaTek, Marvell, and others) to help create custom AI silicon and systems. If broadly adopted, this could deepen NVIDIA’s platform lock-in at the interconnect layer, not just GPUs.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "NVIDIA + Marvell expand AI infrastructure ecosystem via NVLink Fusion",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-ai-ecosystem-expands-as-marvell-joins-forces-through-nvlink-fusion",
+      "source": "NVIDIA Newsroom",
+      "published_at": null,
+      "why_it_matters": "Marvell is a key datacenter silicon supplier; tighter integration can accelerate deployment of NVIDIA-centric AI factories.",
+      "brief": "NVIDIA says Marvell is joining forces through NVLink Fusion to help customers scale specialized AI compute.",
+      "details": "NVIDIA says its AI ecosystem is expanding with Marvell joining through NVLink Fusion. The framing is about scaling AI factories and enabling specialized AI compute using NVIDIA’s infrastructure ecosystem. This is another indicator that NVIDIA is treating the AI datacenter as an integrated platform spanning networking, interconnect, and partner silicon.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "Meta debuts four new generations of in-house MTIA AI chips",
+      "url": "https://www.wired.com/story/meta-unveils-four-new-chips-to-power-its-ai-and-recommendation-systems/",
+      "source": "WIRED",
+      "published_at": null,
+      "why_it_matters": "If MTIA ramps successfully, Meta can reduce dependence on NVIDIA/AMD for some workloads and tailor silicon to ranking + genAI inference.",
+      "brief": "Meta announced four new MTIA chip generations aimed at powering genAI features and recommendation systems.",
+      "details": "WIRED reports Meta announced four new generations of its Meta Training and Inference Accelerator (MTIA) chips. The chips are intended to support both generative AI features and content ranking/recommendation workloads. Custom silicon can lower cost per inference and improve control over performance/roadmaps, especially at Meta’s scale.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Google: Gemini 3 Pro preview available today across Google products",
+      "url": "https://blog.google/products-and-platforms/products/gemini/gemini-3/",
+      "source": "Google Blog",
+      "published_at": null,
+      "why_it_matters": "A major model/platform step for Gemini—impacts app experiences and developer evaluation of Google’s frontier stack.",
+      "brief": "Google says it’s starting the “Gemini 3 era” by releasing Gemini 3 Pro in preview, available today across products.",
+      "details": "Google’s product blog says it is beginning the Gemini 3 era by releasing Gemini 3 Pro in preview and making it available today across a suite of Google products. This suggests both consumer-facing and potentially developer-facing availability, depending on rollout. For teams evaluating models, this is a key checkpoint for capability, latency, and tool integration changes versus prior Gemini versions.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Google releases Gemini 3 Flash focused on speed/cost",
+      "url": "https://blog.google/products-and-platforms/products/gemini/gemini-3-flash/",
+      "source": "Google Blog",
+      "published_at": null,
+      "why_it_matters": "A faster/cheaper tier can unlock more real-time and high-volume agent workloads.",
+      "brief": "Google announced Gemini 3 Flash, positioned as a fast and cost-effective model.",
+      "details": "Google’s blog post introduces Gemini 3 Flash as a model built for speed and cost-effectiveness. Flash-tier models often become the default for agentic systems that need many calls per task (planning, tool use, verification). If pricing and rate limits are competitive, this could shift production workloads toward Gemini for latency-sensitive use cases.",
+      "is_update": false
+    }
+  ]
+}
