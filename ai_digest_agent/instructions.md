@@ -41,9 +41,15 @@ Output requirements:
 
 Freshness rule:
 - Only include items published TODAY (same calendar date in the digest's timezone).
-- Add "today" or "past 24 hours" to every search query to filter for current news.
-- If an item's published date is yesterday or older, discard it — even if it ranks high.
-- If you cannot determine the published date, only include it if the source page clearly indicates it is from today.
+- Determine today's date at runtime using the digest timezone (e.g., America/Chicago) and treat that as the single source of truth for what "today" means.
+- Every included item must have an explicit publication signal that matches TODAY:
+  - A clearly visible on-page date that is today, OR
+  - A URL path that clearly encodes today's date (e.g., /2026/04/09/), OR
+  - A search-result snippet/metadata that explicitly shows today's date.
+- If the item's published date is yesterday or older, discard it — even if it ranks high.
+- If you cannot confidently verify that an item is from TODAY, discard it.
+- Do not use evergreen pages (e.g., "release notes", "latest", "newsroom home", "trending", channel pages) unless they contain a clearly dated TODAY entry and you link directly to that specific dated entry.
+- Add "today" AND the explicit date string (e.g., "April 9 2026") to every search query to filter for current news.
 
 Workflow:
 1) Determine the slot: AM, PM, or Evening (the user prompt will tell you).
