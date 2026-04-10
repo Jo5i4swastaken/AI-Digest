@@ -19,6 +19,23 @@
           "counts": {
             "total": 5
           }
+        },
+        {
+          "slot": "PM",
+          "label": "Afternoon",
+          "path": "2026-04-09/PM.json",
+          "generated_at": "2026-04-10T20:00:00-05:00",
+          "top": [
+            "ChatGPT: GPT-5.3 Instant Mini rolls out",
+            "NVIDIA + Emerald AI: ‘flexible AI factories’ as grid assets (DSX Flex)",
+            "GitHub Trending: CLAUDE.md prompt file to improve Claude Code behavior",
+            "Boris Cherny (Claude Code): ‘Cowork’ announced as non-coding expansion",
+            "NetworkChuck: “become an AI HACKER (it's easier than you think)”",
+            "Jack Roberts: “If I Learnt AI in 2026, I'd Do This”"
+          ],
+          "counts": {
+            "total": 6
+          }
         }
       ]
     },

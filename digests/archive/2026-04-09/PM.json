@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-04-10T20:00:00-05:00",
+  "slot": "PM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "ChatGPT: GPT-5.3 Instant Mini rolls out",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "source": "OpenAI Help Center",
+      "published_at": "2026-04-09T00:00:00Z",
+      "why_it_matters": "Model swaps inside ChatGPT can materially change speed/cost/quality for everyday users without any workflow changes.",
+      "brief": "OpenAI says GPT-5.3 Instant Mini is now in ChatGPT, replacing the prior default in that tier.",
+      "details": "OpenAI updated its ChatGPT release notes to announce GPT-5.3 Instant Mini in ChatGPT. The note indicates it replaces the previous model in that slot. If you rely on ChatGPT for fast drafting/coding, this kind of silent model change can shift latency and output style. Check your critical prompts for regressions and update any internal “expected output” examples.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "NVIDIA + Emerald AI: ‘flexible AI factories’ as grid assets (DSX Flex)",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-and-emerald-ai-join-leading-energy-companies-to-pioneer-flexible-ai-factories-as-grid-assets",
+      "source": "NVIDIA Newsroom",
+      "published_at": null,
+      "why_it_matters": "Power availability is the bottleneck for AI scaling; making data centers grid-flexible can unlock faster deployment and lower operating costs.",
+      "brief": "NVIDIA announced work with Emerald AI and energy partners to treat AI data centers as controllable grid assets using DSX Flex.",
+      "details": "NVIDIA’s newsroom post describes a collaboration with Emerald AI and energy companies to make AI factories operate more flexibly with the power grid. The idea is to embed “flexibility from the outset” so large AI loads can ramp in ways that support grid reliability. For operators, this could translate into faster interconnect approvals and better utilization during constrained periods. For the AI ecosystem, it’s a sign that power-aware scheduling is becoming a first-class part of AI infrastructure.",
+      "is_update": false
+    },
+    {
+      "category": "open_source",
+      "title": "GitHub Trending: CLAUDE.md prompt file to improve Claude Code behavior",
+      "url": "https://github.com/trending",
+      "source": "GitHub Trending",
+      "published_at": null,
+      "why_it_matters": "A lightweight, repo-local instruction file can standardize coding-agent behavior across teams without new tooling.",
+      "brief": "A single-file “CLAUDE.md” repo is trending, focused on improving Claude Code outcomes by encoding best practices and pitfalls.",
+      "details": "GitHub Trending highlights a repository centered on a CLAUDE.md file meant to steer Claude Code toward better coding behavior. These “agent instruction” files are emerging as a practical pattern: keep constraints, style rules, and project conventions close to the code. If you use Claude Code (or similar agents), consider adding a dedicated instruction file and iterating it like any other artifact. The payoff is more consistent diffs and fewer repeated corrections.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Boris Cherny (Claude Code): ‘Cowork’ announced as non-coding expansion",
+      "url": "https://x.com/bcherny/status/2010809450844831752",
+      "source": "X (@bcherny)",
+      "published_at": null,
+      "why_it_matters": "Signals Claude Code’s direction: from coding-only to broader “work execution” agents.",
+      "brief": "@bcherny posted about “Cowork,” positioning it as an early step toward making Claude Code useful for non-coding work.",
+      "details": "A post from Boris Cherny describes “Cowork” as an early product step to extend Claude Code beyond programming tasks. While details are limited in the post, the framing suggests a push toward general task execution and workflow automation. For teams evaluating coding agents, this hints at convergence between IDE agents and broader ops/knowledge-work agents. Watch for how permissions, audit logs, and tool access are handled as scope expands.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "NetworkChuck: “become an AI HACKER (it's easier than you think)”",
+      "url": "https://www.youtube.com/watch?v=_yfiUQSbdPY",
+      "source": "YouTube (NetworkChuck)",
+      "published_at": null,
+      "why_it_matters": "Practical demos can help teams quickly internalize threat models and safe usage patterns for LLM tooling.",
+      "brief": "NetworkChuck posted a new video on “AI hacking,” aimed at hands-on experimentation.",
+      "details": "NetworkChuck published a new video focused on “AI hacking” and how to get started. Even if you’re not doing offensive security, these walkthroughs are useful for understanding prompt injection, tool misuse, and data exfiltration risks. Use it to seed an internal tabletop exercise: what happens if an agent has access to terminals, cloud creds, or ticketing systems? Pair the content with guardrails like least-privilege tool scopes and logging.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "Jack Roberts: “If I Learnt AI in 2026, I'd Do This”",
+      "url": "https://www.youtube.com/watch?v=Rbps3ABZH9E",
+      "source": "YouTube (Jack Roberts)",
+      "published_at": null,
+      "why_it_matters": "Good for quickly aligning on a modern learning path (agents, automation, RAG) without getting lost in hype.",
+      "brief": "Jack Roberts posted a new “how I’d learn AI” roadmap video.",
+      "details": "Jack Roberts released a new video outlining a 2026-oriented AI learning roadmap. Content like this is useful for onboarding: it typically emphasizes practical stacks (automation tools, agents, RAG) over theory-first curricula. If you’re building an internal enablement plan, extract the sequence into a checklist and map it to your company’s tools (e.g., n8n/Make, MCP, your vector DB). The key is to turn “learning” into shipping small automations weekly.",
+      "is_update": false
+    }
+  ]
+}
