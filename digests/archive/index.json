@@ -36,6 +36,23 @@
           "counts": {
             "total": 6
           }
+        },
+        {
+          "slot": "Evening",
+          "label": "Evening",
+          "path": "2026-04-09/Evening.json",
+          "generated_at": "2026-04-10T02:12:44-05:00",
+          "top": [
+            "NVIDIA + Emerald AI: ‘flexible AI factories’ that can respond to grid demand",
+            "Meta details four generations of MTIA in-house AI chips (MTIA 300/400/450/500)",
+            "Trending: ‘andrej-karpathy-skills’ — a CLAUDE.md-style guide to reduce common LLM coding mistakes",
+            "@lennysan shares metrics and discussion with Claude Code creator @bcherny",
+            "YouTube: Jack Roberts — ‘If I Learnt AI in 2026, I’d Do This’",
+            "YouTube: Nick Saraev — ‘the new 2026 ai automation service you can sell today’"
+          ],
+          "counts": {
+            "total": 7
+          }
         }
       ]
     },

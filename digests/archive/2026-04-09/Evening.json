@@ -1,0 +1,84 @@
+{
+  "generated_at": "2026-04-10T02:12:44-05:00",
+  "slot": "Evening",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "hardware",
+      "title": "NVIDIA + Emerald AI: ‘flexible AI factories’ that can respond to grid demand",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-and-emerald-ai-join-leading-energy-companies-to-pioneer-flexible-ai-factories-as-grid-assets",
+      "source": "NVIDIA Newsroom",
+      "published_at": null,
+      "why_it_matters": "Power is becoming the bottleneck for AI; grid-aware orchestration could lower costs and speed data-center expansion.",
+      "brief": "NVIDIA and Emerald AI announced work with energy partners to make AI data centers act like flexible grid assets (shift/curtail load while meeting SLA).",
+      "details": "NVIDIA and Emerald AI announced a collaboration with energy companies to treat AI factories as controllable grid assets. The idea is to orchestrate AI workloads so power draw can be adjusted during peak demand while still meeting performance requirements. This targets a growing constraint for AI scaling: electricity availability and interconnect timelines. If it works, it could reduce operating costs and make new capacity easier to permit and deploy.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "Meta details four generations of MTIA in-house AI chips (MTIA 300/400/450/500)",
+      "url": "https://www.wired.com/story/meta-unveils-four-new-chips-to-power-its-ai-and-recommendation-systems/",
+      "source": "WIRED",
+      "published_at": null,
+      "why_it_matters": "Hyperscalers pushing custom inference silicon can reshape cost/perf and reduce dependence on NVIDIA for key workloads.",
+      "brief": "Meta says it has four new MTIA chip generations planned to power genAI features and ranking/recs, escalating its in-house silicon roadmap.",
+      "details": "Meta outlined a roadmap of four MTIA chip generations intended to support AI inference and internal workloads. Reporting says the chips will be used for generative AI features as well as recommendation and ranking systems. The announcement underscores the industry trend toward vertically integrated AI stacks—custom silicon plus software—to control cost and supply. For builders, it signals continued pressure on inference efficiency and model serving optimization.",
+      "is_update": false
+    },
+    {
+      "category": "open_source",
+      "title": "Trending: ‘andrej-karpathy-skills’ — a CLAUDE.md-style guide to reduce common LLM coding mistakes",
+      "url": "https://github.com/forrestchang/andrej-karpathy-skills",
+      "source": "GitHub",
+      "published_at": null,
+      "why_it_matters": "A lightweight, copy-pastable instruction file can materially improve coding-agent reliability across repos.",
+      "brief": "A GitHub-trending repo packages behavioral guidelines (CLAUDE.md) aimed at preventing typical LLM coding pitfalls; useful as a default agent policy.",
+      "details": "The repository provides a ready-to-drop CLAUDE.md with practical behavioral constraints for coding assistants (e.g., avoid overconfident changes, verify assumptions, keep diffs minimal). It’s positioned as a general-purpose baseline you can merge with project-specific instructions. This is a simple but high-leverage pattern: standardizing agent behavior via repo-local policy files. Teams using Claude Code or similar agents can adopt it quickly to reduce churn and regressions.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "@lennysan shares metrics and discussion with Claude Code creator @bcherny",
+      "url": "https://x.com/lennysan/status/2024599384076509221",
+      "source": "X (via Lenny’s Newsletter)",
+      "published_at": null,
+      "why_it_matters": "Signals how fast coding agents are being adopted and what product bets are next.",
+      "brief": "A post highlighting a conversation with @bcherny claims Claude Code writes ~4% of GitHub commits and DAU doubled last month (per the thread).",
+      "details": "Lenny’s post points to a conversation with Boris Cherny (@bcherny) about Claude Code’s trajectory and adoption. The thread cites headline metrics (e.g., share of GitHub commits and rapid DAU growth), though readers should treat social-post numbers as directional unless corroborated elsewhere. Still, it’s a useful datapoint for how quickly agentic coding tools are penetrating real workflows. If accurate, it suggests the next competitive frontier is reliability, repo context, and team-scale governance.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "YouTube: Jack Roberts — ‘If I Learnt AI in 2026, I’d Do This’",
+      "url": "https://www.youtube.com/watch?v=Rbps3ABZH9E",
+      "source": "YouTube (Jack Roberts)",
+      "published_at": null,
+      "why_it_matters": "Practical learning roadmaps help teams ramp faster on automation/agents without getting lost in tooling churn.",
+      "brief": "Jack Roberts posted a fresh learning roadmap video focused on what to prioritize in AI/automation skills in 2026.",
+      "details": "Jack Roberts published a new video outlining a suggested path for learning AI in 2026, oriented around practical automation and agent-building skills. While not a product launch, it’s useful for operators trying to choose what to learn amid fast-moving tools. The value is in prioritization: which primitives (workflows, integrations, evaluation habits) compound over time. Use it as a checklist to audit your team’s current gaps.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "YouTube: Nick Saraev — ‘the new 2026 ai automation service you can sell today’",
+      "url": "https://www.youtube.com/watch?v=E9-fNtSjgDU",
+      "source": "YouTube (Nick Saraev)",
+      "published_at": null,
+      "why_it_matters": "Concrete service/product templates can be repurposed into internal automations or client deliverables.",
+      "brief": "Nick Saraev posted a new video pitching an AI automation service concept and how to package/deliver it.",
+      "details": "Nick Saraev’s new upload focuses on a specific “AI automation service” offer and how to sell/deliver it. For practitioners, the useful part is often the packaging: scoping, deliverables, and what to automate first. Even if you’re not selling services, the structure can translate into internal automation projects with clear ROI. Treat it as an idea bank for repeatable workflows.",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "YouTube: Nate Herk — ‘I Built a New AI System in 3 Hours (and got paid $1650)’",
+      "url": "https://www.youtube.com/watch?v=Q4iEslmyMyM",
+      "source": "YouTube (Nate Herk)",
+      "published_at": null,
+      "why_it_matters": "Hands-on build videos often include reusable patterns for fast prototyping with agents + automation tools.",
+      "brief": "Nate Herk posted a new build walkthrough showing a fast end-to-end AI workflow/system delivery.",
+      "details": "Nate Herk’s video is positioned as a rapid build-and-deliver walkthrough for an AI system. These videos can be valuable for concrete implementation patterns: tool choices, integration points, and how to get to a working demo quickly. If you’re building internal agents, watch for how requirements are translated into workflow steps and guardrails. Use the approach to timebox prototypes and validate value before hardening.",
+      "is_update": false
+    }
+  ]
+}
