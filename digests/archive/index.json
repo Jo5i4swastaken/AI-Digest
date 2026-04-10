@@ -20,6 +20,19 @@
           "counts": {
             "total": 6
           }
+        },
+        {
+          "slot": "PM",
+          "label": "Afternoon",
+          "path": "2026-04-10/PM.json",
+          "generated_at": "2026-04-10T19:00:00-05:00",
+          "top": [
+            "Gemini app: Gemini 3 Pro starts rolling out to everyone (higher limits on paid tiers)",
+            "n8n full course (6 hours): building/selling AI automations + agents"
+          ],
+          "counts": {
+            "total": 2
+          }
         }
       ]
     },

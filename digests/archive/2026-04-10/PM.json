@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-04-10T19:00:00-05:00",
+  "slot": "PM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "Gemini app: Gemini 3 Pro starts rolling out to everyone (higher limits on paid tiers)",
+      "url": "https://gemini.google/release-notes/",
+      "source": "Google (Gemini Apps release notes)",
+      "published_at": null,
+      "why_it_matters": "If you build or rely on Gemini in the app, this changes default model quality/limits without needing an API migration.",
+      "brief": "Google says Gemini 3 Pro is rolling out to everyone in the Gemini app “starting today.”",
+      "details": "Google’s Gemini Apps release notes state that Gemini 3 Pro is beginning a broad rollout to all users in the Gemini app, with higher usage limits for Google AI Plus/Pro/Ultra plans. This is an app-side model availability change (not necessarily the Gemini API). If you use Gemini for daily work, you should re-check model selection and limits because defaults may shift during rollout. Link is the official release notes page; the entry explicitly says “starting today.”",
+      "is_update": false
+    },
+    {
+      "category": "ways_to_use",
+      "title": "n8n full course (6 hours): building/selling AI automations + agents",
+      "url": "https://www.youtube.com/watch?v=2GZ2SNXWK-c",
+      "source": "YouTube",
+      "published_at": null,
+      "why_it_matters": "Practical, end-to-end agent automation training you can copy into real workflows (ops, lead gen, support, internal tools).",
+      "brief": "A long-form n8n course dropped today focused on building AI automations/agents end-to-end.",
+      "details": "A new long-form YouTube course covers n8n from basics through building AI automations and agent-style workflows. If you’re trying to operationalize LLMs, n8n-style orchestration is often the fastest path to production-ish integrations (webhooks, APIs, queues, CRMs). Skim for patterns: tool calling, retries, human-in-the-loop steps, and logging. Verify the exact modules you need before adopting any template wholesale.",
+      "is_update": false
+    }
+  ]
+}
