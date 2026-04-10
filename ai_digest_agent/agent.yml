@@ -10,15 +10,16 @@ tools:
   - send_digest_email
   - write_dashboard_files
 use_safe_agent: true
-safe_agent_options:
-  skip_approvals: false
-  halt_on_rejection: true
-  safe_tool_names:
-    - web_search
-    - youtube_search
-    - load_digest_state
-    - save_digest_state
-    - write_dashboard_files
+  safe_agent_options:
+    skip_approvals: false
+    halt_on_rejection: true
+    safe_tool_names:
+      - web_search
+      - youtube_search
+      - load_digest_state
+      - save_digest_state
+      - send_digest_email
+      - write_dashboard_files
 model_settings:
   temperature: 0.3
   max_tokens: 3000

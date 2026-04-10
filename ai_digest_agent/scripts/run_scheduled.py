@@ -145,6 +145,7 @@ def main() -> int:
                 f"Warning: Run completed but {latest_json} was not written "
                 f"(search APIs may be unavailable). See logs: {server_log}"
             )
+            return 2
         return 0
     finally:
         if proc.poll() is None:
