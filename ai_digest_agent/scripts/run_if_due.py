@@ -43,6 +43,8 @@ def main() -> int:
         slot,
         "--mode",
         args.mode,
+        "--timezone",
+        args.timezone,
     ]
     if args.email:
         cmd.append("--email")

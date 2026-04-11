@@ -55,6 +55,37 @@ def _date_key() -> str:
     return local.date().isoformat()
 
 
+@function_tool
+def get_today(timezone_name: Optional[str] = None) -> str:
+    """Return the current date and time in the digest timezone.
+
+    Call this first, before any search. The returned `date` is the single
+    source of truth for what "today" means — never guess.
+
+    Args:
+        timezone_name: Optional IANA timezone. Defaults to the digest timezone.
+
+    Returns:
+        JSON with keys: date (YYYY-MM-DD), long (e.g. "April 11, 2026"),
+        weekday, timezone, iso.
+    """
+    try:
+        tz = ZoneInfo(timezone_name) if timezone_name else _local_tz()
+    except Exception:
+        tz = _local_tz()
+    now = datetime.now(tz).replace(microsecond=0)
+    return json.dumps(
+        {
+            "date": now.date().isoformat(),
+            "long": now.strftime("%B %-d, %Y"),
+            "weekday": now.strftime("%A"),
+            "timezone": str(tz),
+            "iso": now.isoformat(),
+        },
+        ensure_ascii=False,
+    )
+
+
 # ---------------------------------------------------------------------------
 # Search helpers: SerpAPI primary, Tavily fallback
 # ---------------------------------------------------------------------------
@@ -110,7 +141,9 @@ def web_search(
         query: Search query string.
         num_results: Number of results to return (max 100). Recommend 10 for most queries.
         include_news: Whether to include news results (true or false).
-        time_period: Time filter: null, "past_day", "past_week", "past_month", or "past_year".
+        time_period: Time filter. Use "today" for same-day-only results
+            (strict custom date range in the digest timezone). Other values:
+            null, "past_day", "past_week", "past_month", "past_year".
 
     Returns:
         JSON string with search results.
@@ -120,7 +153,10 @@ def web_search(
 
     # --- SerpAPI attempt ---
     params: Dict[str, Any] = {"q": query, "num": n, "safe": "active", "gl": "us", "hl": "en"}
-    if time_period:
+    if time_period == "today":
+        today_md = datetime.now(_local_tz()).strftime("%m/%d/%Y")
+        params["tbs"] = f"cdr:1,cd_min:{today_md},cd_max:{today_md}"
+    elif time_period:
         time_map = {"past_day": "d", "past_week": "w", "past_month": "m", "past_year": "y"}
         if time_period in time_map:
             params["tbs"] = f"qdr:{time_map[time_period]}"
@@ -781,6 +817,40 @@ def _render_dashboard_html(index: List[Dict[str, Any]], *, tz_name: str) -> str:
 </html>"""
 
 
+def _filter_to_today(digest_obj: Dict[str, Any]) -> tuple:
+    """Drop items whose published_at is missing or not today in the digest tz.
+
+    Returns (filtered_digest, dropped_titles).
+    """
+    today = _date_key()
+    tz = _local_tz()
+    items = digest_obj.get("items")
+    if not isinstance(items, list):
+        return digest_obj, []
+
+    kept: List[Dict[str, Any]] = []
+    dropped: List[str] = []
+    for item in items:
+        if not isinstance(item, dict):
+            dropped.append("<non-dict item>")
+            continue
+        published = item.get("published_at")
+        parsed = _parse_iso(published) if isinstance(published, str) else None
+        if parsed is None:
+            dropped.append(f"{item.get('title', '<untitled>')} (published_at={published!r})")
+            continue
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=tz)
+        local_date = parsed.astimezone(tz).date().isoformat()
+        if local_date != today:
+            dropped.append(f"{item.get('title', '<untitled>')} (date={local_date}, expected={today})")
+            continue
+        kept.append(item)
+
+    digest_obj["items"] = kept
+    return digest_obj, dropped
+
+
 @function_tool
 def write_dashboard_files(digest_json: str) -> str:
     """Write dashboard files: output/latest.json and output/latest.html.
@@ -799,6 +869,15 @@ def write_dashboard_files(digest_json: str) -> str:
         digest_obj = json.loads(digest_json)
     except Exception as exc:
         raise ValueError("digest_json must be valid JSON") from exc
+
+    digest_obj, _dropped = _filter_to_today(digest_obj)
+    if _dropped:
+        print(
+            f"[write_dashboard_files] dropped {len(_dropped)} stale item(s) not from today ({_date_key()}):",
+            flush=True,
+        )
+        for d in _dropped:
+            print(f"  - {d}", flush=True)
 
     _OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     _REPO_DIGESTS_DIR.mkdir(parents=True, exist_ok=True)
