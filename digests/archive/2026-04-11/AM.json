@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-04-11T00:00:00-05:00",
+  "slot": "AM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "open_source",
+      "title": "Gemma 4: Google releases its most capable open models to date",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/",
+      "source": "Google Blog",
+      "published_at": null,
+      "why_it_matters": "A major new open model drop from a must-track vendor can immediately change what teams can run locally/on-device and fine-tune.",
+      "brief": "Google published the Gemma 4 launch post (open models).",
+      "details": "Google announced Gemma 4 as its latest open-model family. This is a primary-source launch post and the canonical reference for model sizes, capabilities, and licensing. If you deploy open models, this is the one to evaluate first today. Check the post for exact checkpoints, supported modalities, and recommended tooling.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "OpenAI adds a new $100/month ChatGPT Pro tier",
+      "url": "https://www.cnbc.com/2026/04/09/openai-chatgpt-pro-subscription-anthropic-claude-code.html",
+      "source": "CNBC",
+      "published_at": null,
+      "why_it_matters": "Pricing/packaging changes can materially shift which teams standardize on ChatGPT for coding and higher-usage workflows.",
+      "brief": "OpenAI introduced a $100/month ChatGPT Pro plan positioned between Plus and the $200 tier.",
+      "details": "Reporting says OpenAI launched a new $100/month ChatGPT Pro tier. The key practical impact is higher usage limits (notably for coding/Codex usage) at a mid-tier price point. If you’re managing seats, this creates a new default option for heavy users who don’t need the top tier. Verify current limits and eligibility in your admin/billing view before migrating users.",
+      "is_update": false
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Boris Cherny reflects on Claude Code’s origins and growth",
+      "url": "https://x.com/avthars/status/2005753655455277129",
+      "source": "X (via Google)",
+      "published_at": null,
+      "why_it_matters": "Signals roadmap/positioning from the creator of Claude Code—useful for teams betting on agentic coding workflows.",
+      "brief": "A widely shared post quotes Boris Cherny on Claude Code starting as a side project and scaling up.",
+      "details": "A post circulating on X quotes Boris Cherny discussing how Claude Code began as a side project and grew significantly. While not a formal release note, it’s a useful pulse check on momentum and adoption. Treat it as context rather than a spec: confirm any implied features in official docs/releases. If you’re evaluating coding agents, watch for follow-up posts that include concrete capability or policy changes.",
+      "is_update": false
+    },
+    {
+      "category": "hardware",
+      "title": "Investors watch for NVIDIA GTC 2026 signals on inference chips and roadmap",
+      "url": "https://finance.yahoo.com/news/nvidia-gtc-2026-arrives-six-183000228.html",
+      "source": "Yahoo Finance",
+      "published_at": null,
+      "why_it_matters": "Inference hardware direction affects near-term cost/perf planning for serving LLMs and agents.",
+      "brief": "A preview outlines what to watch from NVIDIA around inference and next-gen roadmap talk.",
+      "details": "A Yahoo Finance preview highlights themes investors are watching around NVIDIA’s GTC 2026, including inference-focused silicon and roadmap discussion. For practitioners, the actionable angle is whether NVIDIA emphasizes lower-latency, lower-cost inference paths and new deployment patterns. Use this as a checklist for what to listen for in keynotes and session announcements. Prefer NVIDIA’s own posts for confirmed specs once published.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Microsoft Copilot: licensing shift reportedly moves key Office Copilot features behind paywall",
+      "url": "https://tech.yahoo.com/ai/copilot/articles/microsoft-moving-best-copilot-features-144421643.html",
+      "source": "Yahoo Tech",
+      "published_at": null,
+      "why_it_matters": "If true, this changes what “free Copilot Chat” users can do inside Office apps and may force licensing decisions.",
+      "brief": "Report: starting April 15, Copilot features in Office apps won’t be available for Copilot Chat users.",
+      "details": "A Yahoo Tech report says Microsoft will remove Copilot availability in Word/Excel/PowerPoint/OneNote for Copilot Chat users starting April 15. If you rely on Copilot Chat as a low-cost baseline, this could reduce in-app assistance and push upgrades. Confirm the change in Microsoft’s official admin/licensing documentation before communicating internally. Plan for user messaging and alternative workflows if access changes.",
+      "is_update": false
+    }
+  ]
+}

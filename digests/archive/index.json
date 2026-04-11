@@ -2,6 +2,27 @@
   "timezone": "America/Chicago",
   "days": [
     {
+      "date": "2026-04-11",
+      "slots": [
+        {
+          "slot": "AM",
+          "label": "Morning",
+          "path": "2026-04-11/AM.json",
+          "generated_at": "2026-04-11T00:00:00-05:00",
+          "top": [
+            "Gemma 4: Google releases its most capable open models to date",
+            "OpenAI adds a new $100/month ChatGPT Pro tier",
+            "Boris Cherny reflects on Claude Code’s origins and growth",
+            "Investors watch for NVIDIA GTC 2026 signals on inference chips and roadmap",
+            "Microsoft Copilot: licensing shift reportedly moves key Office Copilot features behind paywall"
+          ],
+          "counts": {
+            "total": 5
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-04-10",
       "slots": [
         {
