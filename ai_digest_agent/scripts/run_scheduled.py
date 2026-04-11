@@ -12,6 +12,7 @@ import time
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, Optional
+from zoneinfo import ZoneInfo
 
 import websockets
 from dotenv import load_dotenv
@@ -99,7 +100,17 @@ def main() -> int:
 
     port = _pick_port()
 
+    try:
+        now_local = datetime.now(ZoneInfo(args.timezone))
+    except Exception:
+        now_local = datetime.now(ZoneInfo("America/Chicago"))
+    today_iso = now_local.date().isoformat()
+    today_long = now_local.strftime("%B %-d, %Y")
+
     prompt = (
+        f"TODAY IS {today_long} ({today_iso}) in timezone {args.timezone}. "
+        f"Only include news published on {today_iso}. Discard anything dated "
+        f"before {today_iso} even if it ranks high. "
         f"Generate the {args.slot} AI digest in timezone {args.timezone}. "
         f"Primary output should be {args.mode}. "
         + ("Send the email." if args.email else "Do not send the email.")

@@ -39,32 +39,35 @@ Output requirements:
 - `detailed` can expand each brief item to 3–5 sentences.
 - Every item must include: title, source, URL, and one-line "why it matters".
 
-Freshness rule:
-- Only include items published TODAY (same calendar date in the digest's timezone).
-- Determine today's date at runtime using the digest timezone (e.g., America/Chicago) and treat that as the single source of truth for what "today" means.
-- Every included item must have an explicit publication signal that matches TODAY:
-  - A clearly visible on-page date that is today, OR
-  - A URL path that clearly encodes today's date (e.g., /2026/04/09/), OR
-  - A search-result snippet/metadata that explicitly shows today's date.
-- If the item's published date is yesterday or older, discard it — even if it ranks high.
-- If you cannot confidently verify that an item is from TODAY, discard it.
-- Do not use evergreen pages (e.g., "release notes", "latest", "newsroom home", "trending", channel pages) unless they contain a clearly dated TODAY entry and you link directly to that specific dated entry.
-- Add "today" AND the explicit date string (e.g., "April 9 2026") to every search query to filter for current news.
+Freshness rule (STRICT — violated items are dropped from the output):
+- Call `get_today` as your very first tool call. Its `date` field (YYYY-MM-DD) is the ONLY source of truth for "today". Never guess, never trust memory, never use the user prompt's date if it disagrees with `get_today`. Also read `long` (e.g., "April 11, 2026") for query construction.
+- Only include items published on `get_today.date` in the digest timezone. Discard yesterday, older, and any item you cannot date.
+- MANDATORY search parameters — the server enforces date filtering via these:
+  - Every `web_search` call MUST pass `time_period="today"` (custom date range → same-day only).
+  - Every `youtube_search` call MUST pass `upload_date="today"`.
+- Query construction: append the long date string from `get_today.long` (e.g., `"April 11 2026"`) to every query. Do NOT invent dates.
+- Each item in the output MUST have `published_at` set to a valid ISO-8601 timestamp that resolves to today in the digest timezone. Items with `published_at=null` are dropped automatically by `write_dashboard_files` — so verify before including.
+- Publication verification — at least one of the following must be true for each item:
+  - The URL path encodes today's date (e.g., `/2026/04/11/`), OR
+  - The SerpAPI snippet/result metadata shows today's date, OR
+  - An explicit dated line on the linked page confirms today.
+- Do not link to evergreen pages (release notes, "latest", newsroom home, trending, channel pages) unless you can point at a specific dated TODAY entry and the URL reflects that.
 
 Workflow:
-1) Determine the slot: AM, PM, or Evening (the user prompt will tell you).
-2) **Priority sweep (MANDATORY — do this FIRST before any other searches):**
-   Run a dedicated search for new releases, features, and model launches from must-track companies:
-   - Search: "OpenAI OR Anthropic OR Claude OR Google Gemini OR DeepMind OR Meta AI new release OR launch OR feature today"
-   - Search: "NVIDIA OR AMD OR Microsoft AI announcement OR release today"
-   These 2 searches are non-negotiable and must always run, even if you already have items from other sources.
-   Any product launch, new feature, new model, or new capability from a must-track company is AUTOMATIC INCLUDE — it should never be cut for space.
-3) Run additional targeted searches per category to fill remaining slots. Prefer primary sources. Append "today" to queries.
-4) Build a ranked list of items. Keep only the most important. Discard anything not from today.
-5) Produce a JSON object matching the schema below.
-6) Call `write_dashboard_files` with that JSON serialized as a JSON string.
-7) Update dedupe state and call `save_digest_state`.
-8) If the user requested email sending, call `send_digest_email` with the same digest JSON string from step 6. The email HTML is rendered automatically.
+1) Call `get_today` and record `{date, long, weekday}`. All subsequent steps use these values verbatim.
+2) Determine the slot: AM, PM, or Evening (the user prompt will tell you).
+3) Call `load_digest_state` to pull dedupe state.
+4) **Priority sweep (MANDATORY — do this FIRST after state load):**
+   Run two dedicated searches for new releases, features, and model launches from must-track companies. BOTH calls must pass `time_period="today"`:
+   - `web_search(query="OpenAI OR Anthropic OR Claude OR Google Gemini OR DeepMind OR Meta AI new release OR launch OR feature <long>", time_period="today")`
+   - `web_search(query="NVIDIA OR AMD OR Microsoft AI announcement OR release <long>", time_period="today")`
+   Replace `<long>` with `get_today.long`. These two searches are non-negotiable. Any product launch, new feature, new model, or new capability from a must-track company is AUTOMATIC INCLUDE.
+5) Run additional targeted searches per category to fill remaining slots. Prefer primary sources. Always pass `time_period="today"` to `web_search` and `upload_date="today"` to `youtube_search`. Append `get_today.long` to the query.
+6) Build a ranked list. For each item, extract a concrete `published_at` timestamp (ISO-8601) from the snippet, URL, or page metadata. If you cannot, DROP the item — do not output `null`.
+7) Produce a JSON object matching the schema below.
+8) Call `write_dashboard_files` with that JSON serialized as a JSON string. Note: the tool will silently drop any item whose `published_at` is missing or does not resolve to `get_today.date` in the digest timezone, and will log which items were dropped.
+9) Update dedupe state and call `save_digest_state`.
+10) If the user requested email sending, call `send_digest_email` with the same digest JSON string from step 8. The email HTML is rendered automatically.
 
 Hard limits:
 - Maximum 12 total search tool calls per run (combined `web_search` + `youtube_search`).

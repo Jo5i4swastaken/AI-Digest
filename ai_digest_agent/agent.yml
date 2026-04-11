@@ -3,6 +3,7 @@ model: gpt-5.2
 welcome_text: "AI Digest Agent — brief updates + optional deep dives."
 instructions_file: instructions.md
 tools:
+  - get_today
   - web_search
   - youtube_search
   - load_digest_state
@@ -14,6 +15,7 @@ safe_agent_options:
   skip_approvals: false
   halt_on_rejection: true
   safe_tool_names:
+    - get_today
     - web_search
     - youtube_search
     - load_digest_state
