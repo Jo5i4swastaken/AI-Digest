@@ -62,7 +62,29 @@ Workflow:
    - `web_search(query="OpenAI OR Anthropic OR Claude OR Google Gemini OR DeepMind OR Meta AI new release OR launch OR feature <long>", time_period="today")`
    - `web_search(query="NVIDIA OR AMD OR Microsoft AI announcement OR release <long>", time_period="today")`
    Replace `<long>` with `get_today.long`. These two searches are non-negotiable. Any product launch, new feature, new model, or new capability from a must-track company is AUTOMATIC INCLUDE.
-5) Run additional targeted searches per category to fill remaining slots. Prefer primary sources. Always pass `time_period="today"` to `web_search` and `upload_date="today"` to `youtube_search`. Append `get_today.long` to the query.
+5) If the priority sweep yields **zero usable today-dated items** (or you still have fewer than 3 credible items), you MUST run additional targeted searches per category to find enough same-day items. Prefer primary sources. Always pass `time_period="today"` to `web_search` and `upload_date="today"` to `youtube_search`. Append `get_today.long` to the query.
+   Use these queries as a menu (choose the highest-signal first; stop once you have enough items):
+   - Product launches (primary sources):
+     - `web_search(query="site:openai.com (release OR launches OR introduces OR update) <long>", time_period="today")`
+     - `web_search(query="site:anthropic.com (launch OR introduces OR release OR update) <long>", time_period="today")`
+     - `web_search(query="(site:blog.google OR site:developers.google.com OR site:deepmind.google) (Gemini OR DeepMind OR model OR release OR launch) <long>", time_period="today")`
+     - `web_search(query="(site:ai.meta.com OR site:about.fb.com) (Llama OR Meta AI OR model OR release OR launch) <long>", time_period="today")`
+     - `web_search(query="(site:blogs.microsoft.com OR site:azure.microsoft.com OR site:learn.microsoft.com) (Copilot OR Azure AI OR model OR release OR launch) <long>", time_period="today")`
+     - `web_search(query="(site:blogs.nvidia.com OR site:nvidia.com) (GPU OR CUDA OR inference OR launch OR release) <long>", time_period="today")`
+     - `web_search(query="site:amd.com (AI OR GPU OR accelerator OR ROCm OR release OR launch) <long>", time_period="today")`
+   - Open-source + agent tooling:
+     - `web_search(query="GitHub release notes AI agent framework <long>", time_period="today")`
+     - `web_search(query="(Claude Code OR Codex OR Cursor OR Windsurf OR Aider) update release <long>", time_period="today")`
+     - `web_search(query="(LangChain OR LlamaIndex OR vLLM OR Ollama OR transformers) release <long>", time_period="today")`
+   - Reporting sweep (reputable outlets; verify date on-page):
+     - `web_search(query="site:techcrunch.com AI (launch OR release OR model) <long>", time_period="today")`
+     - `web_search(query="site:theverge.com AI (launch OR release OR update) <long>", time_period="today")`
+     - `web_search(query="site:arstechnica.com AI (launch OR release OR update) <long>", time_period="today")`
+     - `web_search(query="site:reuters.com AI (launch OR release OR model) <long>", time_period="today")`
+     - `web_search(query="site:bloomberg.com AI (launch OR release OR model) <long>", time_period="today")`
+   - X discovery beyond the two must-track accounts (still requires verifiable on-page timestamp):
+     - `web_search(query="site:x.com (OpenAI OR Anthropic OR Gemini OR DeepMind OR MetaAI OR Microsoft) (released OR launch OR announces) <long>", time_period="today")`
+     - `web_search(query="site:x.com (NVIDIA OR AMD) (announces OR launch OR released) <long>", time_period="today")`
 6) Build a ranked list. For each item, extract a concrete `published_at` timestamp (ISO-8601) from the snippet, URL, or page metadata. If you cannot, DROP the item — do not output `null`.
 7) Produce a JSON object matching the schema below.
 8) Call `write_dashboard_files` with that JSON serialized as a JSON string. Note: the tool will silently drop any item whose `published_at` is missing or does not resolve to `get_today.date` in the digest timezone, and will log which items were dropped.

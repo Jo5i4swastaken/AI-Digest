@@ -81,6 +81,21 @@ async def _run_once(ws_url: str, prompt: str) -> str:
         return final_text or ""
 
 
+def _write_no_digest(latest_json: Path, *, slot: str, timezone: str, date_iso: str, message: str) -> None:
+    latest_json.parent.mkdir(parents=True, exist_ok=True)
+    payload: Dict[str, Any] = {
+        "ok": False,
+        "reason": "no_digest_generated",
+        "slot": slot,
+        "timezone": timezone,
+        "date": date_iso,
+        "generated_at": datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
+        "items": [],
+        "message": message.strip(),
+    }
+    latest_json.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--slot", choices=["AM", "PM", "Evening"], required=True)
@@ -152,11 +167,21 @@ def main() -> int:
             print(result)
 
         if not latest_json.exists():
-            print(
-                f"Warning: Run completed but {latest_json} was not written "
-                f"(search APIs may be unavailable). See logs: {server_log}"
+            if not result.strip():
+                print(
+                    f"Warning: Run completed but {latest_json} was not written "
+                    f"and no final message was captured. See logs: {server_log}"
+                )
+                return 2
+            _write_no_digest(
+                latest_json,
+                slot=args.slot,
+                timezone=args.timezone,
+                date_iso=today_iso,
+                message=result,
             )
-            return 2
+            print(f"Warning: Agent did not write {latest_json}; wrote fallback payload instead. See logs: {server_log}")
+            return 0
         return 0
     finally:
         if proc.poll() is None:
