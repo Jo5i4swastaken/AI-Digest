@@ -934,6 +934,45 @@ def _filter_to_current_week(digest_obj: Dict[str, Any]) -> tuple:
     return digest_obj, dropped
 
 
+def _topic_key_for_item(item: Dict[str, Any]) -> str:
+    title = str(item.get("title") or "").strip().lower()
+    if not title:
+        title = str(item.get("url") or "").strip().lower()
+    import re
+
+    title = re.sub(r"https?://", "", title)
+    title = re.sub(r"[^a-z0-9]+", "-", title)
+    title = re.sub(r"-+", "-", title).strip("-")
+    if not title:
+        title = "unknown"
+    return f"topic:{title[:80]}"
+
+
+def _load_repo_day_seen(day_key: str) -> Dict[str, str]:
+    day_dir = _REPO_DIGESTS_DIR / day_key
+    if not day_dir.exists() or not day_dir.is_dir():
+        return {}
+    seen: Dict[str, str] = {}
+    for p in sorted(day_dir.glob("*.json")):
+        try:
+            payload = json.loads(p.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        items = payload.get("items", [])
+        if not isinstance(items, list):
+            continue
+        for it in items:
+            if not isinstance(it, dict):
+                continue
+            url = str(it.get("url") or "").strip()
+            if url:
+                seen[url] = str(it.get("published_at") or payload.get("generated_at") or "")
+            tkey = str(it.get("topic_key") or "").strip()
+            if tkey:
+                seen[tkey] = str(it.get("published_at") or payload.get("generated_at") or "")
+    return {k: v for k, v in seen.items() if isinstance(k, str) and k}
+
+
 @function_tool
 def write_dashboard_files(digest_json: str) -> str:
     """Write dashboard files: output/latest.json and output/latest.html.
@@ -952,6 +991,25 @@ def write_dashboard_files(digest_json: str) -> str:
         digest_obj = json.loads(digest_json)
     except Exception as exc:
         raise ValueError("digest_json must be valid JSON") from exc
+
+    day_key = _date_key()
+    state = _read_state()
+    repo_seen = _load_repo_day_seen(day_key)
+    seen_keys: Dict[str, str] = {**repo_seen, **state.seen}
+
+    items = digest_obj.get("items", [])
+    if isinstance(items, list):
+        deduped: List[Dict[str, Any]] = []
+        for it in items:
+            if not isinstance(it, dict):
+                continue
+            url = str(it.get("url") or "").strip()
+            tkey = str(it.get("topic_key") or "").strip() or _topic_key_for_item(it)
+            it["topic_key"] = tkey
+            if (url and url in seen_keys) or (tkey and tkey in seen_keys):
+                continue
+            deduped.append(it)
+        digest_obj["items"] = deduped
 
     digest_obj, _dropped = _filter_to_current_week(digest_obj)
     if _dropped:
@@ -976,7 +1034,6 @@ def write_dashboard_files(digest_json: str) -> str:
     html = _render_email_html(digest_obj)
     html_path.write_text(html, encoding="utf-8")
 
-    day_key = _date_key()
     slot = str(digest_obj.get("slot", "")).strip() or "Unknown"
     safe_slot = "".join(ch for ch in slot if ch.isalnum() or ch in {"_", "-"})
     if not safe_slot:
@@ -994,6 +1051,19 @@ def write_dashboard_files(digest_json: str) -> str:
     repo_day_dir.mkdir(parents=True, exist_ok=True)
     repo_slot_json = repo_day_dir / f"{safe_slot}.json"
     repo_slot_json.write_text(json.dumps(digest_obj, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    generated_at = str(digest_obj.get("generated_at") or "").strip() or _utc_now_iso()
+    for it in (digest_obj.get("items") or []):
+        if not isinstance(it, dict):
+            continue
+        url = str(it.get("url") or "").strip()
+        tkey = str(it.get("topic_key") or "").strip() or _topic_key_for_item(it)
+        published_at = str(it.get("published_at") or "").strip() or generated_at
+        if url:
+            state.seen[url] = published_at
+        if tkey:
+            state.seen[tkey] = published_at
+    _write_state(state)
 
     tz_name = os.getenv("TIMEZONE") or "America/Chicago"
     day_dirs = sorted([p for p in _ARCHIVE_DIR.glob("*") if p.is_dir()], reverse=True)

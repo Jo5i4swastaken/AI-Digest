@@ -33,6 +33,8 @@ Deduping (CRITICAL — duplicate items are the #1 quality problem):
 - When saving state, include both the URL AND a short normalized topic key (e.g., "broadcom-google-chip-deal") so future slots can match by topic.
 - At the end, call `save_digest_state` with updated seen URLs/topics and timestamps as a JSON string.
 
+Note: `write_dashboard_files` also enforces dedupe server-side (by URL and `topic_key`), using both the persisted state and any already-written digests for the current day.
+
 Output requirements:
 - Always produce BOTH formats: `brief` and `detailed`.
 - `brief` must be <= 12 bullets total.
