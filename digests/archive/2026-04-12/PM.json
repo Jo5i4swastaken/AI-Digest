@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-04-12T23:16:38-05:00",
+  "slot": "PM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "Anthropic previews Claude ‘Mythos’ model as part of new security push (Project Glasswing)",
+      "url": "https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/",
+      "source": "TechCrunch",
+      "published_at": "2026-04-07T18:00:00+00:00",
+      "why_it_matters": "Signals Anthropic is productizing a security-focused, higher-capability Claude variant and courting enterprise security use cases.",
+      "brief": "TechCrunch reports Anthropic is previewing ‘Claude Mythos’ in a cybersecurity initiative called Project Glasswing.",
+      "details": "TechCrunch says Anthropic is offering a preview of a new model variant called Claude Mythos as part of a cybersecurity initiative (Project Glasswing). The focus is on using Claude to find vulnerabilities and improve software security workflows. For teams building agentic security tooling, this is a strong indicator of where frontier labs are packaging models into domain-specific offerings. Treat details as secondary until Anthropic posts a primary-source announcement with full specs.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Meta debuts a new AI model as it tries to catch up to OpenAI/Google",
+      "url": "https://www.cnbc.com/2026/04/08/meta-debuts-first-major-ai-model-since-14-billion-deal-to-bring-in-alexandr-wang.html",
+      "source": "CNBC",
+      "published_at": "2026-04-08T16:01:28+00:00",
+      "why_it_matters": "A fresh Meta model release can quickly change the open/closed model landscape and downstream tooling support.",
+      "brief": "CNBC reports Meta launched a new major AI model (first since a major team shakeup), positioning it against OpenAI/Google.",
+      "details": "CNBC reports Meta has debuted a new AI model and is framing it as a step toward closing the gap with OpenAI and Google. The story ties the release to Meta’s recent organizational moves and renewed push on AI. For builders, the key is whether the model is released as open weights, API-only, or integrated into Meta products—those choices determine ecosystem impact. Watch for Meta’s own technical blog/system card for concrete capabilities and licensing.",
+      "is_update": false
+    }
+  ]
+}
