@@ -124,8 +124,8 @@ def main() -> int:
 
     prompt = (
         f"TODAY IS {today_long} ({today_iso}) in timezone {args.timezone}. "
-        f"Only include news published on {today_iso}. Discard anything dated "
-        f"before {today_iso} even if it ranks high. "
+        f"Only include news published in the current week of {today_iso} (ISO week, Monday–Sunday) "
+        f"in timezone {args.timezone}. Discard anything outside this week. "
         f"Generate the {args.slot} AI digest in timezone {args.timezone}. "
         f"Primary output should be {args.mode}. "
         + ("Send the email." if args.email else "Do not send the email.")

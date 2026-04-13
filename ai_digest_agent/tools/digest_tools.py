@@ -903,13 +903,10 @@ def _render_dashboard_html(index: List[Dict[str, Any]], *, tz_name: str) -> str:
 </html>"""
 
 
-def _filter_to_today(digest_obj: Dict[str, Any]) -> tuple:
-    """Drop items whose published_at is missing or not today in the digest tz.
-
-    Returns (filtered_digest, dropped_titles).
-    """
-    today = _date_key()
+def _filter_to_current_week(digest_obj: Dict[str, Any]) -> tuple:
     tz = _local_tz()
+    today_local = datetime.now(tz).date()
+    week_key = today_local.isocalendar()[:2]
     items = digest_obj.get("items")
     if not isinstance(items, list):
         return digest_obj, []
@@ -927,9 +924,9 @@ def _filter_to_today(digest_obj: Dict[str, Any]) -> tuple:
             continue
         if parsed.tzinfo is None:
             parsed = parsed.replace(tzinfo=tz)
-        local_date = parsed.astimezone(tz).date().isoformat()
-        if local_date != today:
-            dropped.append(f"{item.get('title', '<untitled>')} (date={local_date}, expected={today})")
+        local_date = parsed.astimezone(tz).date()
+        if local_date.isocalendar()[:2] != week_key:
+            dropped.append(f"{item.get('title', '<untitled>')} (date={local_date.isoformat()}, expected_week={week_key})")
             continue
         kept.append(item)
 
@@ -956,10 +953,10 @@ def write_dashboard_files(digest_json: str) -> str:
     except Exception as exc:
         raise ValueError("digest_json must be valid JSON") from exc
 
-    digest_obj, _dropped = _filter_to_today(digest_obj)
+    digest_obj, _dropped = _filter_to_current_week(digest_obj)
     if _dropped:
         print(
-            f"[write_dashboard_files] dropped {len(_dropped)} stale item(s) not from today ({_date_key()}):",
+            f"[write_dashboard_files] dropped {len(_dropped)} stale item(s) not from the current week:",
             flush=True,
         )
         for d in _dropped:
