@@ -17,6 +17,92 @@ import requests as _requests
 from omniagents import function_tool
 
 
+def _extract_published_at(html: str) -> Optional[str]:
+    if not isinstance(html, str) or not html:
+        return None
+    candidates: List[str] = []
+
+    import re
+
+    patterns = [
+        r"<meta[^>]+property=\"article:published_time\"[^>]+content=\"([^\"]+)\"",
+        r"<meta[^>]+property=\"og:published_time\"[^>]+content=\"([^\"]+)\"",
+        r"<meta[^>]+name=\"pubdate\"[^>]+content=\"([^\"]+)\"",
+        r"<meta[^>]+name=\"publishdate\"[^>]+content=\"([^\"]+)\"",
+        r"<meta[^>]+name=\"timestamp\"[^>]+content=\"([^\"]+)\"",
+        r"\"datePublished\"\s*:\s*\"([^\"]+)\"",
+        r"\"dateModified\"\s*:\s*\"([^\"]+)\"",
+    ]
+    for pat in patterns:
+        for m in re.findall(pat, html, flags=re.IGNORECASE):
+            if isinstance(m, str) and m.strip():
+                candidates.append(m.strip())
+
+    for raw in candidates:
+        parsed = _parse_iso(raw)
+        if parsed is None:
+            continue
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=timezone.utc)
+        return parsed.replace(microsecond=0).isoformat()
+    return None
+
+
+def _extract_title(html: str) -> Optional[str]:
+    if not isinstance(html, str) or not html:
+        return None
+    import re
+
+    m = re.search(r"<title[^>]*>(.*?)</title>", html, flags=re.IGNORECASE | re.DOTALL)
+    if not m:
+        return None
+    title = re.sub(r"\s+", " ", m.group(1)).strip()
+    return title or None
+
+
+@function_tool
+def fetch_page_metadata(url: str) -> str:
+    """Fetch a URL and extract publish metadata.
+
+    Use this to verify same-day freshness when search snippets do not expose a date.
+
+    Args:
+        url: Page URL.
+
+    Returns:
+        JSON string with keys: ok, url, status_code, title, published_at.
+    """
+    if not isinstance(url, str) or not url.strip():
+        return json.dumps({"ok": False, "error": "url must be a non-empty string"})
+
+    try:
+        resp = _requests.get(
+            url.strip(),
+            timeout=25,
+            headers={
+                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122 Safari/537.36",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            },
+        )
+    except Exception as exc:
+        return json.dumps({"ok": False, "url": url, "error": str(exc)})
+
+    html = resp.text or ""
+    published_at = _extract_published_at(html)
+    title = _extract_title(html)
+
+    return json.dumps(
+        {
+            "ok": True,
+            "url": url,
+            "status_code": resp.status_code,
+            "title": title,
+            "published_at": published_at,
+        },
+        ensure_ascii=False,
+    )
+
+
 _AGENT_DIR = Path(__file__).resolve().parents[1]
 _DATA_DIR = _AGENT_DIR / "data"
 _OUTPUT_DIR = _AGENT_DIR / "output"

@@ -50,7 +50,7 @@ Freshness rule (STRICT — violated items are dropped from the output):
 - Publication verification — at least one of the following must be true for each item:
   - The URL path encodes today's date (e.g., `/2026/04/11/`), OR
   - The SerpAPI snippet/result metadata shows today's date, OR
-  - An explicit dated line on the linked page confirms today.
+  - An explicit dated line on the linked page confirms today (use `fetch_page_metadata` if needed).
 - Do not link to evergreen pages (release notes, "latest", newsroom home, trending, channel pages) unless you can point at a specific dated TODAY entry and the URL reflects that.
 
 Workflow:
@@ -85,7 +85,7 @@ Workflow:
    - X discovery beyond the two must-track accounts (still requires verifiable on-page timestamp):
      - `web_search(query="site:x.com (OpenAI OR Anthropic OR Gemini OR DeepMind OR MetaAI OR Microsoft) (released OR launch OR announces) <long>", time_period="today")`
      - `web_search(query="site:x.com (NVIDIA OR AMD) (announces OR launch OR released) <long>", time_period="today")`
-6) Build a ranked list. For each item, extract a concrete `published_at` timestamp (ISO-8601) from the snippet, URL, or page metadata. If you cannot, DROP the item — do not output `null`.
+6) Build a ranked list. For each item, extract a concrete `published_at` timestamp (ISO-8601) from the snippet, URL, or page metadata. If the snippet does not expose a date, call `fetch_page_metadata(url=...)` and use its `published_at` if it resolves to today; otherwise DROP the item — do not output `null`.
 7) Produce a JSON object matching the schema below.
 8) Call `write_dashboard_files` with that JSON serialized as a JSON string. Note: the tool will silently drop any item whose `published_at` is missing or does not resolve to `get_today.date` in the digest timezone, and will log which items were dropped.
 9) Update dedupe state and call `save_digest_state`.
