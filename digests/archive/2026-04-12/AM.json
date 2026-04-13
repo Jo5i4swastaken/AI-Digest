@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-04-12T19:28:10-05:00",
+  "generated_at": "2026-04-12T22:50:40-05:00",
   "slot": "AM",
   "timezone": "America/Chicago",
-  "items": []
+  "items": [
+    {
+      "category": "product",
+      "title": "Anthropic previews Claude Mythos in new cybersecurity initiative (Project Glasswing)",
+      "url": "https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/",
+      "source": "TechCrunch",
+      "published_at": "2026-04-07T18:00:00+00:00",
+      "why_it_matters": "Signals Anthropic’s next frontier-model direction and a concrete go-to-market wedge (security) for high-stakes enterprise adoption.",
+      "brief": "Anthropic is previewing its ‘Claude Mythos’ model via a security-focused program aimed at vulnerability discovery and critical software defense.",
+      "details": "TechCrunch reports Anthropic has introduced a cybersecurity initiative that includes a preview of its new ‘Claude Mythos’ model. The effort is positioned around using the model to identify vulnerabilities and exploits in critical software. This is one of the clearest public signals yet of how Anthropic intends to package frontier capability into enterprise workflows. If the preview performs well, security could become a major early adopter channel for the next Claude generation.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Meta debuts a new AI model ‘Muse Spark’ (report)",
+      "url": "https://www.cnbc.com/2026/04/08/meta-debuts-first-major-ai-model-since-14-billion-deal-to-bring-in-alexandr-wang.html",
+      "source": "CNBC",
+      "published_at": "2026-04-08T16:01:28+00:00",
+      "why_it_matters": "A new flagship model from Meta affects the competitive baseline for consumer assistants and what capabilities get rolled into WhatsApp/Instagram/Facebook.",
+      "brief": "Meta unveiled ‘Muse Spark,’ its first major model release since a major AI org shakeup, per CNBC.",
+      "details": "CNBC reports Meta has introduced a new AI model called ‘Muse Spark.’ The story frames it as Meta’s first major model since a significant team/strategy shift. While details are limited in the report, the key implication is that Meta is pushing a new foundation model into its product surface area. Watch for follow-on technical docs and API/product rollouts that clarify capability, cost, and availability.",
+      "is_update": false
+    }
+  ]
 }

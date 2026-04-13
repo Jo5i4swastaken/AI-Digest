@@ -8,10 +8,13 @@
           "slot": "AM",
           "label": "Morning",
           "path": "2026-04-12/AM.json",
-          "generated_at": "2026-04-12T19:28:10-05:00",
-          "top": [],
+          "generated_at": "2026-04-12T22:50:40-05:00",
+          "top": [
+            "Anthropic previews Claude Mythos in new cybersecurity initiative (Project Glasswing)",
+            "Meta debuts a new AI model ‘Muse Spark’ (report)"
+          ],
           "counts": {
-            "total": 0
+            "total": 2
           }
         }
       ]
