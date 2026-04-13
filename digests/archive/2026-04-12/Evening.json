@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-04-12T23:23:49-05:00",
+  "slot": "Evening",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "Anthropic previews new model \"Mythos\" as part of a cybersecurity initiative",
+      "url": "https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/",
+      "source": "TechCrunch",
+      "published_at": "2026-04-07T18:00:00+00:00",
+      "why_it_matters": "Signals a new frontier-model line and a security-focused rollout path—relevant if you deploy Claude in sensitive environments.",
+      "brief": "Anthropic is previewing \"Mythos\" and tying it to a new security initiative.",
+      "details": "TechCrunch reports Anthropic has debuted a preview of a new model called Mythos. The preview is positioned within a cybersecurity initiative, emphasizing security and deployment considerations. For teams evaluating Claude for high-risk use cases, this is a concrete signal of Anthropic’s direction on capability + safety packaging. Watch for official Anthropic docs/system cards and API availability details as they land.",
+      "is_update": false
+    },
+    {
+      "category": "product",
+      "title": "Meta debuts a new AI model (reported) as it tries to catch up to OpenAI/Google",
+      "url": "https://www.cnbc.com/2026/04/08/meta-debuts-first-major-ai-model-since-14-billion-deal-to-bring-in-alexandr-wang.html",
+      "source": "CNBC",
+      "published_at": "2026-04-08T16:01:28+00:00",
+      "why_it_matters": "If Meta is shipping a new flagship model line, it can quickly change the open/closed model landscape and tooling compatibility.",
+      "brief": "CNBC says Meta unveiled a new AI model—its first major one since a team shakeup.",
+      "details": "CNBC reports Meta has debuted a new AI model as it pushes to close the gap with OpenAI and Google. The story frames it as Meta’s first major model release since a significant AI org change. For builders, the key follow-ups are: availability (API vs. product-only), licensing (open vs. restricted), and whether it lands in Meta’s Llama ecosystem. Treat performance claims as provisional until primary Meta documentation is available.",
+      "is_update": false
+    }
+  ]
+}

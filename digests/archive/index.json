@@ -29,6 +29,19 @@
           "counts": {
             "total": 2
           }
+        },
+        {
+          "slot": "Evening",
+          "label": "Evening",
+          "path": "2026-04-12/Evening.json",
+          "generated_at": "2026-04-12T23:23:49-05:00",
+          "top": [
+            "Anthropic previews new model \"Mythos\" as part of a cybersecurity initiative",
+            "Meta debuts a new AI model (reported) as it tries to catch up to OpenAI/Google"
+          ],
+          "counts": {
+            "total": 2
+          }
         }
       ]
     },
