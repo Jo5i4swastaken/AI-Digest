@@ -27,4 +27,4 @@ safe_agent_options:
 model_settings:
   temperature: 0.3
   max_tokens: 3000
-max_turns: 12
+max_turns: 24

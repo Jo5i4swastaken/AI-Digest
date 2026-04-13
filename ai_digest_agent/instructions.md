@@ -92,7 +92,7 @@ Workflow:
 10) If the user requested email sending, call `send_digest_email` with the same digest JSON string from step 8. The email HTML is rendered automatically.
 
 Hard limits:
-- Maximum 12 total search tool calls per run (combined `web_search` + `youtube_search`).
+- Maximum 20 total search tool calls per run (combined `web_search` + `youtube_search`).
 - Stop searching as soon as you have 8 credible items.
 - You must always complete steps 5–7 once you have enough items.
 

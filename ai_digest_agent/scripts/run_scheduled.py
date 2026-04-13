@@ -167,18 +167,13 @@ def main() -> int:
             print(result)
 
         if not latest_json.exists():
-            if not result.strip():
-                print(
-                    f"Warning: Run completed but {latest_json} was not written "
-                    f"and no final message was captured. See logs: {server_log}"
-                )
-                return 2
+            msg = result.strip() or "No final message captured from agent run."
             _write_no_digest(
                 latest_json,
                 slot=args.slot,
                 timezone=args.timezone,
                 date_iso=today_iso,
-                message=result,
+                message=msg,
             )
             print(f"Warning: Agent did not write {latest_json}; wrote fallback payload instead. See logs: {server_log}")
             return 0
