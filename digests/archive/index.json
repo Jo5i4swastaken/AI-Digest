@@ -2,6 +2,21 @@
   "timezone": "America/Chicago",
   "days": [
     {
+      "date": "2026-04-14",
+      "slots": [
+        {
+          "slot": "AM",
+          "label": "Morning",
+          "path": "2026-04-14/AM.json",
+          "generated_at": "2026-04-14T15:02:33-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-04-13",
       "slots": [
         {
