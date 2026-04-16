@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-04-16T15:06:49-05:00",
+  "slot": "PM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "OpenAI rolls out ‘Codex for (almost) everything’ (new Codex capabilities beyond coding)",
+      "url": "https://community.openai.com/t/introducing-the-new-codex-for-almost-everything/1379125",
+      "source": "OpenAI Developer Community",
+      "published_at": "2026-04-16T17:46:33+00:00",
+      "why_it_matters": "Signals Codex expanding into broader agentic work (not just code), which could change how teams automate knowledge work inside OpenAI’s ecosystem.",
+      "brief": "Codex expands beyond coding into broader task support (per OpenAI’s announcement post).",
+      "details": "OpenAI posted an announcement describing ‘Codex for (almost) everything,’ positioning Codex as more than a coding assistant. The post highlights broader task coverage and workflow support beyond writing code. This is a meaningful product-direction signal even if some features roll out progressively. If you rely on Codex, expect more end-to-end task handling rather than isolated code generation.",
+      "is_update": false,
+      "topic_key": "topic:openai-rolls-out-codex-for-almost-everything-new-codex-capabilities-beyond-codin"
+    },
+    {
+      "category": "product",
+      "title": "Google: Gemini 3.1 Flash TTS (new expressive text-to-speech model)",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-tts/",
+      "source": "Google Blog",
+      "published_at": "2026-04-15T00:00:00+00:00",
+      "why_it_matters": "High-quality, low-latency TTS is a key building block for real-time voice agents; new model options can reduce cost and improve naturalness.",
+      "brief": "Google introduced Gemini 3.1 Flash TTS, aiming at more expressive, next-gen AI speech.",
+      "details": "Google announced Gemini 3.1 Flash TTS as a next-generation text-to-speech model. The positioning emphasizes expressiveness and improved speech quality for AI applications. For builders, this is most relevant for voice agents, call-center automation, and multimodal assistants where latency and prosody matter. Watch for API availability/pricing details and supported languages/voices in the rollout.",
+      "is_update": false,
+      "topic_key": "topic:google-gemini-3-1-flash-tts-new-expressive-text-to-speech-model"
+    },
+    {
+      "category": "ways_to_use",
+      "title": "Google Chrome: ‘Skills’ turns prompts into one-click tools",
+      "url": "https://blog.google/products-and-platforms/products/chrome/skills-in-chrome/",
+      "source": "Google Blog",
+      "published_at": "2026-04-14T00:00:00+00:00",
+      "why_it_matters": "This is a practical path from “prompt” to reusable UI—useful for teams standardizing repeatable AI workflows without building full extensions.",
+      "brief": "Chrome adds ‘Skills’ to package your best prompts into one-click tools.",
+      "details": "Google introduced ‘Skills’ in Chrome, framing it as a way to convert prompts into reusable, one-click tools. This targets everyday productivity: repeatable transformations, drafting, summarization, and lightweight automations directly in the browser. For teams, it’s a distribution mechanism for vetted prompts and workflows with less friction than sharing docs. The key question is how Skills integrates with Gemini and what governance/admin controls exist for orgs.",
+      "is_update": false,
+      "topic_key": "topic:google-chrome-skills-turns-prompts-into-one-click-tools"
+    }
+  ]
+}
