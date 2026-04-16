@@ -60,6 +60,13 @@ Note: cron uses your machine's timezone. For McAllen, TX use `America/Chicago`.
 
 This repo includes `.github/workflows/ai-digest.yml` to run the digest on a schedule and commit JSON outputs into `digests/archive/`.
 
+The workflow runs every 10 minutes and will:
+- Generate any missing due digest for the current or previous day (backfill window)
+- Emit `ai_digest_agent/output/monitor.json` and open a GitHub issue if a slot is late or missed
+
+Delivery guardrails:
+- Evening digest is not generated if it would arrive after 9pm local time (60 minutes after the 8pm slot); it is alerted instead.
+
 Required GitHub Secrets:
 - `OPENAI_BASE_URL`
 - `OPENAI_API_KEY`

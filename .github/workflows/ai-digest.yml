@@ -2,11 +2,7 @@ name: AI Digest
 
 on:
   schedule:
-    # Run at the 3 digest times in America/Chicago, covering both CDT and CST:
-    #   8 AM CDT=13 UTC / CST=14 UTC
-    #   2 PM CDT=19 UTC / CST=20 UTC
-    #   8 PM CDT=01 UTC / CST=02 UTC
-    - cron: "0 1,2,13,14,19,20 * * *"
+    - cron: "*/10 * * * *"
   workflow_dispatch:
     inputs:
       slot:
@@ -33,6 +29,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
         with:
@@ -88,8 +85,47 @@ jobs:
               python ai_digest_agent/scripts/run_scheduled.py --slot "$SLOT" --mode brief
             fi
           else
-            python ai_digest_agent/scripts/run_if_due.py --timezone "${TIMEZONE:-America/Chicago}" --mode brief --email
+            python ai_digest_agent/scripts/run_if_due.py --timezone "${TIMEZONE:-America/Chicago}" --mode brief --email --slo-minutes 15 --max-backfill-hours 14 --max-delivery-minutes-default 90 --max-delivery-minutes-evening 60
           fi
+
+      - name: Evaluate schedule SLO
+        if: always()
+        id: monitor
+        run: |
+          out=$(python ai_digest_agent/scripts/evaluate_monitor.py)
+          echo "$out"
+          alerts=$(echo "$out" | awk -F= '/^alerts=/{print $2}')
+          if [ -z "$alerts" ]; then alerts=0; fi
+          echo "alerts=$alerts" >> "$GITHUB_OUTPUT"
+
+      - name: Create issue for missed/late digest
+        if: always() && steps.monitor.outputs.alerts != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = 'ai_digest_agent/output/monitor.json';
+            const payload = fs.existsSync(path) ? JSON.parse(fs.readFileSync(path, 'utf8')) : { alerts: [{ type: 'monitor_missing' }] };
+            const date = payload.date || 'unknown-date';
+            const slot = payload.slot || 'unknown-slot';
+            const drift = payload.drift_minutes != null ? `${payload.drift_minutes}m` : 'unknown';
+            const title = `Digest scheduling alert: ${date} ${slot} (drift ${drift})`;
+            const body = [
+              'An automated monitor detected a missed/late digest run.',
+              '',
+              '```json',
+              JSON.stringify(payload, null, 2),
+              '```',
+              '',
+              `Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+            ].join('\n');
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+            });
 
       - name: Upload agent logs
         if: always()
@@ -99,6 +135,7 @@ jobs:
           path: ai_digest_agent/output/
 
       - name: Commit and push digests
+        if: always()
         run: |
           if git status --porcelain | grep -q "^ M\|^??"; then
             git config user.name "github-actions[bot]"

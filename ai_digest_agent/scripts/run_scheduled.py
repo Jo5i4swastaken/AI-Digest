@@ -102,6 +102,7 @@ def main() -> int:
     parser.add_argument("--mode", choices=["brief", "detailed"], default="brief")
     parser.add_argument("--email", action="store_true")
     parser.add_argument("--timezone", default=os.getenv("TIMEZONE", "America/Chicago"))
+    parser.add_argument("--date", help="Override digest date (YYYY-MM-DD)")
     args = parser.parse_args()
 
     agent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -113,12 +114,20 @@ def main() -> int:
 
     child_env = os.environ.copy()
 
+    if args.date:
+        child_env["DIGEST_DATE_OVERRIDE"] = args.date
+
     port = _pick_port()
 
     try:
-        now_local = datetime.now(ZoneInfo(args.timezone))
+        tz = ZoneInfo(args.timezone)
     except Exception:
-        now_local = datetime.now(ZoneInfo("America/Chicago"))
+        tz = ZoneInfo("America/Chicago")
+    if args.date:
+        dt = datetime.fromisoformat(args.date)
+        now_local = dt.replace(hour=12, minute=0, second=0, microsecond=0, tzinfo=tz)
+    else:
+        now_local = datetime.now(tz)
     today_iso = now_local.date().isoformat()
     today_long = now_local.strftime("%B %-d, %Y")
 

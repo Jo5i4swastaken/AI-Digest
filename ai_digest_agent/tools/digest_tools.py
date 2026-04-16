@@ -5,7 +5,7 @@ import os
 import smtplib
 import ssl
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime, time, timezone
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
@@ -133,12 +133,29 @@ def _local_tz() -> ZoneInfo:
         return ZoneInfo("America/Chicago")
 
 
-def _date_key() -> str:
+def _override_date() -> Optional[str]:
+    raw = os.getenv("DIGEST_DATE_OVERRIDE")
+    if not raw or not raw.strip():
+        return None
+    raw = raw.strip()
+    try:
+        datetime.fromisoformat(raw)
+    except Exception:
+        return None
+    return raw
+
+
+def _now_local() -> datetime:
     tz = _local_tz()
-    # Use current wall-clock time in the configured timezone, not the
-    # agent's generated_at (which may be rounded or slightly off).
-    local = datetime.now(tz)
-    return local.date().isoformat()
+    override = _override_date()
+    if override:
+        dt = datetime.fromisoformat(override)
+        return datetime.combine(dt.date(), time(hour=12), tzinfo=tz).replace(microsecond=0)
+    return datetime.now(tz).replace(microsecond=0)
+
+
+def _date_key() -> str:
+    return _now_local().date().isoformat()
 
 
 @function_tool
@@ -159,7 +176,10 @@ def get_today(timezone_name: Optional[str] = None) -> str:
         tz = ZoneInfo(timezone_name) if timezone_name else _local_tz()
     except Exception:
         tz = _local_tz()
-    now = datetime.now(tz).replace(microsecond=0)
+    if timezone_name:
+        now = datetime.now(tz).replace(microsecond=0)
+    else:
+        now = _now_local()
     return json.dumps(
         {
             "date": now.date().isoformat(),
@@ -240,7 +260,7 @@ def web_search(
     # --- SerpAPI attempt ---
     params: Dict[str, Any] = {"q": query, "num": n, "safe": "active", "gl": "us", "hl": "en"}
     if time_period == "today":
-        today_md = datetime.now(_local_tz()).strftime("%m/%d/%Y")
+        today_md = _now_local().strftime("%m/%d/%Y")
         params["tbs"] = f"cdr:1,cd_min:{today_md},cd_max:{today_md}"
     elif time_period:
         time_map = {"past_day": "d", "past_week": "w", "past_month": "m", "past_year": "y"}
