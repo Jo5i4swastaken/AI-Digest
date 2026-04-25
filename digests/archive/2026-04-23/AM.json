@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-04-25T13:59:18-05:00",
+  "slot": "AM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "Meta breaks ground on a new AI-optimized data center in Tulsa, Oklahoma",
+      "url": "https://about.fb.com/news/2026/04/breaking-ground-new-ai-optimized-data-center-tulsa-oklahoma/",
+      "source": "Meta Newsroom",
+      "published_at": "2026-04-21T15:30:39-05:00",
+      "why_it_matters": "Signals continued capex for training/inference capacity—useful context for model cadence and availability.",
+      "brief": "Meta is adding more AI-optimized infrastructure capacity with a new Tulsa data center project.",
+      "details": "Meta announced it is breaking ground on a new AI-optimized data center in Tulsa, Oklahoma. The company frames the build as infrastructure to support growing AI workloads. While not a model release, it’s a concrete indicator of scaling plans for training and inference. Expect this to translate into more headroom for product features and model rollouts over time.",
+      "is_update": false,
+      "topic_key": "topic:meta-breaks-ground-on-a-new-ai-optimized-data-center-in-tulsa-oklahoma"
+    },
+    {
+      "category": "funding",
+      "title": "Amazon invests an additional $5B in Anthropic; outlines up to $20B more tied to milestones",
+      "url": "https://www.aboutamazon.com/news/company-news/amazon-invests-additional-5-billion-anthropic-ai",
+      "source": "About Amazon",
+      "published_at": "2026-04-20T15:29:23-05:00",
+      "why_it_matters": "Landmark capital + compute alignment that can materially affect Anthropic’s training scale and product velocity.",
+      "brief": "Amazon adds $5B more into Anthropic (and signals up to $20B additional), deepening the AWS tie-up.",
+      "details": "Amazon announced a new $5 billion investment in Anthropic, with the possibility of up to an additional $20 billion tied to commercial milestones. The post positions the partnership around long-term AWS infrastructure usage and joint go-to-market. For builders, this matters because it can influence where Anthropic’s training/inference capacity lives and how quickly new Claude capabilities ship. It’s one of the larger strategic AI investments disclosed this week.",
+      "is_update": false,
+      "topic_key": "topic:amazon-invests-an-additional-5b-in-anthropic-outlines-up-to-20b-more-tied-to-mil"
+    }
+  ]
+}

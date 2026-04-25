@@ -1,0 +1,67 @@
+{
+  "generated_at": "2026-04-25T14:02:33-05:00",
+  "slot": "AM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "Google Cloud Next 2026 wrap-up: Gemini Enterprise app updates + new build-with-AI features",
+      "url": "https://cloud.google.com/blog/topics/google-cloud-next/google-cloud-next-2026-wrap-up",
+      "source": "Google Cloud Blog",
+      "published_at": "2026-04-25T00:00:00+00:00",
+      "why_it_matters": "This is Google’s official roll-up of what just shipped at Cloud Next—useful for quickly mapping new Gemini capabilities to enterprise workflows.",
+      "brief": "Official Cloud Next recap highlights new Gemini Enterprise app features and broader AI product updates.",
+      "details": "Google published its official wrap-up of Cloud Next 2026, summarizing the AI announcements and what’s now available. The post calls out updates to the Gemini Enterprise app aimed at bringing Gemini into day-to-day employee workflows. It’s a single canonical source to confirm what launched vs. what was only demoed. Use it as a checklist for features to trial in your org this week.",
+      "is_update": false,
+      "topic_key": "topic:google-cloud-next-2026-wrap-up-gemini-enterprise-app-updates-new-build-with-ai-f"
+    },
+    {
+      "category": "product",
+      "title": "Google introduces Deep Research and Deep Research Max (Gemini 3.1 Pro) with MCP support",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/next-generation-gemini-deep-research/",
+      "source": "Google Blog",
+      "published_at": "2026-04-21T00:00:00+00:00",
+      "why_it_matters": "MCP support + long-horizon research agents signals Google is standardizing tool/connector interoperability for agentic research workflows.",
+      "brief": "Deep Research gets a ‘Max’ tier and adds MCP support plus richer outputs (e.g., native visualizations).",
+      "details": "Google announced Deep Research and a higher-end Deep Research Max experience built with Gemini 3.1 Pro. The post emphasizes agentic, long-horizon analysis and highlights MCP support for connecting tools and data sources. It also mentions richer output formats like native visualizations, pushing beyond plain-text reports. For teams building research agents, MCP support is the key integration detail to validate.",
+      "is_update": false,
+      "topic_key": "topic:google-introduces-deep-research-and-deep-research-max-gemini-3-1-pro-with-mcp-su"
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Microsoft: ‘Accelerating Frontier Transformation’ partner update (AI moving from pilots to production)",
+      "url": "https://blogs.microsoft.com/blog/2026/04/21/accelerating-frontier-transformation-with-microsoft-partners/",
+      "source": "Microsoft Blog",
+      "published_at": "2026-04-21T17:00:03+00:00",
+      "why_it_matters": "Signals Microsoft’s near-term focus: operationalizing AI via partners/marketplaces—useful context for where Copilot/Azure AI adoption tooling is heading.",
+      "brief": "Microsoft frames 2026 as the shift from AI pilots to production, emphasizing partner-led delivery and marketplaces.",
+      "details": "Microsoft published a partner-focused post describing how customers are consolidating procurement and pushing for faster time-to-value as AI deployments mature. While not a model launch, it’s a clear positioning statement about where Microsoft expects enterprise AI spend to go next. The emphasis on marketplaces and partners suggests more packaged, repeatable AI solutions rather than bespoke pilots. If you’re building on Azure AI, it’s a cue to align with partner distribution and production-readiness expectations.",
+      "is_update": false,
+      "topic_key": "topic:microsoft-accelerating-frontier-transformation-partner-update-ai-moving-from-pil"
+    },
+    {
+      "category": "hardware",
+      "title": "Meta breaks ground on an AI-optimized data center in Tulsa, Oklahoma",
+      "url": "https://about.fb.com/news/2026/04/breaking-ground-new-ai-optimized-data-center-tulsa-oklahoma/",
+      "source": "Meta Newsroom",
+      "published_at": "2026-04-21T20:30:39+00:00",
+      "why_it_matters": "More AI-optimized capacity is a leading indicator for future model training/inference scale (and competitive pressure on compute supply).",
+      "brief": "Meta announces a new AI-optimized data center build in Tulsa—its first in Oklahoma.",
+      "details": "Meta announced it is breaking ground on an AI-optimized data center in Tulsa, Oklahoma. The post positions the facility as part of Meta’s broader infrastructure buildout to support AI workloads. While it doesn’t disclose model specifics, it’s a concrete signal of continued capex toward training and serving large models. For practitioners, this matters because compute availability and cost shape what capabilities can be delivered at scale.",
+      "is_update": false,
+      "topic_key": "topic:meta-breaks-ground-on-an-ai-optimized-data-center-in-tulsa-oklahoma"
+    },
+    {
+      "category": "product",
+      "title": "AI Max now available in Microsoft Advertising",
+      "url": "https://ppcnewsfeed.com/ppc-news/2026-04/ai-max-now-available-microsoft-advertising-platform/",
+      "source": "PPC News Feed (reports Microsoft Advertising update)",
+      "published_at": "2026-04-25T09:43:29+00:00",
+      "why_it_matters": "If you run paid search, this is a practical, shippable AI feature that can change query matching, creative personalization, and landing-page routing.",
+      "brief": "Microsoft Advertising rolls out ‘AI Max’ for Search campaigns (query matching, asset personalization, URL routing).",
+      "details": "A report covering Microsoft Advertising’s rollout of AI Max describes improvements to query matching, creative/asset personalization, and URL routing for Search campaigns. This is the kind of applied AI feature that can have immediate performance impact without building custom tooling. Treat it like a new optimization layer: test with controlled experiments and monitor spend efficiency and conversion quality. Look for official Microsoft Advertising documentation before broad rollout in regulated accounts.",
+      "is_update": false,
+      "topic_key": "topic:ai-max-now-available-in-microsoft-advertising"
+    }
+  ]
+}

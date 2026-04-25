@@ -1,6 +1,306 @@
 {
-  "timezone": "America/Chicago",
+  "timezone": "America/Los_Angeles",
   "days": [
+    {
+      "date": "2026-04-24",
+      "slots": [
+        {
+          "slot": "AM",
+          "label": "Morning",
+          "path": "2026-04-24/AM.json",
+          "generated_at": "2026-04-25T14:02:33-05:00",
+          "top": [
+            "Google Cloud Next 2026 wrap-up: Gemini Enterprise app updates + new build-with-AI features",
+            "Google introduces Deep Research and Deep Research Max (Gemini 3.1 Pro) with MCP support",
+            "Microsoft: ‘Accelerating Frontier Transformation’ partner update (AI moving from pilots to production)",
+            "Meta breaks ground on an AI-optimized data center in Tulsa, Oklahoma",
+            "AI Max now available in Microsoft Advertising"
+          ],
+          "counts": {
+            "total": 5
+          }
+        },
+        {
+          "slot": "PM",
+          "label": "Afternoon",
+          "path": "2026-04-24/PM.json",
+          "generated_at": "2026-04-25T14:03:29-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        },
+        {
+          "slot": "Evening",
+          "label": "Evening",
+          "path": "2026-04-24/Evening.json",
+          "generated_at": "2026-04-25T14:05:10-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-04-23",
+      "slots": [
+        {
+          "slot": "AM",
+          "label": "Morning",
+          "path": "2026-04-23/AM.json",
+          "generated_at": "2026-04-25T13:59:18-05:00",
+          "top": [
+            "Meta breaks ground on a new AI-optimized data center in Tulsa, Oklahoma",
+            "Amazon invests an additional $5B in Anthropic; outlines up to $20B more tied to milestones"
+          ],
+          "counts": {
+            "total": 2
+          }
+        },
+        {
+          "slot": "PM",
+          "label": "Afternoon",
+          "path": "2026-04-23/PM.json",
+          "generated_at": "2026-04-25T13:59:58-05:00",
+          "top": [
+            "AI Max now available in Microsoft Advertising"
+          ],
+          "counts": {
+            "total": 1
+          }
+        },
+        {
+          "slot": "Evening",
+          "label": "Evening",
+          "path": "2026-04-23/Evening.json",
+          "generated_at": "2026-04-25T14:01:04-05:00",
+          "top": [
+            "OpenAI updates GPT-5.5: GPT-5.5 and GPT-5.5 Pro now available in the API",
+            "Anthropic postmortem: Claude Code quality regressions traced to multiple changes; prompt reverted"
+          ],
+          "counts": {
+            "total": 2
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-04-22",
+      "slots": [
+        {
+          "slot": "AM",
+          "label": "Morning",
+          "path": "2026-04-22/AM.json",
+          "generated_at": "2026-04-25T13:56:47-05:00",
+          "top": [
+            "Google DeepMind partners with major consultancies to accelerate enterprise AI transformation"
+          ],
+          "counts": {
+            "total": 1
+          }
+        },
+        {
+          "slot": "PM",
+          "label": "Afternoon",
+          "path": "2026-04-22/PM.json",
+          "generated_at": "2026-04-25T13:57:19-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        },
+        {
+          "slot": "Evening",
+          "label": "Evening",
+          "path": "2026-04-22/Evening.json",
+          "generated_at": "2026-04-25T13:58:29-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-04-21",
+      "slots": [
+        {
+          "slot": "AM",
+          "label": "Morning",
+          "path": "2026-04-21/AM.json",
+          "generated_at": "2026-04-25T13:53:43-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        },
+        {
+          "slot": "PM",
+          "label": "Afternoon",
+          "path": "2026-04-21/PM.json",
+          "generated_at": "2026-04-25T13:54:14-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        },
+        {
+          "slot": "Evening",
+          "label": "Evening",
+          "path": "2026-04-21/Evening.json",
+          "generated_at": "2026-04-25T13:55:41-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-04-20",
+      "slots": [
+        {
+          "slot": "AM",
+          "label": "Morning",
+          "path": "2026-04-20/AM.json",
+          "generated_at": "2026-04-25T13:49:44-05:00",
+          "top": [
+            "Anthropic postmortem: Claude Code quality issues traced to three changes; prompt reverted in April 20 release"
+          ],
+          "counts": {
+            "total": 1
+          }
+        },
+        {
+          "slot": "PM",
+          "label": "Afternoon",
+          "path": "2026-04-20/PM.json",
+          "generated_at": "2026-04-25T13:50:48-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        },
+        {
+          "slot": "Evening",
+          "label": "Evening",
+          "path": "2026-04-20/Evening.json",
+          "generated_at": "2026-04-25T13:52:12-05:00",
+          "top": [
+            "Anthropic addresses Claude Code quality regressions; Fortune summarizes the fallout"
+          ],
+          "counts": {
+            "total": 1
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-04-19",
+      "slots": [
+        {
+          "slot": "AM",
+          "label": "Morning",
+          "path": "2026-04-19/AM.json",
+          "generated_at": "2026-04-25T13:47:12-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        },
+        {
+          "slot": "PM",
+          "label": "Afternoon",
+          "path": "2026-04-19/PM.json",
+          "generated_at": "2026-04-25T13:48:33-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        },
+        {
+          "slot": "Evening",
+          "label": "Evening",
+          "path": "2026-04-19/Evening.json",
+          "generated_at": "2026-04-25T13:49:38-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-04-18",
+      "slots": [
+        {
+          "slot": "AM",
+          "label": "Morning",
+          "path": "2026-04-18/AM.json",
+          "generated_at": "2026-04-25T13:42:48-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        },
+        {
+          "slot": "PM",
+          "label": "Afternoon",
+          "path": "2026-04-18/PM.json",
+          "generated_at": "2026-04-25T13:43:51-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        },
+        {
+          "slot": "Evening",
+          "label": "Evening",
+          "path": "2026-04-18/Evening.json",
+          "generated_at": "2026-04-25T13:46:02-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-04-17",
+      "slots": [
+        {
+          "slot": "AM",
+          "label": "Morning",
+          "path": "2026-04-17/AM.json",
+          "generated_at": "2026-04-25T13:39:39-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        },
+        {
+          "slot": "PM",
+          "label": "Afternoon",
+          "path": "2026-04-17/PM.json",
+          "generated_at": "2026-04-25T13:40:00-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        },
+        {
+          "slot": "Evening",
+          "label": "Evening",
+          "path": "2026-04-17/Evening.json",
+          "generated_at": "2026-04-25T13:41:51-05:00",
+          "top": [],
+          "counts": {
+            "total": 0
+          }
+        }
+      ]
+    },
     {
       "date": "2026-04-16",
       "slots": [

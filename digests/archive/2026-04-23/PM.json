@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-04-25T13:59:58-05:00",
+  "slot": "PM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "AI Max now available in Microsoft Advertising",
+      "url": "https://ppcnewsfeed.com/ppc-news/2026-04/ai-max-now-available-microsoft-advertising-platform/",
+      "source": "PPC News Feed",
+      "published_at": "2026-04-25T09:43:29+00:00",
+      "why_it_matters": "Shows Microsoft pushing AI deeper into performance marketing: query matching, creative personalization, and landing-page routing.",
+      "brief": "Microsoft Advertising launches AI Max to improve Search campaigns via smarter matching, asset personalization, and URL routing.",
+      "details": "PPC News Feed reports that Microsoft Advertising has launched “AI Max” for Search campaigns. The feature set centers on improved query matching, automatic asset personalization, and dynamic URL routing to better landing pages. For practitioners, this is a concrete, near-term AI feature that can change campaign structure and testing strategy. Verify availability in your account before rolling out broadly.",
+      "is_update": false,
+      "topic_key": "microsoft-advertising-ai-max"
+    }
+  ]
+}

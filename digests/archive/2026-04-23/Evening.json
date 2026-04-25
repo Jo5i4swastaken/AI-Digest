@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-04-25T14:01:04-05:00",
+  "slot": "Evening",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "OpenAI updates GPT-5.5: GPT-5.5 and GPT-5.5 Pro now available in the API",
+      "url": "https://openai.com/index/introducing-gpt-5-5/",
+      "source": "OpenAI",
+      "published_at": "2026-04-24T00:00:00-05:00",
+      "why_it_matters": "API availability turns a headline model into something teams can actually ship with—plus it signals readiness for production workloads.",
+      "brief": "GPT-5.5 + GPT-5.5 Pro are now in the API (per Apr 24 update).",
+      "details": "OpenAI updated its GPT-5.5 announcement to say GPT-5.5 and GPT-5.5 Pro are now available via the API. The same update notes the system card was revised with additional safeguards. For builders, the key change is moving from announcement to deployable access. If you were waiting to benchmark or migrate workloads, this is the go-signal.",
+      "is_update": true,
+      "topic_key": "openai-gpt-5-5-api-availability"
+    },
+    {
+      "category": "agent_tooling",
+      "title": "Anthropic postmortem: Claude Code quality regressions traced to multiple changes; prompt reverted",
+      "url": "https://www.anthropic.com/engineering/april-23-postmortem",
+      "source": "Anthropic Engineering",
+      "published_at": "2026-04-23T00:00:00-05:00",
+      "why_it_matters": "If you rely on Claude Code in production workflows, this explains failure modes and signals what to monitor (prompt changes, reasoning defaults, and regressions).",
+      "brief": "Anthropic explains Claude Code quality issues and what they changed/reverted.",
+      "details": "Anthropic published a postmortem on recent Claude Code quality reports, attributing the regressions to three separate changes. The post says they reverted the prompt as part of the April 20 release and details what they learned from the incident. For teams, this is a reminder that agent performance can shift due to seemingly small prompt/config changes. It’s also a rare, concrete look at operational practices around agent quality and rollback.",
+      "is_update": false,
+      "topic_key": "anthropic-claude-code-quality-postmortem"
+    }
+  ]
+}

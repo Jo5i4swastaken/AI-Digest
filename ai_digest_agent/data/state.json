@@ -1,11 +1,21 @@
 {
   "seen": {
-    "https://finance.yahoo.com/markets/stocks/articles/nvidia-says-inflection-point-inference-070500373.html": "2026-03-27T00:00:00Z",
-    "https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/": "2026-03-27T00:00:00Z",
-    "https://github.com/anthropics/claude-code/releases": "2026-03-27T00:00:00Z",
-    "https://github.com/microsoft/agent-framework": "2026-03-27T00:00:00Z",
-    "https://help.openai.com/es-es/articles/6825453-chatgpt-release-notes": "2026-03-27T00:00:00Z",
-    "https://www.youtube.com/watch?v=tDGiWn0flK8": "2026-03-27T00:00:00Z"
+    "https://about.fb.com/news/2026/04/breaking-ground-new-ai-optimized-data-center-tulsa-oklahoma/": "2026-04-25T14:05:10-05:00",
+    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/next-generation-gemini-deep-research/": "2026-04-25T14:05:10-05:00",
+    "https://blogs.microsoft.com/blog/2026/04/21/accelerating-frontier-transformation-with-microsoft-partners/": "2026-04-25T14:02:33-05:00",
+    "https://blogs.nvidia.com/blog/openai-codex-gpt-5-5-ai-agents/": "2026-04-25T14:03:40-05:00",
+    "https://cloud.google.com/blog/topics/google-cloud-next/google-cloud-next-2026-wrap-up": "2026-04-25T14:02:33-05:00",
+    "https://openai.com/index/introducing-gpt-5-5/": "2026-04-25T14:05:10-05:00",
+    "https://ppcnewsfeed.com/ppc-news/2026-04/ai-max-now-available-microsoft-advertising-platform/": "2026-04-25T14:02:33-05:00",
+    "https://www.anthropic.com/engineering/april-23-postmortem": "2026-04-25T14:05:10-05:00",
+    "topic:anthropic-claude-code-quality-postmortem": "2026-04-25T14:05:10-05:00",
+    "topic:google-cloud-next-2026-wrap-up": "2026-04-25T14:02:33-05:00",
+    "topic:google-deep-research-max-mcp": "2026-04-25T14:05:10-05:00",
+    "topic:meta-ai-optimized-data-center-tulsa": "2026-04-25T14:05:10-05:00",
+    "topic:microsoft-advertising-ai-max": "2026-04-25T14:02:33-05:00",
+    "topic:microsoft-frontier-transformation-partners": "2026-04-25T14:02:33-05:00",
+    "topic:nvidia-openai-codex-gpt-5-5-infrastructure": "2026-04-25T14:03:40-05:00",
+    "topic:openai-gpt-5-5-api-availability": "2026-04-25T14:05:10-05:00"
   },
-  "updated_at": "2026-03-27T04:26:16+00:00"
+  "updated_at": "2026-04-25T19:06:03+00:00"
 }

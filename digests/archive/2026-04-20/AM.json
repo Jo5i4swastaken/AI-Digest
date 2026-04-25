@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-04-25T13:49:44-05:00",
+  "slot": "AM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "agent_tooling",
+      "title": "Anthropic postmortem: Claude Code quality issues traced to three changes; prompt reverted in April 20 release",
+      "url": "https://www.anthropic.com/engineering/april-23-postmortem",
+      "source": "Anthropic Engineering",
+      "published_at": "2026-04-23T00:00:00-05:00",
+      "why_it_matters": "Rare, concrete reliability write-up for a coding agent—useful lessons for evals, regressions, and rollout safety in agentic tooling.",
+      "brief": "Anthropic details what broke Claude Code quality and what they reverted/fixed.",
+      "details": "Anthropic published a postmortem on reports of degraded Claude Code quality. They attribute issues to three separate changes and note they reverted a prompt as part of an April 20 release. The write-up is valuable because it describes operational failure modes (quality regressions) rather than model capability claims. If you run coding agents in production, it’s a good checklist for monitoring and rollback discipline.",
+      "is_update": false,
+      "topic_key": "topic:anthropic-postmortem-claude-code-quality-issues-traced-to-three-changes-prompt-r"
+    }
+  ]
+}
