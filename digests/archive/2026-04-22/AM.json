@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-04-25T13:56:47-05:00",
+  "slot": "AM",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "product",
+      "title": "Google DeepMind partners with major consultancies to accelerate enterprise AI transformation",
+      "url": "https://deepmind.google/blog/partnering-with-industry-leaders-to-accelerate-ai-transformation/",
+      "source": "Google DeepMind",
+      "published_at": "2026-04-22T08:00:00-05:00",
+      "why_it_matters": "Signals the next wave is operationalization—packaging frontier models with services, change management, and delivery muscle.",
+      "brief": "DeepMind announced partnerships with Accenture, Bain, BCG, Deloitte, and McKinsey to help organizations deploy frontier AI.",
+      "details": "Google DeepMind announced it is partnering with several global consultancies to help organizations adopt frontier AI. The pitch is less about a new model and more about scaling deployment: integrating AI into workflows, governance, and transformation programs. This matters because many enterprises are bottlenecked on implementation rather than model access. Expect more “model + services” bundles and reference architectures coming out of these partnerships.",
+      "is_update": false,
+      "topic_key": "topic:google-deepmind-partners-with-major-consultancies-to-accelerate-enterprise-ai-tr"
+    }
+  ]
+}

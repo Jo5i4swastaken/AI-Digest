@@ -925,7 +925,7 @@ def _render_dashboard_html(index: List[Dict[str, Any]], *, tz_name: str) -> str:
 
 def _filter_to_current_week(digest_obj: Dict[str, Any]) -> tuple:
     tz = _local_tz()
-    today_local = datetime.now(tz).date()
+    today_local = _now_local().date()
     week_key = today_local.isocalendar()[:2]
     items = digest_obj.get("items")
     if not isinstance(items, list):

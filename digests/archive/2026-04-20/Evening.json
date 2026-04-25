@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-04-25T13:52:12-05:00",
+  "slot": "Evening",
+  "timezone": "America/Chicago",
+  "items": [
+    {
+      "category": "agent_tooling",
+      "title": "Anthropic addresses Claude Code quality regressions; Fortune summarizes the fallout",
+      "url": "https://fortune.com/2026/04/24/anthropic-engineering-missteps-claude-code-performance-decline-user-backlash/",
+      "source": "Fortune (re: Anthropic engineering postmortem)",
+      "published_at": "2026-04-24T12:21:12-05:00",
+      "why_it_matters": "Claude Code is a flagship coding agent; reliability regressions (and how they’re handled) directly affect trust and adoption in production dev workflows.",
+      "brief": "Anthropic admits Claude Code got worse; outlines causes/fixes (via postmortem, covered by Fortune).",
+      "details": "Fortune reports on Anthropic’s explanation for a period of degraded Claude Code performance after sustained user complaints. The underlying Anthropic engineering postmortem attributes issues to multiple changes and describes mitigations and reversions. The key takeaway is operational: coding agents need product-level quality gates and regression detection, not just model improvements. If you deploy agent tooling internally, this is a reminder to add evals/monitoring around “agent behavior,” not only model outputs.",
+      "is_update": false,
+      "topic_key": "topic:anthropic-addresses-claude-code-quality-regressions-fortune-summarizes-the-fallo"
+    }
+  ]
+}
